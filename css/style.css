@@ -1,0 +1,92 @@
+/* GLOBAL */
+
+/* NAV NAV NAV NAV NAV */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.404);
+}
+
+.navbar-brand {
+    color: rgba(0, 0, 0, 0.321);
+    margin-left: 5%;
+    max-width: 25%;
+    font-size: 2rem;
+    letter-spacing: 2rem;
+    transition: all .6s ease-out;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #bd6b4d6b;
+    margin-left: 5%;
+    max-width: 25%;
+    font-size: 2.3rem;
+    letter-spacing: 1rem;
+    transition: all .6s ease-in;
+}
+
+.navbar-brand img {
+    margin-right: 3%;
+    border-radius: 50px;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.nav-item {
+    padding: 0 30px;
+}
+
+.nav-link {
+    color: rgba(0, 0, 0, 0.581);
+    font-weight: 400;
+    letter-spacing: .025rem;
+    transition: all .4s ease-in;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #bd6b4daf;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: .075rem;
+    transition: all .4s ease-in;
+}
+
+
+/* PERSO PERSO PERSO PERSO PERSO */
+.perso {
+    background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
+}
+
+.photo-perso img {
+    margin-top: 5%;
+    margin-left: 15%;
+}
+
+.bonjour {
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.276);
+    margin-top: 15%;
+    margin-bottom: 17.5%;
+    margin-left: 45%;
+}
+
+.monnom {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: rgba(245, 245, 245, 0.201);
+    margin-top: 17.5%;
+    margin-bottom: 17.5%;
+    margin-left: 15%;
+}
+
+.montaff {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #bd6b4d5b;
+    margin-top: 17.5%;
+    margin-bottom: 15%;
+    margin-left: 25%;
+}
