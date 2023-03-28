@@ -1,16 +1,39 @@
 /* GLOBAL */
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+.global{
+
+}
+
+h2{
+    font-size: 3.5rem;
+    text-align: center;
+    letter-spacing: 10px;
+    margin-bottom: 7.5%;
+}
+
+/* HEADER HEADER HEADER HEADER HEADER */
+header {
+    height: 100vh;
+    align-items: center;
+    overflow: hidden;
+  }
 
 /* NAV NAV NAV NAV NAV */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.404);
+    position: absolute;
+    z-index: 5;
 }
 
 .navbar-brand {
-    color: rgba(0, 0, 0, 0.321);
-    margin-left: 5%;
-    max-width: 25%;
+    color: rgb(255, 255, 255);
+    margin-left: 2.5%;
+    max-width: 20%;
     font-size: 2rem;
-    letter-spacing: 2rem;
+    letter-spacing: 1.5rem;
     transition: all .6s ease-out;
 }
 
@@ -30,18 +53,27 @@
 }
 
 .navbar-collapse {
-    flex-grow: 0;
+    max-width: 60%;
+    width: 100%;
+}
+
+.navbar-nav {
+    width: 100%;
+    justify-content: end;
 }
 
 .nav-item {
-    padding: 0 30px;
+    margin: 0 2.5%;
+    text-align: right;
 }
 
 .nav-link {
-    color: rgba(0, 0, 0, 0.581);
+    color: rgb(255, 255, 255);
     font-weight: 400;
     letter-spacing: .025rem;
     transition: all .4s ease-in;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .nav-link:focus,
@@ -57,6 +89,12 @@
 /* PERSO PERSO PERSO PERSO PERSO */
 .perso {
     background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
+    height: 100%;
+    padding-top: 5%;
+}
+
+.col-50 {
+    width: 50%;
 }
 
 .photo-perso img {
@@ -89,4 +127,76 @@
     margin-top: 17.5%;
     margin-bottom: 15%;
     margin-left: 25%;
+}
+
+/* MAIN MAIN MAIN MAIN MAIN */
+.skills {
+    padding-top: 7.5%;
+    padding-bottom: 7.5%;
+    background: #1E6F8F;
+}
+
+.skills .titre {
+    text-align: center;
+}
+
+.row-wid {
+    /* width: 100%; */
+    /* left: 50%; */
+}
+
+.card-skill {
+    width: 22%;
+    background: #59b6db;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 0 1.5%;
+}
+
+.card-skill h3 {
+    text-align: center;
+}
+
+.cadre-icone {
+    background-color: green;
+    color: blue;
+    /* background: blue; */
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    /* top: 50%; */
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.skills .card-skill i {
+    font-size: 3rem;
+    /* margin: 10px; */
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* =====================================================================
+========================================================================
+========================================================================
+======================================================================== */
+
+/* MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES */
+@media (min-width: 0) and (max-width: 767.98px){
+    
+}
+
+@media (min-width: 768px) and (max-width: 991.98px){
+
+}
+
+@media (min-width: 992px){
+
 }
