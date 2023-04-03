@@ -13,6 +13,7 @@ h2{
     text-align: center;
     letter-spacing: 10px;
     margin-bottom: 7.5%;
+    color: #BFBFBF;
 }
 
 /* HEADER HEADER HEADER HEADER HEADER */
@@ -89,7 +90,8 @@ header {
 /* PERSO PERSO PERSO PERSO PERSO */
 .perso {
     background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
-    height: 100%;
+    background-attachment: fixed;
+    /* height: 100%; */
     padding-top: 5%;
 }
 
@@ -130,36 +132,43 @@ header {
 }
 
 /* MAIN MAIN MAIN MAIN MAIN */
-.skills {
-    padding-top: 7.5%;
-    padding-bottom: 7.5%;
-    background: #1E6F8F;
-}
 
-.skills .titre {
-    text-align: center;
+/* SKILLS SKILLS SKILLS SKILLS SKILLS */
+.skills {
+    /* padding-top: 6%; */
+    /* padding-bottom: 5%; */
+    /* background: #1E6F8F; */
+    background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
+    /* height: 100%; */
+    background-attachment: fixed;
+    /* background-position: left; */
+    /* background-repeat: repeat; */
+    background-size: cover;
 }
 
 .row-wid {
-    /* width: 100%; */
-    /* left: 50%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
 }
 
 .card-skill {
-    width: 22%;
-    background: #59b6db;
+    width: 25%;
+    background: #bd6b4d86;
     border-radius: 15px;
     padding: 10px;
-    margin: 0 1.5%;
+    margin: 2% 1.5%;
 }
 
 .card-skill h3 {
     text-align: center;
+    color: #0E3240;
 }
 
 .cadre-icone {
-    background-color: green;
-    color: blue;
+    background-color: #BFBFBF;
+    color: #1C6380;
     /* background: blue; */
     margin-top: 2.5%;
     margin-bottom: 2.5%;
@@ -181,6 +190,70 @@ header {
     transform: translate(-50%, -50%);
 }
 
+/* PORTFOLIO PORTFOLIO PORTFOLIO PORTFOLIO PORTFOLIO */
+.portfolio {
+    /* padding-top: 6%; */
+    /* padding-bottom: 5%; */
+    background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
+    /* height: 100%; */
+    background-attachment: fixed;
+}
+
+.card-portfolio {
+    width: 25%;
+    background: #0E3240;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 2% 1.5%;
+}
+
+.card-portfolio h3,
+.card-portfolio p {
+    text-align: center;
+    color: #BFBFBF;
+    padding: 3% 5%;
+}
+
+.portfolio .card-portfolio i {
+    font-size: 3rem;
+    /* margin: 10px; */
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* MEDIAS MEDIAS MEDIAS MEDIAS MEDIAS */
+.medias {
+    /* padding-top: 6%; */
+    /* padding-bottom: 5%; */
+    background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
+    /* height: 100%; */
+    background-attachment: fixed;
+}
+
+.card-medias {
+    width: 25%;
+    background: #0E3240;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 2% 1.5%;
+}
+
+.card-medias h3,
+.card-medias p {
+    text-align: center;
+    color: #BFBFBF;
+}
+
+.medias .card-medias i {
+    font-size: 3rem;
+    /* margin: 10px; */
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
 /* =====================================================================
@@ -190,11 +263,15 @@ header {
 
 /* MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES */
 @media (min-width: 0) and (max-width: 767.98px){
-    
+    .card-skill{
+        width: 80%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px){
-
+    .card-skill{
+        width: 40%;
+    }
 }
 
 @media (min-width: 992px){
