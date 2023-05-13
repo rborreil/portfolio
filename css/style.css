@@ -4,34 +4,59 @@
     padding: 0;
 } */
 
-.global{
-
+html {
+    overflow-x: hidden;
 }
 
 h2{
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-align: center;
-    letter-spacing: 10px;
-    margin-bottom: 7.5%;
+    letter-spacing: 25px;
+    margin-top: 3.5%;
+    margin-bottom: 3.5%;
     color: #BFBFBF;
+}
+
+.row-wid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* margin-bottom: 5%; */
+}
+
+.cadre-icone {
+    background-color: #BFBFBF;
+    color: #1C6380;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* HEADER HEADER HEADER HEADER HEADER */
 header {
-    height: 100vh;
     align-items: center;
     overflow: hidden;
   }
 
 /* NAV NAV NAV NAV NAV */
 .navbar {
-    position: absolute;
+    position: fixed;
     z-index: 5;
+    width: 100%;
 }
 
 .navbar-brand {
     color: rgb(255, 255, 255);
     margin-left: 2.5%;
+    margin-top: 1%;
     max-width: 20%;
     font-size: 2rem;
     letter-spacing: 1.5rem;
@@ -41,16 +66,19 @@ header {
 .navbar-brand:hover,
 .navbar-brand:focus {
     color: #bd6b4d6b;
-    margin-left: 5%;
-    max-width: 25%;
-    font-size: 2.3rem;
+    /* margin-left: 5%; */
+    /* max-width: 25%; */
+    font-size: 2.5rem;
     letter-spacing: 1rem;
-    transition: all .6s ease-in;
 }
 
 .navbar-brand img {
     margin-right: 3%;
     border-radius: 50px;
+}
+
+.navbar-brand span {
+    font-size: 90%;
 }
 
 .navbar-collapse {
@@ -61,6 +89,7 @@ header {
 .navbar-nav {
     width: 100%;
     justify-content: end;
+    font-size: 90%;
 }
 
 .nav-item {
@@ -86,22 +115,84 @@ header {
     transition: all .4s ease-in;
 }
 
+/* BURGER BURGER BURGER BURGER BURGER */
+.navbar-toggler {
+    width: 10%;
+    height: 50px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    width: 50%;
+    height: 4px;
+    background-color: whitesmoke;
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* .navbar-toggler .navbar-toggler-icon:hover {
+    background-color: #bd6b4daf;
+} */
+
+.navbar-toggler .navbar-toggler-icon::before, .navbar-toggler .navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 75%;
+    height: 4px;
+    background-color: whitesmoke;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* .navbar-toggler .navbar-toggler-icon::before:hover, .navbar-toggler .navbar-toggler-icon::after:hover {
+    background-color: #bd6b4daf;
+} */
+
+.navbar-toggler .navbar-toggler-icon::before {
+    transform: translateY(-10px);
+}
+
+.navbar-toggler .navbar-toggler-icon::after {
+    transform: translateY(10px);
+}
+
+.navbar-toggler.active .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler.active .navbar-toggler-icon::before {
+    transform: translateY(0px) rotateZ(45deg);
+}
+
+.navbar-toggler.active .navbar-toggler-icon::after {
+    transform: translateY(0px) rotateZ(-45deg);
+}
+
 
 /* PERSO PERSO PERSO PERSO PERSO */
 .perso {
     background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
     background-attachment: fixed;
-    /* height: 100%; */
-    padding-top: 5%;
+    background-size: cover;
+    padding: 5% 5%;
 }
 
 .col-50 {
     width: 50%;
 }
 
-.photo-perso img {
-    margin-top: 5%;
-    margin-left: 15%;
+.photo-perso {
+    position: absolute;
+    top: 20%;
+    left: 55%;
 }
 
 .bonjour {
@@ -110,7 +201,7 @@ header {
     color: rgba(255, 255, 255, 0.276);
     margin-top: 15%;
     margin-bottom: 17.5%;
-    margin-left: 45%;
+    margin-left: 20%;
 }
 
 .monnom {
@@ -119,7 +210,7 @@ header {
     color: rgba(245, 245, 245, 0.201);
     margin-top: 17.5%;
     margin-bottom: 17.5%;
-    margin-left: 15%;
+    margin-left: 10%;
 }
 
 .montaff {
@@ -128,37 +219,31 @@ header {
     color: #bd6b4d5b;
     margin-top: 17.5%;
     margin-bottom: 15%;
-    margin-left: 25%;
+    margin-left: 15%;
 }
 
 /* MAIN MAIN MAIN MAIN MAIN */
 
 /* SKILLS SKILLS SKILLS SKILLS SKILLS */
 .skills {
-    /* padding-top: 6%; */
-    /* padding-bottom: 5%; */
-    /* background: #1E6F8F; */
     background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
-    /* height: 100%; */
     background-attachment: fixed;
-    /* background-position: left; */
-    /* background-repeat: repeat; */
-    background-size: cover;
-}
-
-.row-wid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin-bottom: 5%;
+    /* padding-top: 5%; */
 }
 
 .card-skill {
+    max-height: fit-content;
     width: 25%;
     background: #bd6b4d86;
     border-radius: 15px;
     padding: 10px;
     margin: 2% 1.5%;
+    transition: all 1s ease-in-out;
+}
+
+.card-skill:focus,
+.card-skill:hover {
+    border: 1px solid #BFBFBF;
 }
 
 .card-skill h3 {
@@ -166,19 +251,16 @@ header {
     color: #0E3240;
 }
 
-.cadre-icone {
-    background-color: #BFBFBF;
-    color: #1C6380;
-    /* background: blue; */
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    position: relative;
-    /* top: 50%; */
-    left: 50%;
-    transform: translate(-50%);
+.card-skill p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-skill h3,
+.card-skill p {
+    line-height: 2rem;
+    padding: 3% 12.5%;
 }
 
 .skills .card-skill i {
@@ -205,13 +287,33 @@ header {
     border-radius: 15px;
     padding: 10px;
     margin: 2% 1.5%;
+    transition: all 1s ease-in-out;
+}
+
+.card-portfolio:focus,
+.card-portfolio:hover {
+    border: 1px solid #BFBFBF;
+}
+
+.card-portfolio a {
+    text-decoration: none;
+}
+
+.card-portfolio h3 {
+    text-align: center;
+}
+
+.card-portfolio p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-portfolio h3,
 .card-portfolio p {
-    text-align: center;
+    line-height: 2rem;
     color: #BFBFBF;
-    padding: 3% 5%;
+    padding: 3% 12.5%;
 }
 
 .portfolio .card-portfolio i {
@@ -225,10 +327,7 @@ header {
 
 /* MEDIAS MEDIAS MEDIAS MEDIAS MEDIAS */
 .medias {
-    /* padding-top: 6%; */
-    /* padding-bottom: 5%; */
     background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
-    /* height: 100%; */
     background-attachment: fixed;
 }
 
@@ -238,12 +337,18 @@ header {
     border-radius: 15px;
     padding: 10px;
     margin: 2% 1.5%;
+    display: grid;
+}
+
+.card-medias h3 {
+    text-align: center;
 }
 
 .card-medias h3,
 .card-medias p {
-    text-align: center;
+    line-height: 2rem;
     color: #BFBFBF;
+    padding: 3% 12.5%;
 }
 
 .medias .card-medias i {
@@ -255,6 +360,15 @@ header {
     transform: translate(-50%, -50%);
 }
 
+/* COPYRIGHT COPYRIGHT COPYRIGHT COPYRIGHT COPYRIGHT */
+.copyright {
+    color: #BFBFBF;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
+    background-attachment: fixed;
+}
+
 
 /* =====================================================================
 ========================================================================
@@ -263,13 +377,29 @@ header {
 
 /* MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES */
 @media (min-width: 0) and (max-width: 767.98px){
-    .card-skill{
+    .card-skill {
+        width: 80%;
+    }
+
+    .card-portfolio {
+        width: 80%;
+    }
+
+    .card-medias {
         width: 80%;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px){
-    .card-skill{
+    .card-skill {
+        width: 40%;
+    }
+
+    .card-portfolio {
+        width: 40%;
+    }
+
+    .card-medias {
         width: 40%;
     }
 }

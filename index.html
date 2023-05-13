@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio de Développement Web de Robin Borreil">
-  <meta name="keywords" content="Robin, Borreil, Dev, Développement, Web, Developer, Développeur">
+  <meta name="keywords" content="Robin Borreil, Borreil, Dev, Développement Web, Web Developer, Développeur Web">
   <meta name="author" content="Robin Borreil">
   <meta http-equiv="refresh" content="">
-  <title>La Casamoa - Portfolio RoBDeV</title>
+  <title>Portfolio de RoBDeV</title>
   <!-- FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@200;300;400;500;600;700;800&family=Oswald:wght@200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"> -->
   <!-- CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -30,25 +30,31 @@
   <header>
     <!-- Barre principale de Navigation -->
     <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
+      <div class="container-fluid px-4">
         <a class="navbar-brand" href="./index.html">
-          <img src="./images/Rob_no-bg.png" alt="" width="30%" class="d-inline-block align-text-middle">
-          RoBDeV
+          <img src="./images/photo-robin-salon.jpg" alt="" width="40%" class="d-inline-block align-text-middle">
+          <span>RoBDeV</span>
         </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="./index.html">La Petite Maison</a>
+              <a class="nav-link" aria-current="page" href="./index.html">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./petite-histoire.html">La Petite Histoire</a>
+              <a class="nav-link" href="./petite-histoire.html">Présentations</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./petits-projets.html">Les Petits Projets</a>
+              <a class="nav-link" href="./petits-projets.html">Portfolio</a>
             </li>
-            <!-- Formulaire de contact ? -->
           </ul>
         </div>
+        <!-- <div class="burger">
+          <span></span>
+        </div> -->
       </div>
     </nav>
     <!-- Prez perso -->
@@ -70,7 +76,7 @@
     <!-- Compétences -->
     <div class="row skills">
       <div>
-        <h2>Bagage Technique</h2>
+        <h2>BAGAGE TECHNIQUE</h2>
       </div>
       <div class="row-wid">
         <div class="card-skill">
@@ -79,7 +85,8 @@
           </div>
           <div class="row row-icone">
             <div class="cadre-icone">
-              <i class="fa fa-html5" aria-hidden="true"></i>
+              <img src="./images/logo-html-removebg-preview.png" class="logo-html" alt="logo html" width="140%">
+              <!-- <i class="fa fa-html5" aria-hidden="true"></i> -->
             </div>
           </div>
           <div class="row">
@@ -94,7 +101,24 @@
           </div>
           <div class="row row-icone">
             <div class="cadre-icone">
-              <i class="fa fa-globe" aria-hidden="true"></i>
+              <img src="./images/logo-css-removebg-preview.png" class="logo-css" alt="logo css" width="90%">
+              <!-- <i class="fa fa-globe" aria-hidden="true"></i> -->
+            </div>
+          </div>
+          <div class="row">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed illo tempore quod cupiditate consequuntur
+              dolore eos explicabo, at obcaecati quia ducimus laboriosam perferendis aliquam. Animi ea reprehenderit
+              corrupti rem! Quisquam?</p>
+          </div>
+        </div>
+        <div class="card-skill">
+          <div class="row">
+            <h3>Bootstrap</h3>
+          </div>
+          <div class="row row-icone">
+            <div class="cadre-icone">
+              <img src="./images/logo-bootstrap-removebg-preview.png" class="logo-bootstrap" alt="logo bootstrap" width="100%">
+              <!-- <i class="fa fa-globe" aria-hidden="true"></i> -->
             </div>
           </div>
           <div class="row">
@@ -109,7 +133,8 @@
           </div>
           <div class="row row-icone">
             <div class="cadre-icone">
-              <i class="fa fa-globe" aria-hidden="true"></i>
+              <img src="./images/logo-js-removebg-preview.png" class="logo-js" alt="logo JavaScript" width="100%">
+              <!-- <i class="fa fa-html5" aria-hidden="true"></i> -->
             </div>
           </div>
           <div class="row">
@@ -120,41 +145,12 @@
         </div>
         <div class="card-skill">
           <div class="row">
-            <h3>HTML</h3>
+            <h3>React</h3>
           </div>
           <div class="row row-icone">
             <div class="cadre-icone">
-              <i class="fa fa-html5" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="row">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed illo tempore quod cupiditate consequuntur
-              dolore eos explicabo, at obcaecati quia ducimus laboriosam perferendis aliquam. Animi ea reprehenderit
-              corrupti rem! Quisquam?</p>
-          </div>
-        </div>
-        <div class="card-skill">
-          <div class="row">
-            <h3>CSS</h3>
-          </div>
-          <div class="row row-icone">
-            <div class="cadre-icone">
-              <i class="fa fa-globe" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="row">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed illo tempore quod cupiditate consequuntur
-              dolore eos explicabo, at obcaecati quia ducimus laboriosam perferendis aliquam. Animi ea reprehenderit
-              corrupti rem! Quisquam?</p>
-          </div>
-        </div>
-        <div class="card-skill">
-          <div class="row">
-            <h3>JavaScript</h3>
-          </div>
-          <div class="row row-icone">
-            <div class="cadre-icone">
-              <i class="fa fa-globe" aria-hidden="true"></i>
+              <img src="./images/logo-react-removebg-preview.png" class="logo-react" alt="logo react" width="100%">
+              <!-- <i class="fa fa-globe" aria-hidden="true"></i> -->
             </div>
           </div>
           <div class="row">
@@ -169,23 +165,25 @@
     <!-- Réalisations -->
     <div class="row portfolio">
       <div>
-        <h2>Réalisations</h2>
+        <h2>RÉALISATIONS</h2>
       </div>
       <div class="row-wid">
         <div class="card-portfolio">
-          <div class="row">
-            <h3>JB Ostéo</h3>
-          </div>
-          <div class="row row-icone">
-            <div class="cadre-icone">
-              <i class="fa fa-html5" aria-hidden="true"></i>
+          <a href="https://rborreil.github.io/v2-jb-osteo/" target="_blank">
+            <div class="row">
+              <h3>JB Ostéo</h3>
             </div>
-          </div>
-          <div class="row">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed illo tempore quod cupiditate consequuntur
-              dolore eos explicabo, at obcaecati quia ducimus laboriosam perferendis aliquam. Animi ea reprehenderit
-              corrupti rem! Quisquam?</p>
-          </div>
+            <div class="row row-icone">
+              <div class="cadre-icone">
+                <i class="fa fa-html5" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="row">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed illo tempore quod cupiditate consequuntur
+                dolore eos explicabo, at obcaecati quia ducimus laboriosam perferendis aliquam. Animi ea reprehenderit
+                corrupti rem! Quisquam?</p>
+            </div>
+          </a>
         </div>
         <div class="card-portfolio">
           <div class="row">
@@ -253,7 +251,7 @@
     <!-- Médias -->
     <div class="row medias">
       <div>
-        <h2>Réseaux sociaux</h2>
+        <h2>RÉSEAUX SOCIAUX</h2>
       </div>
       <div class="row-wid">
         <div class="card-medias">
@@ -301,8 +299,8 @@
               corrupti rem! Quisquam?</p>
           </div>
         </div>
-        </div>
       </div>
+    </div>
     </div>
     <!-- Fin Médias -->
     <!-- Contact / FAQ -->
@@ -313,7 +311,9 @@
   <!-- FOOTER -->
   <footer>
     <!-- Copyright -->
-    
+    <div class="row copyright">
+      <p class="my-4 text-center">©2023 RoBDeV. All rights reserved.</p>
+    </div>
     <!-- Fin Copyright -->
   </footer>
   <!-- FIN FOOTER -->
@@ -324,8 +324,8 @@
   <!-- FONTAWESOME -->
   <script src="https://kit.fontawesome.com/747b4ee134.js" crossorigin="anonymous"></script>
   <!-- JS -->
-  <!-- <script> document.addEventListener("DOMContentLoaded", function(){ document.addEventListener("mouseover", function(){ document.querySelectorAll('.nav-link').style.color = "red"; }); document.addEventListener("mouseout", function(){ document.getElementsByClassName("nav-link").style.color = "black"; }); }); -->
-  </script>
+  <script src="./js/script.js"></script>
+
 </body>
 
 </html>
