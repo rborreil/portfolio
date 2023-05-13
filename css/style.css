@@ -4,8 +4,12 @@
     padding: 0;
 } */
 
-html {
+/* html {
     overflow-x: hidden;
+} */
+
+.global {
+    width: 100%;
 }
 
 h2{
@@ -42,8 +46,10 @@ h2{
 
 /* HEADER HEADER HEADER HEADER HEADER */
 header {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
   }
 
 /* NAV NAV NAV NAV NAV */
@@ -182,44 +188,42 @@ header {
     background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
     background-attachment: fixed;
     background-size: cover;
-    padding: 5% 5%;
+    padding-top: 5%;
+    width: 65%;
 }
 
-.col-50 {
-    width: 50%;
+.perso .prez {
+    width: 100%;
 }
 
-.photo-perso {
+.photo-perso img {
     position: absolute;
-    top: 20%;
-    left: 55%;
+    top: 15%;
+    left: 60%;
 }
 
 .bonjour {
     font-size: 2rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.276);
-    margin-top: 15%;
-    margin-bottom: 17.5%;
-    margin-left: 20%;
+    margin-top: 10%;
+    margin-left: 15%;
 }
 
 .monnom {
     font-size: 2.5rem;
     font-weight: 500;
     color: rgba(245, 245, 245, 0.201);
-    margin-top: 17.5%;
-    margin-bottom: 17.5%;
-    margin-left: 10%;
+    margin-top: 8%;
 }
 
 .montaff {
     font-size: 2rem;
     font-weight: 400;
     color: #bd6b4d5b;
-    margin-top: 17.5%;
-    margin-bottom: 15%;
-    margin-left: 15%;
+    margin-top: 12.5%;
+    margin-bottom: 11%;
+    margin-left: 10%;
 }
 
 /* MAIN MAIN MAIN MAIN MAIN */
