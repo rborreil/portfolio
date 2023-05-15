@@ -1,12 +1,14 @@
 /* GLOBAL */
-/* *{
+*{
     margin: 0;
     padding: 0;
-} */
+    border: 0;
+    box-sizing: border-box;
+}
 
-/* html {
+html {
     overflow-x: hidden;
-} */
+}
 
 .global {
     width: 100%;
@@ -18,7 +20,7 @@ h2{
     letter-spacing: 25px;
     margin-top: 3.5%;
     margin-bottom: 3.5%;
-    color: #BFBFBF;
+    color: whitesmoke;
 }
 
 .row-wid {
@@ -29,11 +31,12 @@ h2{
 }
 
 .cadre-icone {
-    background-color: #BFBFBF;
-    color: #1C6380;
+    background-color: #195c76;
+    /* color: #1C6380; */
     margin-top: 2.5%;
     margin-bottom: 2.5%;
     border-radius: 50%;
+    border: 1px solid #ffc676c4;
     width: 70px;
     height: 70px;
     position: relative;
@@ -56,7 +59,7 @@ header {
 .navbar {
     position: fixed;
     z-index: 5;
-    width: 100%;
+    max-width: 100%;
 }
 
 .navbar-brand {
@@ -66,12 +69,11 @@ header {
     max-width: 20%;
     font-size: 2rem;
     letter-spacing: 1.5rem;
-    transition: all .6s ease-out;
+    transition: all 1s ease-out;
 }
 
-.navbar-brand:hover,
-.navbar-brand:focus {
-    color: #bd6b4d6b;
+.navbar-brand:hover {
+    color: #ffc676c4;
     /* margin-left: 5%; */
     /* max-width: 25%; */
     font-size: 2.5rem;
@@ -80,7 +82,14 @@ header {
 
 .navbar-brand img {
     margin-right: 3%;
-    border-radius: 50px;
+    border-radius: 50%;
+    transition: all 1s ease-in;
+}
+
+.navbar-brand:hover img {
+    width: 50%;
+    border-radius: 50%;
+    transition: all 1s ease-in;
 }
 
 .navbar-brand span {
@@ -94,31 +103,36 @@ header {
 
 .navbar-nav {
     width: 100%;
-    justify-content: end;
-    font-size: 90%;
+    justify-content: center;
+    /* margin-left: 25%; */
+    font-size: 1.2rem;
 }
 
 .nav-item {
-    margin: 0 2.5%;
-    text-align: right;
+    margin: 0 7.5%;
+    /* text-align: right; */
 }
 
 .nav-link {
     color: rgb(255, 255, 255);
-    font-weight: 400;
-    letter-spacing: .025rem;
-    transition: all .4s ease-in;
-    padding-left: 0;
-    padding-right: 0;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    transition: all .7s ease-in;
+    /* padding-left: 0; */
+    /* padding-right: 0; */
 }
 
 .nav-link:focus,
 .nav-link:hover {
-    color: #bd6b4daf;
-    font-size: 1.1rem;
+    color: #ffc676c4;
+    font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: .075rem;
     transition: all .4s ease-in;
+}
+
+.nav-link a {
+    max-width: 100%;
 }
 
 /* BURGER BURGER BURGER BURGER BURGER */
@@ -190,6 +204,7 @@ header {
     background-size: cover;
     padding-top: 5%;
     width: 65%;
+    border-radius: 0 0 50px 50px;
 }
 
 .perso .prez {
@@ -205,7 +220,8 @@ header {
 .bonjour {
     font-size: 2rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.276);
+    /* color: rgba(255, 255, 255, 0.276); */
+    color: #0e3840;
     margin-top: 10%;
     margin-left: 15%;
 }
@@ -213,15 +229,16 @@ header {
 .monnom {
     font-size: 2.5rem;
     font-weight: 500;
-    color: rgba(245, 245, 245, 0.201);
-    margin-top: 8%;
+    /* color: rgba(245, 245, 245, 0.201); */
+    color: #0e3240e6;
+    margin-top: 10%;
 }
 
 .montaff {
     font-size: 2rem;
     font-weight: 400;
-    color: #bd6b4d5b;
-    margin-top: 12.5%;
+    color: #ffc676c4;
+    margin-top: 15%;
     margin-bottom: 15%;
     margin-left: 10%;
 }
@@ -232,30 +249,48 @@ header {
 .skills {
     background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
     background-attachment: fixed;
-    /* padding-top: 5%; */
+    padding-top: 2%;
+}
+
+.skills h2 {
+    max-width: 80%;
+    border: 1px dotted #ffc676c4;
+    /* border-radius: 25px 25px 0 0; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5% 2.5% 3% 2.5%;
 }
 
 .card-skill {
     max-height: fit-content;
     width: 25%;
-    background: #bd6b4d86;
+    background: #0E3240;
     border-radius: 15px;
     padding: 10px;
     margin: 2% 1.5%;
     transition: all 1s ease-in-out;
 }
 
-.card-skill:focus,
 .card-skill:hover {
-    border: 1px solid #BFBFBF;
+    border: 1px dashed #ffc676c4;
 }
 
 .card-skill h3 {
     text-align: center;
-    color: #0E3240;
+    color: whitesmoke;
+}
+
+.card-skill:hover h3 {
+    color: #ffc676c4;
+}
+
+.card-skill:hover .cadre-icone {
+    background-color: #ffc676c4;
+    border: none;
 }
 
 .card-skill p {
+    color: whitesmoke;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -267,36 +302,34 @@ header {
     padding: 3% 12.5%;
 }
 
-.skills .card-skill i {
-    font-size: 3rem;
-    /* margin: 10px; */
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 /* PORTFOLIO PORTFOLIO PORTFOLIO PORTFOLIO PORTFOLIO */
 .portfolio {
-    /* padding-top: 6%; */
-    /* padding-bottom: 5%; */
     background-image: url("../images/bg/pexels-elijah-o\'donnell-3473569\ \(2\).png");
-    /* height: 100%; */
     background-attachment: fixed;
 }
 
+.portfolio h2 {
+    max-width: 80%;
+    border: 1px dotted #ffc676c4;
+    /* border-radius: 25px 25px 0 0; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5% 2.5% 3% 2.5%;
+}
+
 .card-portfolio {
+    max-height: fit-content;
     width: 25%;
     background: #0E3240;
     border-radius: 15px;
-    padding: 10px;
+    padding: 10px 0;
     margin: 2% 1.5%;
     transition: all 1s ease-in-out;
 }
 
-.card-portfolio:focus,
 .card-portfolio:hover {
-    border: 1px solid #BFBFBF;
+    border: 1px dashed #ffc676c4;
 }
 
 .card-portfolio a {
@@ -305,6 +338,16 @@ header {
 
 .card-portfolio h3 {
     text-align: center;
+    color: whitesmoke;
+}
+
+.card-portfolio:hover h3 {
+    color: #ffc676c4;
+}
+
+.card-portfolio img {
+    max-width: 100%;
+    height: auto;
 }
 
 .card-portfolio p {
@@ -316,17 +359,8 @@ header {
 .card-portfolio h3,
 .card-portfolio p {
     line-height: 2rem;
-    color: #BFBFBF;
+    color: whitesmoke;
     padding: 3% 12.5%;
-}
-
-.portfolio .card-portfolio i {
-    font-size: 3rem;
-    /* margin: 10px; */
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 /* MEDIAS MEDIAS MEDIAS MEDIAS MEDIAS */
@@ -335,29 +369,57 @@ header {
     background-attachment: fixed;
 }
 
+.medias h2 {
+    max-width: 80%;
+    border: 1px dotted #ffc676c4;
+    /* border-radius: 25px 25px 0 0; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5% 2.5% 3% 2.5%;
+}
+
 .card-medias {
+    max-height: fit-content;
     width: 25%;
     background: #0E3240;
     border-radius: 15px;
     padding: 10px;
     margin: 2% 1.5%;
-    display: grid;
+    transition: all 1s ease-in-out;
+}
+
+.card-medias:hover {
+    border: 1px dashed #ffc676c4;
 }
 
 .card-medias h3 {
     text-align: center;
 }
 
+.card-medias:hover h3 {
+    color: #ffc676c4;
+}
+
+.card-medias:hover .cadre-icone {
+    background-color: #ffc676c4;
+    border: none;
+}
+
+.card-medias p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .card-medias h3,
 .card-medias p {
     line-height: 2rem;
-    color: #BFBFBF;
+    color: whitesmoke;
     padding: 3% 12.5%;
 }
 
 .medias .card-medias i {
     font-size: 3rem;
-    /* margin: 10px; */
     position: relative;
     top: 50%;
     left: 50%;
