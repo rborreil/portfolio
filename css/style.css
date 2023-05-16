@@ -31,7 +31,7 @@ h2{
 }
 
 .cadre-icone {
-    background-color: #195c76;
+    background-color: #207293;
     /* color: #1C6380; */
     margin-top: 2.5%;
     margin-bottom: 2.5%;
@@ -45,6 +45,10 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* HEADER HEADER HEADER HEADER HEADER */
@@ -330,10 +334,6 @@ header {
 
 .card-portfolio:hover {
     border: 1px dashed #ffc676c4;
-}
-
-.card-portfolio a {
-    text-decoration: none;
 }
 
 .card-portfolio h3 {
