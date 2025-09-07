@@ -2,14 +2,7 @@
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v8.4.14,
 * Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
+* Browsers: last 10 versions
 */
 
 /* Déclaration de variables réutilisables */
@@ -20,6 +13,7 @@
     --plum: #4b0d49;
     --hotmag: #ff17e4;
     --magenta: #e310cb;
+    --elecPurple: #E200FF;
     --aqua: #86fbfb;
     --white: #f7f8fa;
     --petrol: #22675a;
@@ -28,7 +22,7 @@
     --sunny: #F2CB05;
     --sunnyafternoon: #f29f05;
     --sunset: #F28705;
-    --pinksunset: #F23030;
+    --pinkSunset: #F23030;
     --font-size: 1.3rem;
     --mono: "Oxygen mono", monospace;
     --sans: Oxygen, sans-serif;
@@ -51,15 +45,23 @@ body {
     color: var(--white);
     font-size: var(--font-size);
 }
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    /* position: relative; */
+}
 h1, h2, h3, h4 {
     margin: 0;
 }
-a {
-    color: var(--verylightpetrol);
-}
 a:hover {
-    color: var(--lightpetrol);
+    color: var(--aqua);
     text-decoration: none;
+}
+#intro p:last-child a {
+    color: var(--aqua);
+}
+#intro p:last-child a:hover {
+    color: var(--elecPurple);
 }
 
 /* Background colors divs */
@@ -67,21 +69,54 @@ a:hover {
 .section-petrol {
     background-color: var(--petrol);
 }
-.section-dkblue {
-    background-color: var(--dkblue);
+.bg-projects {
+    /* background-image: url("../img/mount-fuji-2297961_1280.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center; */
 }
 .gradient {
-    background: -o-linear-gradient(left, rgba(75,228,200,1) 0%, rgba(242,159,5,1) 100%);
-    background: -webkit-gradient(linear, left top, right top, from(rgba(75,228,200,1)), to(rgba(242,159,5,1)));
-    background: linear-gradient(90deg, rgba(75,228,200,1) 0%, rgba(242,159,5,1) 100%);
+    background: -o-linear-gradient(left, rgba(75,228,200,1) 0%, var(--elecPurple) 100%);
+    background: -webkit-gradient(linear, left top, right top, from(rgba(75,228,200,1)), to(var(--elecPurple)));
+    background: linear-gradient(90deg, rgba(75,228,200,1) 0%, var(--elecPurple) 100%);
     height: 2px;
 }
 .reverse-gradient {
-    background: -o-linear-gradient(left, rgba(242,159,5,1) 0%, rgba(75,228,200,1) 100%);
-    background: -webkit-gradient(linear, left top, right top, from(rgba(242,159,5,1)), to(rgba(75,228,200,1)));
-    background: linear-gradient(90deg, rgba(242,159,5,1) 0%, rgba(75,228,200,1) 100%);
+    background: -o-linear-gradient(left, var(--elecPurple) 0%, rgba(75,228,200,1) 100%);
+    background: -webkit-gradient(linear, left top, right top, from(var(--elecPurple)), to(rgba(75,228,200,1)));
+    background: linear-gradient(90deg, var(--elecPurple) 0%, rgba(75,228,200,1) 100%);
     height: 2px;
 }
+
+/* Scroll Bar */
+/* Firefox */
+html {
+    /* scrollbar-width: thin; */
+    /* scrollbar-color: var(--petrol) var(--elecPurple); */
+    /* scrollbar-gutter: var(--aqua); */
+}
+/* Chrome/Safari/Edge */
+/* Largeur de la scrollbar */
+html::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Piste de la scrollbar */
+  html::-webkit-scrollbar-track {
+    /* background: #c30000; */
+  }
+  
+  /* Poignée de la scrollbar */
+  html::-webkit-scrollbar-thumb {
+    background: var(--aqua);
+    border-radius: 6px;
+  }
+  
+  /* Poignée de la scrollbar au survol */
+  html::-webkit-scrollbar-thumb:hover {
+    background: var(--elecPurple);
+  }
 
 /* Nav styles */
 
@@ -120,24 +155,28 @@ nav a {
     text-decoration: none;
     display: block;
 }
-nav [class*="fa-"] {
-    color: var(--sunset);
+nav a:hover {
+    color: var(--aqua);
+}
+nav h1 span:first-child {
+    color: var(--elecPurple);
+    margin-right: 10px;
+}
+nav li:nth-child(n + 2) span {
+    color: var(--elecPurple);
     font-size: 150%;
 }
-nav h1 [class*="fa-"] {
-    font-size: 100%;
-}
-nav span:hover {
-    color: var(--lightpetrol);
+nav li span:hover {
+    color: var(--aqua);
 }
 .button {
-    background: var(--lightpetrol);
+    background: var(--aqua);
+    color: var(--plum);
     padding: .5rem;
     border-radius: .3rem;
 }
 .button:hover {
-    background: var(--verylightpetrol);
-    color: var(--petrol);
+    background: var(--elecPurple);
 }
 @media (min-width: 850px) {
     nav {
@@ -170,7 +209,7 @@ nav span:hover {
     display: block;
     font-family: var(--sans);
     font-size: 4rem;
-    color: var(--sunset);
+    color: var(--elecPurple);
 }
 #intro h2 {
     font-size: 4rem;
@@ -191,21 +230,29 @@ nav span:hover {
     font-size: 2.5rem;
     margin-bottom: calc(2.5rem * 1.5);
 }
+#projects h2.aboutme {
+    text-align: center;
+}
 #projects .text {
-    margin: auto 0;
+    margin: auto 0 auto auto;
+}
+#projects .reverse .text {
+    margin: auto auto auto 0;
 }
 #projects article {
     margin: 2rem 0 4rem 0;
 }
-#projects .text.about {
+#projects .about .text {
     margin: 0 0 auto 0;
 }
 #projects h3 {
-    color: var(--sunset);
+    /* color: var(--petrol); */
+    color: var(--lightpetrol);
+    font-size: 2rem;
 }
 #projects h4 {
     font-family: var(--mono);
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 #projects ul {
     list-style-type: none;
@@ -218,11 +265,19 @@ nav span:hover {
             flex-flow: row wrap;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
-            justify-content: flex-start;
+            justify-content: flex-end;
     gap: 1.5rem;
     padding: 0;
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
+}
+#projects .reverse ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
 }
 #projects .black-box {
     background-color: var(--black);
@@ -237,18 +292,22 @@ nav span:hover {
     font-family: var(--mono);
 }
 #projects img {
-    border-left: 1px dotted var(--sunset);
-    border-top: 1px dotted var(--sunset);
+    border-left: 1px dotted var(--elecPurple);
+    border-top: 1px dotted var(--elecPurple);
     border-radius: 25px;
     padding: 1rem;
     margin-top: 1rem;
     width: 100%;
 }
+#projects .about img {
+    border-radius: 50%;
+
+}
 #projects .reverse img {
     border-left: none;
     border-top: none;
-    border-right: 1px dotted var(--sunset);
-    border-bottom: 1px dotted var(--sunset);
+    border-right: 1px dotted var(--elecPurple);
+    border-bottom: 1px dotted var(--elecPurple);
 }
 @media (min-width: 789px) {
     article {
@@ -261,23 +320,28 @@ nav span:hover {
     #projects img {
         -ms-grid-column: 1;
         -ms-grid-column-span: 5;
-        grid-column: 1/6;
+        grid-column: 1/8;
         -ms-grid-row: 1;
         -ms-grid-row-span: 1;
         grid-row: 1/2;
+    }
+    #projects .about img {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 4;
+        grid-column: 1/5;
     }
     #projects a {
         -ms-grid-column: 1;
         -ms-grid-column-span: 5;
-        grid-column: 1/6;
+        grid-column: 1/8;
         -ms-grid-row: 1;
         -ms-grid-row-span: 1;
         grid-row: 1/2;
     }
-    .text {
+    #projects .text {
         -ms-grid-column: 5;
         -ms-grid-column-span: 6;
-        grid-column: 5/11;
+        grid-column: 8/11;
         -ms-grid-row: 1;
         -ms-grid-row-span: 1;
         grid-row: 1/2;
@@ -285,6 +349,11 @@ nav span:hover {
             -ms-flex-order: 2;
                 order: 2;
         text-align: right;
+    }
+    #projects .about .text {
+        -ms-grid-column: 5;
+        -ms-grid-column-span: 6;
+        grid-column: 6/11;
     }
     #projects ul {
         -webkit-box-pack: end;
@@ -294,23 +363,59 @@ nav span:hover {
     #projects .reverse .text {
         -ms-grid-column: 1;
         -ms-grid-column-span: 6;
-        grid-column: 1/7;
+        grid-column: 1/4;
         text-align: left;
     }
     #projects .reverse img {
         -ms-grid-column: 6;
         -ms-grid-column-span: 5;
-        grid-column: 6/11;
+        grid-column: 4/11;
     }
     #projects .reverse a {
         -ms-grid-column: 6;
         -ms-grid-column-span: 5;
-        grid-column: 6/11;
+        grid-column: 4/11;
     }
     #projects .reverse ul {
         -webkit-box-pack: start;
             -ms-flex-pack: start;
                 justify-content: flex-start;
+    }
+}
+@media (min-width: 0) and (max-width: 788px) {
+    #projects .about {
+        margin: 0;
+    }
+    #projects .about img {
+        margin-top: 3rem;
+        position: relative;
+        transform: translateX(-50%);
+        left: 50%;
+        width: 70%;
+    }
+    #projects .text {
+        text-align: center;
+    }
+    #projects .about .text {
+        text-align: left;
+    }
+    #projects ul {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    #projects .about ul {
+        -webkit-box-pack: left;
+            -ms-flex-pack: left;
+                justify-content: left;
+    }
+    #projects .reverse .text {
+        text-align: center;
+    }
+    #projects .reverse ul {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
 }
 
@@ -320,28 +425,28 @@ nav span:hover {
     text-align: center;
     margin: 0 auto;
     padding: 4rem 0;
-    width: 400px;
+    width: 70%;
 }
 #contact p {
     margin-top: 3rem;
 }
 #contact [class*="button"] {
-    color: var(--white);
+    box-shadow: 0 0 4px 0 var(--elecPurple);
+    color: var(--black);
     text-decoration: none;
     font-family: var(--mono);
     font-size: 80%;
 }
 #contact [class*="button"]:hover {
-    color: var(--petrol);
+    box-shadow: 0 0 20px 1px var(--aqua);
 }
 
 /* Footer styles */
 
 footer {
     text-align: center;
-    /* margin: 0 auto;
-    width: 500px; */
-    padding: 4rem 0;
+    padding: 4rem 0 0 0;
+    margin: 0 auto;
 }
 footer ul {
     list-style-type: none;
@@ -361,10 +466,13 @@ footer ul {
     margin: 2rem 0;
 }
 footer [class*="fa-"] {
-    color: var(--lightpetrol);
+    color: var(--elecPurple);
 }
 footer [class*="fa-"]:hover {
-    color: var(--verylightpetrol);
+    color: var(--aqua);
+}
+footer p {
+    padding-top: 2rem;
 }
 
 /* SCROLL TO TOP */
@@ -386,6 +494,6 @@ footer [class*="fa-"]:hover {
 
 #scroll_to_top img:hover,
 #scroll_to_top img:focus {
-    -webkit-box-shadow: 0 5px 7px var(--sunset);
-            box-shadow: 0 5px 7px var(--sunset);
+    -webkit-box-shadow: 0 5px 7px var(--elecPurple);
+            box-shadow: 0 5px 7px var(--elecPurple);
 }

@@ -1,3 +1,4 @@
+// SCROLL TO TOP
 // Obtenir le bouton
 const scrollToTopBtn = document.getElementById("scroll_to_top");
 
@@ -25,3 +26,11 @@ function scrollToTop() {
 
 // Ajouter un écouteur d'événement pour le clic sur le bouton
 scrollToTopBtn.addEventListener("click", scrollToTop);
+
+
+// DARK MODE
+const toggleDarkMode = document.querySelector('.dark-light');
+
+toggleDarkMode.addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode', toggleDarkMode.checked);
+})
