@@ -41,50 +41,51 @@
         <a href="#top"><img src="./img/top-arrow.jpg" alt="Retourner en haut" /></a>
     </div>
 
-    <nav class="fixed-nav">
-        <ul>
-            <li>
-                <h1>
-                    <a href="index.html">
-                        <span class="fa-solid fa-code" aria-hidden="true"></span>
-                        <span>Robin Borreil</span>
+    <header>
+        <nav class="fixed-nav">
+            <ul>
+                <li>
+                    <h1>
+                        <a href="index.html">
+                            <span class="fa-solid fa-code" aria-hidden="true"></span>
+                            <span>Robin Borreil</span>
+                        </a>
+                    </h1>
+                </li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li>
+                    <a href="https://www.linkedin.com/in/robin-borreil-201036197/" target="_blank">
+                        <span class="fab fa-linkedin" aria-hidden="true"></span>
+                        <span class="sr-only">LinkedIn</span>
                     </a>
-                </h1>
-            </li>
-            <li><a href="#projects">Projets</a></li>
-            <li><a href="about.html">À propos</a></li>
-            <li>
-                <a href="https://www.linkedin.com/in/robin-borreil-201036197/" target="_blank">
-                    <span class="fab fa-linkedin" aria-hidden="true"></span>
-                    <span class="sr-only">LinkedIn</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/rborreil" target="_blank">
-                    <span class="fab fa-github-square" aria-hidden="true"></span>
-                    <span class="sr-only">Github</span>
-                </a>
-            </li>
-            <li><a href="mailto:contact@robinborreil.fr" class="button">Contact</a></li>
-            <!-- <li><a href="https://www.dropbox.com/scl/fi/v0js9v9y34vl01zpijihl/CV_Dev_Robin-Borreil-Alternance.pdf?rlkey=rz6pjfec131r93wyol8nr7vbl&st=6qtgqcyk&dl=0"
+                </li>
+                <li>
+                    <a href="https://github.com/rborreil" target="_blank">
+                        <span class="fab fa-github-square" aria-hidden="true"></span>
+                        <span class="sr-only">Github</span>
+                    </a>
+                </li>
+                <li><a href="mailto:contact@robinborreil.fr" class="button">Contact</a></li>
+                <!-- <li><a href="https://www.dropbox.com/scl/fi/v0js9v9y34vl01zpijihl/CV_Dev_Robin-Borreil-Alternance.pdf?rlkey=rz6pjfec131r93wyol8nr7vbl&st=6qtgqcyk&dl=0"
                     target="_blank" class="button">Parcours</a></li> -->
-        </ul>
-    </nav>
+            </ul>
+        </nav>
 
-    <section id="intro">
-        <p class="name">Bonjour, je suis <span>Robin Borreil.</span></p>
-        <h2>Je construis votre Web.</h2>
-        <p class="para">Développeur Web spécialisé en technologies Front-End.</p>
-        <p>Rendez-moi visite sur <a href="https://www.linkedin.com/in/robin-borreil-201036197/">LinkedIn</a>.</p>
-    </section>
+        <section id="intro">
+            <p class="name">Bonjour, je suis <span>Robin Borreil.</span></p>
+            <h2>Construisons ensemble votre projet web. <span>Je conçois, développe et optimise des sites web efficaces et durables.</span></h2>
+            <!-- <p>Rendez-moi visite sur <a href="https://www.linkedin.com/in/robin-borreil-201036197/">LinkedIn</a>.</p> -->
+        </section>
+    </header>
 
     <div class="gradient"></div>
 
     <div class="section-petrol">
         <section id="contact">
-            <h2>Vous souhaitez me confier le développement web de votre site ?</h2>
+            <h2>Une question, un projet ou une collaboration ?</h2>
             <!-- <p>Je reste toujours ouvert à de nouvelles opportunités et projets web à développer, alors n'hésitez pas :</p> -->
-            <p><a href="mailto:contact@robinborreil.fr" class="button">Contactez-moi</a></p>
+            <p><a href="mailto:contact@robinborreil.fr" class="button">Discutons-en</a></p>
         </section>
     </div>
 
@@ -93,6 +94,27 @@
     <section class="bg-projects">
         <div id="projects">
             <h2>Principaux projets réalisés</h2>
+
+            <!-- JEUFORMATION -->
+            <article class="reverse">
+                <div class="text">
+                    <!-- <h4>Le plus récent</h4> -->
+                    <h3>Jeu Formation</h3>
+                    <!-- <p class="black-box">J'ai développé le site sur lequel vous êtes actuellement de A à Z en HTML et
+                        CSS uniquement. Il constitue mon nouveau Portfolio officiel, contenant les projets notables sur
+                        lesquels j'ai pu travailler jusqu'à présent.</p> -->
+                    <h4>Technologies utilisées :</h4>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JS</li>
+                        <li>Tailwind</li>
+                    </ul>
+                </div>
+                <a href="https://jeuformation.fr/" target="_blank"><img src="./img/jeuformation.PNG" alt="Capture de la landing du site jeuformation.fr"></a>
+            </article>
+
+            <!-- PORTFOLIO ROB -->
             <article>
                 <div class="text">
                     <!-- <h4>Le plus récent</h4> -->
@@ -109,25 +131,8 @@
                 <img src="./img/portfolio-v2.PNG" alt="Capture de l'écran d'accueil de mon Portfolio v2">
             </article>
 
+            <!-- OSTEO JON -->
             <article class="reverse">
-                <div class="text">
-                    <!-- <h4>Le plus long</h4> -->
-                    <h3>Portfolio v1.1</h3>
-                    <!-- <p class="black-box">J'ai développé cette V1 de Portfolio en HTML, CSS et Bootstrap. J'ai investi
-                        beaucoup de temps dans ce projet et y ai beaucoup
-                        appris, notamment les concepts de "position" et "flexbox" et certaines limites de Bootstrap.</p> -->
-                    <h4>Technologies utilisées :</h4>
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Bootstrap</li>
-                    </ul>
-                </div>
-                <a href="https://rborreil.github.io/portfolio-1/" target="_blank"><img src="./img/portfolio-v1.PNG"
-                        alt="Capture de l'écran d'accueil de mon Portfolio v1"></a>
-            </article>
-
-            <article>
                 <div class="text">
                     <!-- <h4>Le plus enrichissant</h4> -->
                     <h3>Osteo Jo</h3>
@@ -146,7 +151,8 @@
                         alt="Capture d'écran du site Ostéo Jo"></a>
             </article>
 
-            <article class="reverse">
+            <!-- ABONNEMENTS -->
+            <article>
                 <div class="text">
                     <!-- <h4>Frontend Mentor</h4> -->
                     <h3>Abonnements</h3>
@@ -161,25 +167,10 @@
                     </ul>
                 </div>
                 <a href="https://robdev-pricing-component.netlify.app/" target="new"><img src="./img/abonnements.PNG"
-                    alt="Capture d'écran d'un composant de choix d'abonnement."></a>
+                        alt="Capture d'écran d'un composant de choix d'abonnement."></a>
             </article>
 
-            <article>
-                <div class="text">
-                    <!-- <h4>Frontend Mentor</h4> -->
-                    <h3>Recette d'omelette</h3>
-                    <!-- <p class="black-box">Je me suis ici inspiré d'une maquette fournie par Frontend Mentor, site
-                        qui me
-                        sert de base d'entrainement.</p> -->
-                    <h4>Technologies utilisées :</h4>
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                    </ul>
-                </div>
-                <img src="./img/recipe_html-css.PNG" alt="Capture d'écran d'un projet basique de recette d'omelette">
-            </article>
-
+            <!-- SOPHRO BEABO -->
             <article class="reverse">
                 <div class="text">
                     <!-- <h4>En cours</h4> -->
@@ -198,6 +189,7 @@
                         alt="Capture d'écran du site vitrine Sophro Beabo"></a>
             </article>
 
+            <!-- NANTES -->
             <article>
                 <div class="text">
                     <!-- <h4>À mes débuts</h4> -->
@@ -212,9 +204,11 @@
                     </ul>
                 </div>
                 <a href="https://robdev-wf3-nantes.netlify.app/" target="_blank"><img
-                        src="./img/nantes-city_bootstrap.PNG" alt="Capture d'écran d'une simulation de site pour la Ville de Nantes"></a>
+                        src="./img/nantes-city_bootstrap.PNG"
+                        alt="Capture d'écran d'une simulation de site pour la Ville de Nantes"></a>
             </article>
 
+            <!-- VOITURES -->
             <article class="reverse">
                 <div class="text">
                     <!-- <h4>À mes débuts</h4> -->
@@ -238,9 +232,9 @@
 
     <div class="section-petrol">
         <section id="contact">
-            <h2>Vous souhaitez me confier le développement web de votre site ?</h2>
+            <h2>Une question, un projet ou une collaboration ?</h2>
             <!-- <p>Je reste toujours ouvert à de nouvelles opportunités et projets web à développer, alors n'hésitez pas :</p> -->
-            <p><a href="mailto:contact@robinborreil.fr" class="button">Contactez-moi</a></p>
+            <p><a href="mailto:contact@robinborreil.fr" class="button">Discutons-en</a></p>
         </section>
     </div>
 

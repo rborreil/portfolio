@@ -118,6 +118,11 @@ html::-webkit-scrollbar {
     background: var(--elecPurple);
   }
 
+  /* Header */
+  header {
+    min-height: 100vh;
+  }
+
 /* Nav styles */
 
 nav {
@@ -171,12 +176,14 @@ nav li span:hover {
 }
 .button {
     background: var(--aqua);
+    box-shadow: 0 0 4px 0 var(--elecPurple);
     color: var(--plum);
     padding: .5rem;
     border-radius: .3rem;
 }
 .button:hover {
     background: var(--elecPurple);
+    box-shadow: 0 0 10px 0 var(--aqua);
 }
 @media (min-width: 850px) {
     nav {
@@ -193,7 +200,7 @@ nav li span:hover {
 /* Intro styles */
 
 #intro {
-    padding: 4rem 1rem 9rem 1rem;
+    padding: 4rem 1rem 4rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -206,17 +213,22 @@ nav li span:hover {
     letter-spacing: .2rem;
 }
 .name span {
-    display: block;
+    /* display: block; */
     font-family: var(--sans);
     font-size: 4rem;
     color: var(--elecPurple);
 }
 #intro h2 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: normal;
+    margin-top: 2rem;
 }
-#intro .para {
-    margin-top: 3rem;
+#intro h2 span {
+    color: var(--aqua);
+    display: block;
+    font-family: var(--mono);
+    font-size: 1.5rem;
+    margin-top: 6rem;
 }
 
 /* Projects styles */
@@ -247,7 +259,8 @@ nav li span:hover {
 }
 #projects h3 {
     /* color: var(--petrol); */
-    color: var(--lightpetrol);
+    /* color: var(--lightpetrol); */
+    color: var(--aqua);
     font-size: 2rem;
 }
 #projects h4 {
@@ -280,7 +293,7 @@ nav li span:hover {
             justify-content: flex-start;
 }
 #projects .black-box {
-    background-color: var(--black);
+    background-color: rgba(255, 255, 255, 0.039);
     color: var(--white);
     padding: 1rem;
     font-size: 1rem;
@@ -288,7 +301,7 @@ nav li span:hover {
     border-radius: 10px;
 }
 #projects .black-box::first-letter {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: var(--mono);
 }
 #projects img {
@@ -354,6 +367,7 @@ nav li span:hover {
         -ms-grid-column: 5;
         -ms-grid-column-span: 6;
         grid-column: 6/11;
+        text-align: left;
     }
     #projects ul {
         -webkit-box-pack: end;
@@ -432,13 +446,14 @@ nav li span:hover {
 }
 #contact [class*="button"] {
     box-shadow: 0 0 4px 0 var(--elecPurple);
-    color: var(--black);
+    color: var(--petrol);
     text-decoration: none;
     font-family: var(--mono);
     font-size: 80%;
 }
 #contact [class*="button"]:hover {
-    box-shadow: 0 0 20px 1px var(--aqua);
+    box-shadow: 0 0 10px 1px var(--aqua);
+    color: var(--aqua);
 }
 
 /* Footer styles */
