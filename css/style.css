@@ -337,11 +337,12 @@ nav .button {
   font-family: var(--mono);
   letter-spacing: 0.2rem;
 }
-#intro span {
+#intro h1 span {
   color: var(--elec-purple);
   display: inline;
   font-family: var(--sans);
   font-size: 4rem;
+  font-weight: 500;
   margin: 0;
 }
 #intro h2 {
