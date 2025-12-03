@@ -242,7 +242,7 @@ nav span img {
 @media (min-width: 850px) {
   nav span img {
     position: absolute;
-    top: -50px;
+    top: -55px;
     left: 125px;
     width: 200px;
   }
