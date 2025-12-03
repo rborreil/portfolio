@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <!--
+		Salut à toi cher visiteur, bienvenue sur mon site web =)
+		Mon code est 100% HTML / CSS / JS Vanilla (pas de WP ou autre CMS)
+		ATTENTION : 
+    L'ensemble du site est protégé de fait par le droit d'auteur sur https://www.inpi.fr/ressources/propriete-intellectuelle/droit-dauteur
+		Respectons le contenu des autres des autres et ne vous exposez pas à des poursuites judiciaires en plagiant.
+    Je vous souhaite une bonne visite ;)
+	-->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,7 +53,7 @@
       name="twitter:image"
       content="https://robinborreil.fr/img/portfolio-v2.PNG"
     />
-    <title>Portfolio de RobdeV - Accueil</title>
+    <title>Portfolio de Robin Borreil - Accueil</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Oxygen&family=Oxygen+Mono&display=swap"
       rel="stylesheet"
@@ -65,22 +73,27 @@
     <!-- Scroll Top -->
     <div id="scroll_to_top">
       <a href="#top"
-        ><img src="./img/top-arrow.jpg" alt="Retourner en haut"
+        ><img
+          src="./img/logos/logo-carre_blanc-nobg.png"
+          alt="Retourner en haut"
       /></a>
     </div>
 
+    <!-- HEADER -->
     <header>
       <nav>
         <ul>
           <li>
-            <h1>
-              <a href="index.html">
-                <span class="fa-solid fa-code" aria-hidden="true"></span>
-                <span>Robin Borreil</span>
-              </a>
-            </h1>
+            <a href="index.html">
+              <!-- <span class="fa-solid fa-code" aria-hidden="true"></span> -->
+              <span
+                ><img src="./img/logos/logo-carre_blanc-nobg.png" alt=""
+              /></span>
+            </a>
           </li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#projects">Projets</a></li>
+          <li><a href="#tarifs">Tarifs</a></li>
           <li><a href="about.html">À propos</a></li>
           <li>
             <a
@@ -105,7 +118,7 @@
         </ul>
       </nav>
       <section id="intro">
-        <p class="name">Bonjour, je suis <span>Robin Borreil.</span></p>
+        <h1>Bonjour, je suis <span>Robin Borreil.</span></h1>
         <h2>
           Construisons ensemble votre projet web.
           <span
@@ -114,36 +127,105 @@
           >
         </h2>
         <!-- <p>Rendez-moi visite sur <a href="https://www.linkedin.com/in/robin-borreil-201036197/">LinkedIn</a>.</p> -->
+        <p class="fixed-btn">
+          <a href="mailto:contact@robinborreil.fr" class="button"
+            >Me Contacter</a
+          >
+        </p>
+        <p class="flex">
+          <a href="#projects" class="button">Mes Projets</a>
+
+          <a href="#tarifs" class="button">Mes Tarifs</a>
+        </p>
       </section>
     </header>
 
     <div class="gradient"></div>
 
-    <div class="section-petrol">
-      <section id="contact">
-        <h2>Une question, un projet ou une collaboration ?</h2>
-        <!-- <p>Je reste toujours ouvert à de nouvelles opportunités et projets web à développer, alors n'hésitez pas :</p> -->
-        <p>
-          <a href="mailto:contact@robinborreil.fr" class="button"
-            >Discutons-en</a
-          >
-        </p>
-      </section>
-    </div>
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="title-group">
+          <h2 class="title">Mes Services</h2>
+          <p class="subtitle">
+            <strong>100% Green :</strong> Il est important pour moi de respecter
+            les bonnes pratiques pour une tech durable et plus respectueuse de
+            la planète. <br />
+            <strong>100% Transparent :</strong> Ça veut dire ce que ça veut
+            dire.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <article class="service-card">
+            <div class="service-head">
+              <div class="service-icon">⚡</div>
+              <h3>Site vitrine professionnel</h3>
+            </div>
+            <p>
+              Création de sites modernes, rapides, administrables et adaptés à
+              votre activité. Une présence en ligne claire, efficace et
+              optimisée pour le référencement.
+            </p>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card">
+            <div class="service-head">
+              <div class="service-icon">🎨</div>
+              <h3>Site sur mesure & expériences personnalisées</h3>
+            </div>
+            <p>
+              Développements personnalisés, animations, interfaces uniques et
+              intégrations avancées. Idéal pour se démarquer avec une identité
+              forte.
+            </p>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card">
+            <div class="service-head">
+              <div class="service-icon">🔧</div>
+              <h3>Refonte, optimisation & maintenance</h3>
+            </div>
+            <p>
+              Modernisation graphique, amélioration des performances, nettoyage
+              du code, corrections et suivi technique pour garder votre site
+              fiable, rapide et sécurisé.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <div class="reverse-gradient"></div>
 
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Une question, un projet ou une collab ?</h2>
+      <p>
+        <a href="mailto:contact@robinborreil.fr" class="button">Discutons-en</a>
+      </p>
+    </section>
+
+    <div class="gradient"></div>
+
+    <!-- Section PROJETS -->
     <section class="bg-projects">
       <div id="projects">
-        <h2>Principaux projets réalisés</h2>
+        <div class="title-group">
+          <h2 class="title">Mes Projets</h2>
+          <p class="subtitle">
+            Voici quelques exemples de projets sur lesquels j'ai pu travailler.
+          </p>
+        </div>
 
-        <!-- BMC AVOCATS -->
+        <!-- JEUFORMATION -->
         <article class="reverse">
           <div class="text">
-            <!-- <h4>En cours...</h4> -->
-             
-            <h3>B . M . C - Cabinet d'Avocats</h3>
-            <span class="in-progress">En cours...</span>
+            <!-- <h4>Le plus récent</h4> -->
+            <p class="project-title">Jeu Formation - Ateliers Soft Skills</p>
             <!-- <p class="black-box">J'ai développé le site sur lequel vous êtes actuellement de A à Z en HTML et
                         CSS uniquement. Il constitue mon nouveau Portfolio officiel, contenant les projets notables sur
                         lesquels j'ai pu travailler jusqu'à présent.</p> -->
@@ -155,10 +237,10 @@
               <li>Tailwind</li>
             </ul>
           </div>
-          <a href="https://rborreil.github.io/bmc-avocats/" target="_blank"
+          <a href="https://jeuformation.fr/" target="_blank"
             ><img
-              src="./img/bmc-avocats.png"
-              alt="Capture de la landing du site bmc-avocats.fr"
+              src="./img/captures/jeuformation.PNG"
+              alt="Capture de la landing du site jeuformation.fr"
           /></a>
         </article>
 
@@ -167,8 +249,7 @@
           <div class="text">
             <!-- <h4>En cours...</h4> -->
 
-
-            <h3>La Quincaillerie - Restaurant</h3>
+            <p class="project-title">La Quincaillerie - Restaurant</p>
             <span class="in-progress">En cours...</span>
             <!-- <p class="black-box">J'ai développé le site sur lequel vous êtes actuellement de A à Z en HTML et
                         CSS uniquement. Il constitue mon nouveau Portfolio officiel, contenant les projets notables sur
@@ -183,17 +264,19 @@
           </div>
           <a href="https://rborreil.github.io/laquincaillerie/" target="_blank">
             <img
-              src="./img/laquincaillerie.png"
+              src="./img/captures/laquincaillerie.png"
               alt="Capture de l'écran d'accueil de La Canaillerie"
             />
           </a>
         </article>
 
-        <!-- JEUFORMATION -->
+        <!-- BMC AVOCATS -->
         <article class="reverse">
           <div class="text">
-            <!-- <h4>Le plus récent</h4> -->
-            <h3>Jeu Formation - Ateliers Soft Skills</h3>
+            <!-- <h4>En cours...</h4> -->
+
+            <p class="project-title">B . M . C - Cabinet d'Avocats</p>
+            <span class="in-progress">En cours...</span>
             <!-- <p class="black-box">J'ai développé le site sur lequel vous êtes actuellement de A à Z en HTML et
                         CSS uniquement. Il constitue mon nouveau Portfolio officiel, contenant les projets notables sur
                         lesquels j'ai pu travailler jusqu'à présent.</p> -->
@@ -205,38 +288,40 @@
               <li>Tailwind</li>
             </ul>
           </div>
-          <a href="https://jeuformation.fr/" target="_blank"
+          <a href="https://rborreil.github.io/bmc-avocats/" target="_blank"
             ><img
-              src="./img/jeuformation.PNG"
-              alt="Capture de la landing du site jeuformation.fr"
+              src="./img/captures/bmc-avocats.png"
+              alt="Capture de la landing du site bmc-avocats.fr"
           /></a>
         </article>
 
-        <!-- PORTFOLIO ROB -->
+        <!-- SOPHRO BEABO -->
         <article>
           <div class="text">
-            <!-- <h4>Le plus récent</h4> -->
-            <h3>Portfolio v2.1</h3>
-            <!-- <p class="black-box">J'ai développé le site sur lequel vous êtes actuellement de A à Z en HTML et
-                        CSS uniquement. Il constitue mon nouveau Portfolio officiel, contenant les projets notables sur
-                        lesquels j'ai pu travailler jusqu'à présent.</p> -->
+            <!-- <h4>En cours</h4> -->
+            <p class="project-title">Sophrologie</p>
+            <!-- <p class="black-box">Sur ce projet, j'ai réexploité le code source d'un site web préexistant pour
+                        l'adapter à des
+                        fins d'entrainement uniquement.</p> -->
             <h4>Technologies utilisées :</h4>
             <ul>
               <li>HTML</li>
               <li>CSS</li>
+              <li>Bootstrap</li>
             </ul>
           </div>
-          <img
-            src="./img/portfolio-v2.PNG"
-            alt="Capture de l'écran d'accueil de mon Portfolio v2"
-          />
+          <a href="https://robdev-sophro-beabo.netlify.app/" target="_blank"
+            ><img
+              src="./img/captures/sophro-beabo.PNG"
+              alt="Capture d'écran du site vitrine Sophro Beabo"
+          /></a>
         </article>
 
         <!-- OSTEO JON -->
         <article class="reverse">
           <div class="text">
             <!-- <h4>Le plus enrichissant</h4> -->
-            <h3>Ostéopathie</h3>
+            <p class="project-title">Ostéopathie</p>
             <!-- <p class="black-box">Ce projet a marqué un tournant dans mon apprentissage, on y retrouve de
                         nombreux
                         savoirs-faires essentiels au développement front-end : burger menu, carousel, CTA, bouton de
@@ -250,7 +335,7 @@
           </div>
           <a href="https://rborreil.github.io/jb-osteo-v2/" target="_blank"
             ><img
-              src="./img/osteo-jo.PNG"
+              src="./img/captures/osteo-jo.PNG"
               alt="Capture d'écran du site Ostéo Jo"
           /></a>
         </article>
@@ -259,7 +344,7 @@
         <article>
           <div class="text">
             <!-- <h4>Frontend Mentor</h4> -->
-            <h3>Abonnements</h3>
+            <p class="project-title">Abonnements</p>
             <!-- <p class="black-box">Je me suis ici inspiré d'une maquette fournie par Frontend Mentor, site
                         qui me
                         sert de base d'entrainement.</p> -->
@@ -272,40 +357,15 @@
           </div>
           <a href="https://robdev-pricing-component.netlify.app/" target="new"
             ><img
-              src="./img/abonnements.PNG"
+              src="./img/captures/abonnements.PNG"
               alt="Capture d'écran d'un composant de choix d'abonnement."
           /></a>
         </article>
 
-        <!-- SOPHRO BEABO -->
-        <article class="reverse">
-          <div class="text">
-            <!-- <h4>En cours</h4> -->
-            <h3>Sophrologie</h3>
-            <!-- <p class="black-box">Sur ce projet, j'ai réexploité le code source d'un site web préexistant pour
-                        l'adapter à des
-                        fins d'entrainement uniquement.</p> -->
-            <h4>Technologies utilisées :</h4>
-            <ul>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>Bootstrap</li>
-            </ul>
-          </div>
-          <a href="https://robdev-sophro-beabo.netlify.app/" target="_blank"
-            ><img
-              src="./img/sophro-beabo.PNG"
-              alt="Capture d'écran du site vitrine Sophro Beabo"
-          /></a>
-        </article>
-
         <!-- NANTES -->
-        <article>
+        <!-- <article>
           <div class="text">
-            <!-- <h4>À mes débuts</h4> -->
-            <h3>Ville de Nantes</h3>
-            <!-- <p class="black-box">J'ai confectionné cette vitrine après 1 mois de formation en développement web.
-                        Avant cela, je n'y connaissais vraiment rien : il y a un début à tout !</p> -->
+            <p class="project-title">Ville de Nantes</p>
             <h4>Technologies utilisées :</h4>
             <ul>
               <li>HTML</li>
@@ -315,16 +375,16 @@
           </div>
           <a href="https://robdev-wf3-nantes.netlify.app/" target="_blank"
             ><img
-              src="./img/nantes-city_bootstrap.PNG"
+              src="./img/captures/nantes-city_bootstrap.PNG"
               alt="Capture d'écran d'une simulation de site pour la Ville de Nantes"
           /></a>
-        </article>
+        </article> -->
 
         <!-- VOITURES -->
         <article class="reverse">
           <div class="text">
             <!-- <h4>À mes débuts</h4> -->
-            <h3>Location de voitures</h3>
+            <p class="project-title">Location de voitures</p>
             <!-- <p class="black-box">Cette version remonte également à mes débuts, c'est le premier "vrai" rendu
                         réalisé par mes soins. Il s'agissait de mes premières semaines de formation chez WebForce3.</p> -->
             <h4>Technologies utilisées :</h4>
@@ -336,29 +396,194 @@
           </div>
           <a href="https://robdev-wf3-location.netlify.app" target="_blank"
             ><img
-              src="./img/loc-voitures_bootstrap.PNG"
+              src="./img/captures/loc-voitures_bootstrap.PNG"
               alt="Capture d'écran du site Location de Voitures"
           /></a>
         </article>
       </div>
     </section>
 
+    <div class="reverse-gradient"></div>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Une question, un projet ou une collab ?</h2>
+      <p>
+        <a href="mailto:contact@robinborreil.fr" class="button">Discutons-en</a>
+      </p>
+    </section>
+
     <div class="gradient"></div>
 
-    <div class="section-petrol">
-      <section id="contact">
-        <h2>Une question, un projet ou une collaboration ?</h2>
-        <!-- <p>Je reste toujours ouvert à de nouvelles opportunités et projets web à développer, alors n'hésitez pas :</p> -->
-        <p>
+    <!-- Section TARIFS -->
+    <section id="tarifs">
+      <div class="container">
+        <div class="title-group">
+          <h2 class="title">Tarifs</h2>
+          <p class="subtitle">
+            Des tarifs classiques pour un accompagnement unique =) <br />
+            <strong>ZERO Mouton :</strong> Vous n'êtes pas un simple numéro,
+            votre projet compte beaucoup pour moi. C'est pourquoi je vous
+            propose un partenariat individuel, de proximité et de long terme.
+            <br /><strong>ZERO Gaspi :</strong> Ne perdez plus de temps, j'ai à
+            coeur de faire de vos besoins et préoccupations des priorités
+            absolues. <br />
+            <strong>ZERO Intermédiaire :</strong> Je travaille seul et peux
+            faire intervenir ponctuellement des prestataires spécialisés si
+            nécessaire. <br />
+            <strong>ZERO Sortie de route :</strong> J'avance généralement sur 3
+            projets maximum à la fois afin de vous offrir une grande
+            disponibilité et préserver une qualité premium.
+          </p>
+        </div>
+
+        <div class="tarifs-grid">
+          <!-- Offre 1 -->
+          <article class="tarifs-card">
+            <h3>Site vitrine - Standard</h3>
+            <p class="tarifs-price">
+              999<small>€</small> <span><strong>*</strong></span>
+            </p>
+            <ul>
+              <li>Site moderne et responsive</li>
+              <li>Charte graphique adaptée</li>
+              <li>Mise en place du contenu</li>
+              <li>Formulaire de contact</li>
+              <li>Statistiques Google Analytics</li>
+            </ul>
+          </article>
+
+          <!-- Offre 2 -->
+          <article class="tarifs-card highlight">
+            <h3>Site vitrine - Personnalisé</h3>
+            <p class="tarifs-price">
+              <span>À partir de </span>&nbsp;1 990<small>€</small>
+              <span><strong>*</strong></span>
+            </p>
+            <ul>
+              <li>Design unique sur mesure</li>
+              <li>Interface administrateur personnalisée</li>
+              <li>Animations & intégrations avancées</li>
+              <li>Optimisation des performances</li>
+              <li>Formation & support</li>
+            </ul>
+          </article>
+
+          <!-- Offre 3 -->
+          <article class="tarifs-card">
+            <h3>Forfait Maintenance - Basic</h3>
+            <p class="tarifs-price">
+              600<small>€/AN</small><span><strong> *</strong></span>
+            </p>
+            <ul>
+              <li>Mises à jour</li>
+              <li>Modifications légères de contenus</li>
+              <li>Sauvegardes externalisées</li>
+              <li>Optimisation performances</li>
+              <li>Restauration si piratage</li>
+            </ul>
+          </article>
+          <!-- <article class="tarifs-card">
+
+            <h3>Site e-commerce</h3>
+            <p class="tarifs-price">
+              <span>À partir de </span>&nbsp;2 990<small>€</small>
+              <span>HT <strong>*</strong></span>
+            </p>
+            <ul>
+              <li>Prestashop ou WooCommerce</li>
+              <li>Gestion des produits & commandes</li>
+              <li>Module de paiement sécurisé</li>
+              <li>Optimisation SEO</li>
+              <li>Accompagnement au lancement</li>
+            </ul>
+          </article> -->
+
+          <!-- Offre 4 -->
+          <article class="tarifs-card">
+            <h3>Forfait Maintenance - Premium</h3>
+            <p class="tarifs-price">
+              1000<small>€/AN</small><span><strong> *</strong></span>
+            </p>
+            <ul>
+              <li>Maintenance Basic</li>
+              <li>Hébergement</li>
+              <li>Domaine</li>
+              <li>Mail Pro</li>
+              <li>SEO</li>
+              <li>Modifications lourdes de contenus ou refonte : 1 / an</li>
+              <li>Interventions : 2 / mois</li>
+            </ul>
+          </article>
+
+          <!-- Offre 5 -->
+          <article class="tarifs-card">
+            <h3>Interventions Ponctuelles</h3>
+            <h4>Taux Horaire Moyen</h4>
+            <p class="tarifs-price">
+              60<small>€</small><span><strong> *</strong></span>
+
+            </p>
+            <ul>
+              <li></li>
+            </ul>
+            <h4>Taux Journalier Moyen</h4>
+            <p class="tarifs-price">
+              550<small>€</small><span><strong> *</strong>
+            </p>
+            <ul>
+              <li></li>
+            </ul>
+          </article>
+
+          <!-- Offre 6 -->
+          <article class="tarifs-card">
+            <h3>Packs</h3>
+            <h4>Le Basic -10%</h4>
+            <p class="tarifs-price">
+              <span>Site Standard<strong> +</strong> Maintenance Basic <strong> pour</strong></span> <br>
+              1 439<small>€</small><span><strong> *</strong> (-10% supplémentaires si c'est la 1è fois qu'on bosse ensemble, soit 1 259€ le pack)</span>
+            </p>
+            <ul>
+              <li></li>
+            </ul>
+            <h4>Le Premium -15%</h4>
+            <p class="tarifs-price">
+              <span>Site Personnalisé<strong> +</strong> Maintenance Premium <strong> pour</strong></span> <br>
+              2 541<small>€</small><span><strong> *</strong> (-10% si c'est la 1è fois qu'on bosse ensemble, soit 2 287€ le pack)</span>
+            </p>
+            <ul>
+              <li></li>
+            </ul>
+          </article>
+
+          <!-- Bouton CTA -->
+        </div>
+        <div class="tarifs-cta">
           <a href="mailto:contact@robinborreil.fr" class="button"
-            >Discutons-en</a
+            >Demander un devis</a
           >
+        </div>
+        <p class="star-display">
+          <span><strong>*</strong></span> Les prix sont affichés Hors Taxes et
+          peuvent varier sur demande spécifique.
         </p>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <div class="reverse-gradient"></div>
 
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Une question, un projet ou une collab ?</h2>
+      <p>
+        <a href="mailto:contact@robinborreil.fr" class="button">Discutons-en</a>
+      </p>
+    </section>
+
+    <div class="gradient"></div>
+
+    <!-- FOOTER -->
     <footer>
       <section class="footer">
         <h2>Robin Borreil &middot; Website Builder & Manager</h2>
