@@ -249,7 +249,7 @@ nav span img {
 }
 @media (min-width: 1420px) {
   nav span img {
-    top: -10px;
+    top: -20px;
     left: 100px;
     transform: translateX(0);
     width: 250px;
@@ -325,7 +325,12 @@ nav .button {
 @media (min-width: 850px) {
   #intro {
     min-height: calc(100vh - 190px);
-    padding: 10rem 1rem 4rem 1rem;
+    padding: 5rem 1rem 4rem 1rem;
+  }
+}
+@media (min-width: 1070px) {
+  #intro {
+    padding: 7.5rem 1rem 4rem 1rem;
   }
 }
 
@@ -366,7 +371,7 @@ nav .button {
 #intro p.flex {
   display: flex;
   gap: 75px;
-  margin-top: 10%;
+  margin-top: 6%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -666,6 +671,10 @@ nav .button {
   background: var(--black);
 }
 
+#tarifs h2 span {
+  color: var(--white);
+}
+
 /* GRID */
 .tarifs-grid {
   display: grid;
@@ -774,6 +783,10 @@ nav .button {
 
 .star-display {
   font-size: 1.1rem;
+}
+.star-display span {
+  font-size: 1.75rem;
+  font-weight: 600;
 }
 
 /* CTA styles */
