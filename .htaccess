@@ -1,8 +1,0 @@
-RewriteEngine On
-
-# Autoriser IP Ordi
-RewriteCond %{REMOTE_ADDR} !=83.204.140.100
-
-
-# Rediriger tous les autres vers la page maintenance
-RewriteRule !^maintenance\.html$ /maintenance.html [R=302,L]
