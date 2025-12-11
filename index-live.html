@@ -83,7 +83,7 @@
     <header>
       <nav>
         <ul>
-          <li>
+          <li class="menu-item">
             <a href="index-live.html">
               <!-- <span class="fa-solid fa-code" aria-hidden="true"></span> -->
               <span
@@ -91,11 +91,11 @@
               /></span>
             </a>
           </li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projets</a></li>
-          <li><a href="#tarifs">Tarifs</a></li>
-          <li><a href="#about">À propos</a></li>
-          <li>
+          <li class="menu-item"><a href="#services">Services</a></li>
+          <li class="menu-item"><a href="#projects">Projets</a></li>
+          <li class="menu-item"><a href="#tarifs">Tarifs</a></li>
+          <li class="menu-item"><a href="#about">À propos</a></li>
+          <li class="menu-item">
             <a
               href="https://www.linkedin.com/in/robin-borreil-201036197/"
               target="_blank"
@@ -104,17 +104,17 @@
               <span class="sr-only">LinkedIn</span>
             </a>
           </li>
-          <li>
+          <li class="menu-item">
             <a href="https://github.com/rborreil" target="_blank">
               <span class="fab fa-github-square" aria-hidden="true"></span>
-              <span class="sr-only">Github</span>
+              <span class="sr-only">GitHub</span>
             </a>
           </li>
           <li>
-            <a href="mailto:contact@robinborreil.fr" class="button">Contact</a>
+            <a href="mailto:contact@robinborreil.fr" class="primary-btn">Contact</a>
           </li>
           <!-- <li><a href="https://www.dropbox.com/scl/fi/v0js9v9y34vl01zpijihl/CV_Dev_Robin-Borreil-Alternance.pdf?rlkey=rz6pjfec131r93wyol8nr7vbl&st=6qtgqcyk&dl=0"
-                    target="_blank" class="button">Parcours</a></li> -->
+                    target="_blank" class="primary-btn">Parcours</a></li> -->
         </ul>
       </nav>
       <section id="intro">
@@ -128,19 +128,19 @@
         </h2>
         <!-- <p>Rendez-moi visite sur <a href="https://www.linkedin.com/in/robin-borreil-201036197/">LinkedIn</a>.</p> -->
         <p class="fixed-btn">
-          <a href="mailto:contact@robinborreil.fr" class="button"
+          <a href="mailto:contact@robinborreil.fr" class="primary-btn"
             >Me Contacter</a
           >
         </p>
         <p class="flex">
-          <a href="#projects" class="button">Mes Projets</a>
+          <a href="#projects" class="secondary-btn">Mes Projets</a>
 
-          <a href="#tarifs" class="button">Mes Tarifs</a>
+          <a href="#tarifs" class="primary-btn">Mes Tarifs</a>
         </p>
       </section>
     </header>
 
-    <div class="gradient"></div>
+    <div class="divider"></div>
 
     <!-- SERVICES -->
     <section id="services">
@@ -199,17 +199,17 @@
       </div>
     </section>
 
-    <div class="reverse-gradient"></div>
+    <div class="reverse-divider"></div>
 
     <!-- CTA -->
     <section class="cta">
       <h2>Une question, un projet ou une collab ?</h2>
-      <p>
-        <a href="mailto:contact@robinborreil.fr" class="button">Discutons-en</a>
-      </p>
+      <div>
+        <a href="mailto:contact@robinborreil.fr" class="primary-btn">Discutons-en</a>
+      </div>
     </section>
 
-    <div class="gradient"></div>
+    <div class="divider"></div>
 
     <!-- Section PROJETS -->
     <section class="bg-projects">
@@ -404,21 +404,22 @@
       </div>
     </section>
 
-    <div class="reverse-gradient"></div>
+    <div class="reverse-divider"></div>
 
     <!-- CTA -->
     <section class="cta">
       <h2>Une question, un projet ou une collab ?</h2>
-      <p>
-        <a href="mailto:contact@robinborreil.fr" class="button">Discutons-en</a>
-      </p>
+      <div>
+        <a href="mailto:contact@robinborreil.fr" class="primary-btn">Discutons-en</a>
+      </div>
     </section>
 
-    <div class="gradient"></div>
+    <div class="divider"></div>
 
     <!-- Section TARIFS -->
     <section id="tarifs">
       <div class="container">
+        <!-- Titre Tarifs -->
         <div class="title-group">
           <h2 class="title">Tarifs <span>*</span></h2>
           <p class="subtitle">
@@ -552,7 +553,7 @@
 
         <!-- Bouton CTA -->
         <div class="tarifs-cta">
-          <a href="mailto:contact@robinborreil.fr" class="button"
+          <a href="mailto:contact@robinborreil.fr" class="primary-btn"
             >Demander un devis</a
           >
         </div>
@@ -561,39 +562,37 @@
         <div>
           <p class="star-display">
             <span>*</span> Les prix affichés sont Hors Taxes et peuvent varier
-            sur demande spécifique. En-dehors de toute offre présentée ci-dessus ou tout accord préalable, je facture 600€ HT / jour (TJM).
+            sur demande spécifique. En-dehors de toute offre présentée ci-dessus
+            ou tout accord préalable, je facture 600€ HT / jour (TJM).
           </p>
           <p class="star-display">
-            <span>**</span> Les promotions sur les packages évoluent régulièrement.
-            Le tarif pris en compte est celui en vigueur au moment de la
-            signature du devis et non celui que vous auriez pu voir lors d'une
-            précédente visite.
+            <span>**</span> Les promotions sur les packages évoluent
+            régulièrement. Le tarif pris en compte est celui en vigueur au
+            moment de la signature du devis et non celui que vous auriez pu voir
+            lors d'une précédente visite.
           </p>
         </div>
       </div>
     </section>
 
-    <div class="reverse-gradient"></div>
+    <div class="reverse-divider"></div>
 
     <!-- Section A PROPOS -->
     <section id="about">
       <div class="container">
-        <!-- Qui suis-je -->
+        <!-- Sous-section Qui suis-je -->
         <div>
           <div class="title-group">
             <h2 class="title">Qui suis-je ?</h2>
             <p class="subtitle">
               Hello World ! Je suis tombé dans le code il y a 5 ans, j'y ai vu
-              une opportunité immense de toucher du bout du doigt l'idée que
-              j'ai de la liberté géographique, financière et organisationnelle.
-              Construire est pour moi une passion, c'est également un moyen très
-              efficace de promouvoir des projets : les vôtres, les miens.
+              une immense opportunité d'envisager les libertés géographique, financière et organisationnelle.
+              
             </p>
           </div>
           <article class="about">
-            <div class="text">
+            <!-- <div class="text">
               <h3>Les grandes lignes</h3>
-              <!-- <p class="black-box">Passionné par le sport, diplômé de l'ESSEC en commerce, j'ai consacré quatre ans à mes études tout en multipliant les stages et les expériences professionnelles variées. Chacune de ces opportunités a enrichi mon parcours et ajouté une corde à mon arc. Partagé entre mon amour pour le voyage et ma quête d'indépendance et de liberté, j'ai trouvé une profonde satisfaction dans l'entrepreneuriat. La période de la pandémie de Covid-19 m'a donné le temps de réfléchir et de réaliser que ma véritable passion réside dans la création. Cette réflexion m'a naturellement conduit à me reconvertir dans le développement, un domaine où je peux pleinement exprimer ma créativité et bâtir des projets innovants.</p> -->
               <p class="black-box">
                 Diplômé de l’ESSEC, j’ai commencé mon parcours dans le commerce
                 avant de m’orienter vers le développement web. <br />
@@ -616,31 +615,33 @@
                 <li>Tailwind CSS</li>
                 <li>Advanced Custom Field - WordPress</li>
               </ul>
-            </div>
+            </div> -->
             <img
-              src="./img/rob-chemise-bg-bleu.png"
-              alt="Photo de Robin Borreil en chemise."
+              src="https://media.licdn.com/dms/image/v2/D4E03AQGsXpMV_Dwtzg/profile-displayphoto-scale_200_200/B4EZmUxUMlHIAY-/0/1759137582102?e=1767225600&v=beta&t=4zHTn6YYEVHWIrwFGGsgIAYho90qBwUQAv0qenn_CXw"
+              alt="Photo de Robin Borreil en chemise." style="border-radius:50%;"
             />
           </article>
         </div>
 
-        <!-- Ma Vision -->
+        <!-- Sous-section Ma Vision -->
         <div>
           <!-- Titre Vision -->
           <div class="title-group">
             <h2 class="title">Ma vision ?</h2>
             <p class="subtitle">
+              Bricoler est pour moi une passion, internet la rend sans limite. Construire sur le web offre des moyens très
+              efficaces de promouvoir nos projets, mais rend également vitale une bonne présence en ligne pour avoir une chance d'être vu et donc de se développer. <br>
               Pour moi, travailler devrait se faire en alignement avec qui nous
-              sommes et nos valeurs propres. <br> Je place l'humain et la planète
-              au coeur de mes préoccupations.
+              sommes et nos valeurs propres. <br />
+              Je place l'humain et la planète au coeur de mes préoccupations.
             </p>
           </div>
           <!-- Grille Vision -->
-          <div class="services-grid">
-            <!-- Service 1 -->
-            <article class="service-card">
-              <div class="service-head">
-                <div class="service-icon">⚡</div>
+          <div class="vision-grid">
+            <!-- Vision 1 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">⚡</div>
                 <h3>ZERO Usinage</h3>
               </div>
               <p>
@@ -650,10 +651,10 @@
               </p>
             </article>
 
-            <!-- Service 2 -->
-            <article class="service-card">
-              <div class="service-head">
-                <div class="service-icon">🎨</div>
+            <!-- Vision 2 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🎨</div>
                 <h3>ZERO Temps gâché</h3>
               </div>
               <p>
@@ -663,10 +664,10 @@
               </p>
             </article>
 
-            <!-- Service 3 -->
-            <article class="service-card">
-              <div class="service-head">
-                <div class="service-icon">🔧</div>
+            <!-- Vision 3 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🔧</div>
                 <h3>ZERO Intermédiaire</h3>
               </div>
               <p>
@@ -677,10 +678,10 @@
               </p>
             </article>
 
-            <!-- Service 4 -->
-            <article class="service-card">
-              <div class="service-head">
-                <div class="service-icon">🔧</div>
+            <!-- Vision 4 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🔧</div>
                 <h3>ZERO Sortie de route</h3>
               </div>
               <p>
@@ -690,10 +691,10 @@
               </p>
             </article>
 
-            <!-- Service 5 -->
-            <article class="service-card">
-              <div class="service-head">
-                <div class="service-icon">🔧</div>
+            <!-- Vision 5 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🔧</div>
                 <h3>100% Green</h3>
               </div>
               <p>
@@ -704,10 +705,10 @@
               </p>
             </article>
 
-            <!-- Service 6 -->
-            <article class="service-card">
-              <div class="service-head">
-                <div class="service-icon">🔧</div>
+            <!-- Vision 6 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🔧</div>
                 <h3>100% Transparent</h3>
               </div>
               <p>
@@ -718,18 +719,57 @@
             </article>
           </div>
         </div>
+
+        <!-- Sous-section Chiffres Clés -->
+        <!-- Chiffres Clés -->
+        <div class="key-numbers">
+          <!-- Titre Chiffres Clés -->
+          <!-- <div class="title-group">
+            <h2 class="title">Chiffres clés</h2>
+            <p class="subtitle">
+              Quelques repères concrets pour mieux comprendre mon approche et
+              mon expérience.
+            </p>
+          </div> -->
+
+          <div class="numbers-grid">
+            <!-- Élément 1 -->
+            <article class="number-card">
+              <h3 class="number">+5</h3>
+              <p class="label">années d’expérience</p>
+            </article>
+
+            <!-- Élément 2 -->
+            <article class="number-card">
+              <h3 class="number">20+</h3>
+              <p class="label">projets menés</p>
+            </article>
+
+            <!-- Élément 3 -->
+            <article class="number-card">
+              <h3 class="number">100%</h3>
+              <p class="label">clients satisfaits</p>
+            </article>
+
+            <!-- Élément 4 -->
+            <article class="number-card">
+              <h3 class="number">48h</h3>
+              <p class="label">réponse max garantie</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- CTA -->
     <section class="cta">
       <h2>Une question, un projet ou une collab ?</h2>
-      <p>
-        <a href="mailto:contact@robinborreil.fr" class="button">Discutons-en</a>
-      </p>
+      <div>
+        <a href="mailto:contact@robinborreil.fr" class="primary-btn">Discutons-en</a>
+      </div>
     </section>
 
-    <div class="gradient"></div>
+    <div class="divider"></div>
 
     <!-- FOOTER -->
     <footer>

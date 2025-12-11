@@ -7,30 +7,20 @@
 
 /* Déclaration de variables réutilisables */
 :root {
+  /* COULEURS */
   --black: #171321;
   --dkblue: #0e3a55;
   --darkerblue: #081e2d;
-  --base-900: #0a1a24; /* bleu-nuit plus propre */
-  --base-800: #0e3a55; /* ton dkblue actuel */
-  --base-700: #102f40; /* plus neutre que darkerblue */
 
   --plum: #4b0d49;
-  --hotmag: #ff17e4;
-  --magenta: #e310cb;
   --elec-purple: #e200ff;
   --tech-purple: #c93cff; /* violet électrique plus doux que #e200ff */
-  --tech-magenta: #ff4fdc; /* accent vibrant, mais moins agressif */
-  --tech-aqua: #5eeaf2; /* version adoucie de aqua */
 
+  --tech-aqua: #5eeaf2; /* version adoucie de aqua */
   --aqua: #86fbfb;
   --aqua-blur: hsla(180, 94%, 75%, 0.2);
   --white: #f7f8fa;
   --petrol: #22675a;
-  --lightpetrol: #36a38f;
-  --verylightpetrol: #4be4c8;
-  --green-500: #2ebd8b; /* vert greentech moderne */
-  --green-400: #3ed7a5; /* plus lumineux */
-  --green-300: #5eecd0; /* vert-aqua pastel */
 
   --sunny: #f2cb05;
   --sunnyafternoon: #f29f05;
@@ -39,6 +29,29 @@
   --energy-yellow: #f2c94c;
   --energy-orange: #f2994a;
 
+  /* RECOS CHATGPT */
+  /* Base Tech */
+  --base-900: #0a1a24; 
+  --base-800: #0c2230; 
+  --base-700: #0f2d3f; 
+
+  /* Greentech */
+--green-500: #2ebd8b;
+--green-400: #3ed7a5;  
+--green-300: #5eecd0;  
+
+
+  /* Accent chaud humain */
+  --energy-orange: #f2994a;
+
+  /* Accent tech */
+  --tech-purple: #c93cff;
+
+  /* Neutres */
+  --white: #f7f8fa;
+  --gray-300: #cbd5e1;
+
+  /* FONTS */
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
   --sans: Oxygen, sans-serif;
@@ -57,7 +70,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--sans);
-  background-color: var(--black);
+  background-color: var(--base-900);
   color: var(--white);
   font-size: var(--font-size);
 }
@@ -74,8 +87,8 @@ h3,
 h4 {
   margin: 0;
 }
-a:hover {
-  color: var(--tech-aqua);
+.menu-item a:hover {
+  color: var(--green-400);
   text-decoration: none;
 }
 
@@ -88,8 +101,8 @@ a:hover {
     background-attachment: fixed;
     background-position: center;
 } */
-.gradient {
-  background: -o-linear-gradient(
+.divider {
+  /* background: -o-linear-gradient(
     left,
     rgba(75, 228, 200, 1) 0%,
     var(--tech-purple) 100%
@@ -105,11 +118,13 @@ a:hover {
     90deg,
     rgba(75, 228, 200, 1) 0%,
     var(--tech-purple) 100%
-  );
+  ); */
+  /* background: var(--base-700); */
+  background: rgba(255, 255, 255, 0.05);
   height: 2px;
 }
-.reverse-gradient {
-  background: -o-linear-gradient(
+.reverse-divider {
+  /* background: -o-linear-gradient(
     left,
     var(--tech-purple) 0%,
     rgba(75, 228, 200, 1) 100%
@@ -125,7 +140,9 @@ a:hover {
     90deg,
     var(--tech-purple) 0%,
     rgba(75, 228, 200, 1) 100%
-  );
+  ); */
+  /* background: var(--base-700); */
+  background: rgba(255, 255, 255, 0.05);
   height: 2px;
 }
 
@@ -145,10 +162,12 @@ a:hover {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1rem;
   text-align: center;
-  color: var(--tech-purple);
+  /* color: var(--tech-purple); */
+  color: var(--white);
 }
 .subtitle {
-  color: var(--white);
+  /* color: var(--white); */
+  color: var(--gray-300);
   font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 2rem;
   /* margin: 0 auto;
@@ -161,7 +180,7 @@ a:hover {
 /* html {
   scrollbar-width: thin;
   scrollbar-color: var(--petrol) var(--tech-purple);
-  scrollbar-gutter: var(--tech-aqua);
+  scrollbar-gutter: var(--green-400);
 } */
 /* Chrome/Safari/Edge */
 /* Largeur de la scrollbar */
@@ -176,7 +195,7 @@ html::-webkit-scrollbar {
 
 /* Poignée de la scrollbar */
 html::-webkit-scrollbar-thumb {
-  background: var(--tech-aqua);
+  background: var(--green-400);
   border-radius: 6px;
 }
 
@@ -232,7 +251,7 @@ nav li a {
   display: block;
 }
 nav li a:hover {
-  color: var(--tech-aqua);
+  /* color: var(--green-400); */
 }
 nav span img {
   position: relative;
@@ -271,7 +290,7 @@ nav span:first-child {
   margin-right: 10px;
 }
 nav span:first-child:hover {
-  color: var(--tech-aqua);
+  color: var(--green-400);
   /* margin-right: 10px; */
 }
 nav li:nth-child(n + 2) span {
@@ -279,27 +298,44 @@ nav li:nth-child(n + 2) span {
   font-size: 150%;
 }
 /* nav li span:hover {
-  color: var(--tech-aqua);
+  color: var(--green-400);
 } */
-nav .button {
+nav .primary-btn {
   font-size: 100%;
   padding: 0.5rem;
 }
 
-.button {
-  background: var(--tech-aqua);
+.primary-btn {
+  /* background: var(--green-400);
   box-shadow: 0 0 4px 0 var(--tech-purple);
-  color: var(--plum);
+  color: var(--plum); */
+  background: var(--green-500);
+  color: var(--base-900);
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
   text-decoration: none;
   font-family: var(--mono);
   font-size: 80%;
 }
-.button:hover {
-  background: var(--tech-purple);
-  box-shadow: 0 0 10px 0 var(--tech-aqua);
-  color: var(--tech-aqua);
+.primary-btn:hover {
+  /* background: var(--tech-purple); */
+  background-color: var(--green-400);
+  box-shadow: 0 0 10px 0 var(--green-400);
+  /* color: var(--green-400); */
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px solid var(--green-500);
+  color: var(--green-500);
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 80%;
+}
+.secondary-btn:hover {
+  color: var(--green-400);
 }
 
 @media (min-width: 850px) {
@@ -359,7 +395,8 @@ nav .button {
   margin-top: 2rem;
 }
 #intro h2 span {
-  color: var(--tech-aqua);
+  color: var(--green-400);
+  /* color: var(--green-400); */
   display: block;
   font-family: var(--mono);
   font-size: 1.5rem;
@@ -374,7 +411,7 @@ nav .button {
 #intro p.flex {
   display: flex;
   gap: 75px;
-  margin-top: 6%;
+  margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -388,11 +425,12 @@ nav .button {
 /* SERVICES — VERSION OPTIMISÉE */
 
 #services {
-  background-color: var(--black);
+  background-color: var(--base-800);
 }
 
 /* GRID */
-.services-grid {
+.services-grid,
+.vision-grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr;
@@ -400,19 +438,24 @@ nav .button {
 
 @media (min-width: 700px) {
   .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .vision-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1280px) {
-  .services-grid {
+  .vision-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* CARDS */
-.service-card {
-  background-color: rgba(255, 255, 255, 0.05);
+.service-card,
+.vision-card {
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  background-color: var(--base-700);
   padding: 1.8rem 1.8rem 2.2rem;
   border-radius: 16px;
   box-shadow: 0 0 10px rgba(226, 0, 255, 0.1);
@@ -420,13 +463,15 @@ nav .button {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.service-card:hover {
+.service-card:hover,
+.vision-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 20px rgba(134, 251, 251, 0.25);
 }
 
 /* HEAD: ICON + TITLE regroupés */
-.service-head {
+.service-head,
+.vision-head {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -434,7 +479,8 @@ nav .button {
 }
 
 /* ICON */
-.service-icon {
+.service-icon,
+.vision-icon {
   width: 55px;
   height: 55px;
   font-size: 1.6rem;
@@ -449,15 +495,17 @@ nav .button {
 }
 
 /* TITLE */
-.service-card h3 {
+.service-card h3,
+.vision-card h3 {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
-  color: var(--tech-aqua);
+  color: var(--green-400);
   margin: 0;
   line-height: 1.3;
 }
 
 /* DESCRIPTION */
-.service-card p {
+.service-card p,
+.vision-card p {
   font-size: clamp(0.9rem, 1.5vw, 1.05rem);
   line-height: 1.55;
   opacity: 0.9;
@@ -466,6 +514,7 @@ nav .button {
 /* Section PROJETS */
 
 #projects {
+  background-color: var(--base-900);
   padding: 4rem 1rem 3rem 1rem;
   max-width: 1280px;
   margin: 0 auto;
@@ -478,7 +527,7 @@ nav .button {
   font-size: clamp(1.25rem, 2vw, 1.75rem);
 }
 #projects .project-title {
-  color: var(--tech-aqua);
+  color: var(--green-400);
   font-family: var(--sans);
   font-weight: 600;
   font-size: clamp(1.25rem, 2vw, 1.75rem);
@@ -668,10 +717,10 @@ nav .button {
   }
 }
 
-/* tarifsS — SECTION */
+/* Tarifs — SECTION */
 
 #tarifs {
-  background: var(--black);
+  background: var(--base-800);
 }
 
 #tarifs h2 span,
@@ -698,7 +747,8 @@ nav .button {
 
 /* CARD */
 .tarifs-card {
-  background: rgba(255, 255, 255, 0.05);
+  /* background: rgba(255, 255, 255, 0.05); */
+  background-color: var(--base-700);
   padding: 2.2rem;
   border-radius: 16px;
   border: 1px solid rgba(226, 0, 255, 0.15);
@@ -731,7 +781,7 @@ nav .button {
 }
 
 .tarifs-card.highlight {
-  border: 1px solid var(--tech-aqua-blur);
+  border: 1px solid var(--green-400-blur);
   box-shadow: 0 0 12px rgba(134, 251, 251, 0.25);
   /* transform: translateY(-6px); */
   transform: scale(1.05);
@@ -747,14 +797,14 @@ nav .button {
 .tarifs-card h3 {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   margin: 0 0 1rem;
-  color: var(--tech-aqua);
+  color: var(--green-400);
   text-align: center;
 }
 .tarifs-card h4 {
   margin-bottom: 1rem;
 }
 .tarifs-card h4 .tarifs-price {
-  color: var(--tech-aqua);
+  color: var(--green-400);
   font-size: 1.25rem;
   font-weight: 100;
 }
@@ -802,11 +852,11 @@ nav .button {
 /* Effet séparateur */
 .tarifs-card ul li::before {
   content: "+ ";
-  color: var(--tech-aqua);
+  color: var(--green-400);
   font-weight: 600;
 }
 
-/* CTA tarifss */
+/* CTA tarifs */
 .tarifs-cta {
   text-align: center;
   margin: 5rem 0 3rem 0;
@@ -822,19 +872,76 @@ nav .button {
 
 /* CTA styles */
 .cta {
-  background-color: var(--petrol);
+  background-color: var(--plum);
   text-align: center;
   margin: 0 auto;
   padding: 4rem 15%;
   /* max-width: 70%; */
 }
-.cta p {
+.cta div {
   margin-top: 3rem;
+}
+
+.cta {
+  background:
+    linear-gradient(rgba(10,26,36,0.35), rgba(10,26,36,0.35)),
+    url('../img/cta-bg-tech.svg') center / cover fixed;
+  padding: 6rem 2rem;
+  text-align: center;
+  color: var(--white);
+}
+
+.cta h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.cta .primary-btn {
+  background: var(--green-500);
+  color: var(--base-900);
+}
+.cta .primary-btn:hover {
+  background: var(--green-400);
+}
+
+/* A Propos - SECTION */
+.key-numbers {
+  margin-top: 4rem;
+}
+
+.numbers-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+}
+
+.number-card {
+  background: var(--base-700);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  color: var(--white);
+  /* border: 1px solid var(--base-700); */
+  border: 1px dashed var(--green-400);
+}
+
+.number-card .number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--green-400); /* adapté à ton branding greentech */
+  margin-bottom: 0.5rem;
+}
+
+.number-card .label {
+  font-size: 0.95rem;
+  color: var(--gray-300);
 }
 
 /* Footer styles */
 
 footer {
+  background-color: var(--base-800);
   text-align: center;
   padding: 4rem 15%;
   margin: 0 auto;
@@ -860,7 +967,7 @@ footer [class*="fa-"] {
   color: var(--tech-purple);
 }
 footer [class*="fa-"]:hover {
-  color: var(--tech-aqua);
+  color: var(--green-400);
 }
 footer p {
   padding-top: 2rem;

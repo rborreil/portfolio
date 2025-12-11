@@ -38,7 +38,7 @@ scrollToTopBtn.addEventListener("click", scrollToTop);
 
 
 // Empêcher Clic Droit
-document.addEventListener("contextmenu", (e) => e.preventDefault());
+// document.addEventListener("contextmenu", (e) => e.preventDefault());
 
 // Empêcher CTRL+C, CTRL+U, F12
 // document.addEventListener("keydown", function (e) {
