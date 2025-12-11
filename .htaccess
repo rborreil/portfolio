@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Autoriser ton IP
+RewriteCond %{REMOTE_ADDR} !=83.204.140.100
+
+# Pour tous les autres, renvoyer une 503 + afficher maintenance.html
+RewriteRule ^.*$ /maintenance.html [R=503,L]
+
+# Ajouter un header Retry-After (optionnel mais super propre)
+Header always set Retry-After "3600"
