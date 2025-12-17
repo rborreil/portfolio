@@ -31,21 +31,21 @@
 
   /* RECOS CHATGPT */
   /* Base Tech */
-  --base-900: #0a1a24; 
-  --base-800: #0c2230; 
-  --base-700: #0f2d3f; 
+  --base-900: #0a1a24;
+  --base-800: #0c2230;
+  --base-700: #0f2d3f;
 
   /* Greentech */
---green-500: #2ebd8b;
---green-400: #3ed7a5;  
---green-300: #5eecd0;  
-
+  --green-500: #2ebd8b;
+  --green-400: #3ed7a5;
+  --green-300: #5eecd0;
 
   /* Accent chaud humain */
   --energy-orange: #f2994a;
 
   /* Accent tech */
   --tech-purple: #c93cff;
+  --tech-accent: #36c4dd;
 
   /* Neutres */
   --white: #f7f8fa;
@@ -162,17 +162,13 @@ h4 {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1rem;
   text-align: center;
-  /* color: var(--tech-purple); */
   color: var(--white);
 }
 .subtitle {
-  /* color: var(--white); */
   color: var(--gray-300);
   font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 2rem;
-  /* margin: 0 auto;
-  max-width: 800px;
-  text-align: left; */
+  text-align: center;
 }
 
 /* Scroll Bar */
@@ -185,7 +181,7 @@ h4 {
 /* Chrome/Safari/Edge */
 /* Largeur de la scrollbar */
 html::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
 /* Piste de la scrollbar */
@@ -201,7 +197,7 @@ html::-webkit-scrollbar-thumb {
 
 /* Poignée de la scrollbar au survol */
 html::-webkit-scrollbar-thumb:hover {
-  background: var(--tech-purple);
+  background: var(--tech-accent);
 }
 
 /* Header */
@@ -430,58 +426,73 @@ nav .primary-btn {
 
 /* GRID */
 .services-grid,
-.vision-grid {
+.vision-grid,
+.tarifs-grid,
+.testimonials-grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr;
 }
+.tarifs-grid {
+  margin-bottom: 3rem;
+}
 
 @media (min-width: 700px) {
-  .services-grid {
+  .services-grid,
+  .testimonials-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  .vision-grid {
+  .vision-grid,
+  .tarifs-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1280px) {
-  .vision-grid {
+  .vision-grid,
+  .tarifs-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* CARDS */
 .service-card,
-.vision-card {
-  /* background-color: rgba(255, 255, 255, 0.05); */
+.vision-card,
+.tarif-card,
+.testimonial-card {
   background-color: var(--base-700);
   padding: 1.8rem 1.8rem 2.2rem;
   border-radius: 16px;
-  box-shadow: 0 0 10px rgba(226, 0, 255, 0.1);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(4px);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .service-card:hover,
-.vision-card:hover {
+.vision-card:hover,
+.tarif-card:hover,
+.testimonial-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(134, 251, 251, 0.25);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
 /* HEAD: ICON + TITLE regroupés */
 .service-head,
-.vision-head {
+.vision-head,
+.tarif-head {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.2rem;
 }
+.tarif-head {
+  justify-content: center;
+}
 
 /* ICON */
 .service-icon,
 .vision-icon {
-  width: 55px;
+  min-width: 55px;
   height: 55px;
   font-size: 1.6rem;
   border-radius: 12px;
@@ -490,13 +501,15 @@ nav .primary-btn {
   justify-content: center;
   align-items: center;
 
-  background: var(--tech-purple);
-  box-shadow: 0 0 10px rgba(226, 0, 255, 0.35);
+  background: linear-gradient(135deg, var(--green-400), var(--tech-purple));
+
+  box-shadow: 0 0 12px rgba(54, 196, 221, 0.25);
 }
 
 /* TITLE */
 .service-card h3,
-.vision-card h3 {
+.vision-card h3,
+.tarif-card h3 {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   color: var(--green-400);
   margin: 0;
@@ -596,8 +609,10 @@ nav .primary-btn {
   margin-top: 1rem;
   width: 100%;
 }
-#projects .about img {
+#about .about img {
   border-radius: 50%;
+  border: 1px solid var(--tech-purple);
+  text-align: center;
 }
 #projects .reverse img {
   border-left: none;
@@ -728,138 +743,96 @@ nav .primary-btn {
   color: var(--white);
 }
 
-/* GRID */
-.tarifs-grid {
+/* CARD */
+.tarif-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 500px) {
+  .tarif-card ul {
+    margin: 0 20%;
+  }
 }
 @media (min-width: 700px) {
-  .tarifs-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .tarif-card ul {
+    margin: 0;
+  }
+}
+@media (min-width: 900px) {
+  .tarif-card ul {
+    margin: 0 15%;
   }
 }
 @media (min-width: 1280px) {
-  .tarifs-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* CARD */
-.tarifs-card {
-  /* background: rgba(255, 255, 255, 0.05); */
-  background-color: var(--base-700);
-  padding: 2.2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(226, 0, 255, 0.15);
-  box-shadow: 0 0 10px rgba(226, 0, 255, 0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.tarifs-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 20px rgba(134, 251, 251, 0.25);
-}
-
-.tarifs-card .package {
-  margin-top: 4rem;
-}
-
-/* .tarifs-card .relative {
-  position: relative;
-  top: -250px;
-  left: 125px;
-} */
-.tarifs-card .relative {
-  position: absolute;
-  top: 125px;
-  left: 275px;
-}
-.tarifs-card .relative s {
-  font-size: 1.5rem;
-  font-weight: 100;
-}
-
-.tarifs-card.highlight {
-  border: 1px solid var(--green-400-blur);
-  box-shadow: 0 0 12px rgba(134, 251, 251, 0.25);
-  /* transform: translateY(-6px); */
-  transform: scale(1.05);
-}
-
-.tarifs-card.highlight:hover {
-  /* transform: translateY(10px); */
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(134, 251, 251, 0.25);
-}
-
-/* TITRE */
-.tarifs-card h3 {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  margin: 0 0 1rem;
-  color: var(--green-400);
-  text-align: center;
-}
-.tarifs-card h4 {
-  margin-bottom: 1rem;
-}
-.tarifs-card h4 .tarifs-price {
-  color: var(--green-400);
-  font-size: 1.25rem;
-  font-weight: 100;
-}
-.tarifs-card p {
-  text-align: center;
-}
-
-/* PRIX */
-.tarifs-price {
-  color: var(--tech-purple);
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
-  font-weight: bold;
-  margin: 0 0 1.8rem;
-}
-.tarifs-price span {
-  color: var(--white);
-  font-size: clamp(0.8rem, 2vw, 1rem);
-}
-.tarifs-price strong {
-  font-size: 1.25rem;
-  position: relative;
-  bottom: 5px;
-}
-
-/* LISTE */
-.tarifs-card ul {
-  list-style: none;
-  padding: 0 20%;
-  margin: 0;
-}
-@media (min-width: 700px) {
-  .tarifs-card ul {
-    list-style: none;
-    padding: 0;
+  .tarif-card ul {
     margin: 0;
   }
 }
 
-.tarifs-card ul li {
-  margin-bottom: 0.7rem;
-  opacity: 0.85;
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+.tarif-card li {
+  position: relative;
+  padding-left: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.8;
 }
 
-/* Effet séparateur */
-.tarifs-card ul li::before {
-  content: "+ ";
+.tarif-card li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
   color: var(--green-400);
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.package {
+  margin-top: 1.2rem;
+  padding: 1.4rem;
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(62, 215, 165, 0.08),
+    rgba(62, 215, 165, 0.02)
+  );
+  border: 1px solid rgba(62, 215, 165, 0.25);
+}
+
+.package h4 {
+  color: var(--green-400);
+  margin-bottom: 0.6rem;
+}
+
+.package strong {
+  color: var(--white);
+}
+
+/* PRIX */
+.tarifs-price {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--tech-purple);
+  margin: 0.5rem 0 1rem;
+  text-align: center;
+}
+
+.tarifs-price small,
+.tarifs-price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gray-300);
+}
+
+.tarifs-price s {
+  opacity: 0.5;
 }
 
 /* CTA tarifs */
 .tarifs-cta {
   text-align: center;
-  margin: 5rem 0 3rem 0;
+  margin: 3rem 0;
 }
 
 .star-display {
@@ -883,9 +856,8 @@ nav .primary-btn {
 }
 
 .cta {
-  background:
-    linear-gradient(rgba(10,26,36,0.35), rgba(10,26,36,0.35)),
-    url('../img/cta-bg-tech.svg') center / cover fixed;
+  background: linear-gradient(rgba(10, 26, 36, 0.35), rgba(10, 26, 36, 0.35)),
+    url("../img/cta-bg-tech.svg") center / cover fixed;
   padding: 6rem 2rem;
   text-align: center;
   color: var(--white);
@@ -904,10 +876,8 @@ nav .primary-btn {
   background: var(--green-400);
 }
 
-/* A Propos - SECTION */
-.key-numbers {
-  margin-top: 4rem;
-}
+
+/* CHIFFRES */
 
 .numbers-grid {
   margin-top: 2rem;
@@ -922,9 +892,15 @@ nav .primary-btn {
   border-radius: 12px;
   text-align: center;
   color: var(--white);
-  /* border: 1px solid var(--base-700); */
-  border: 1px dashed var(--green-400);
+  border: 1px dashed var(--tech-purple);
 }
+
+/* .number-card .icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+  color: var(--tech-accent);
+  opacity: 0.8;
+} */
 
 .number-card .number {
   font-size: 2.5rem;
@@ -936,6 +912,26 @@ nav .primary-btn {
 .number-card .label {
   font-size: 0.95rem;
   color: var(--gray-300);
+}
+
+
+/* TEMOIGNAGES */
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--gray-300);
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-author strong {
+  color: var(--green-400);
+  font-weight: 600;
+}
+
+.testimonial-author span {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
 
 /* Footer styles */
