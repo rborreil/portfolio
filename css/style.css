@@ -218,6 +218,18 @@ nav li:first-child {
   font-size: 2rem;
   font-weight: bold;
 }
+/* nav li:not(:first-child) {
+  position: fixed;
+  top: 7rem;
+}
+nav li:nth-child(2) { right: 56rem; }
+nav li:nth-child(3) { right: 48rem; }
+nav li:nth-child(4) { right: 40rem; }
+nav li:nth-child(5) { right: 32rem; }
+nav li:nth-child(6) { right: 20rem; }
+nav li:nth-child(7) { right: 16rem; }
+nav li:nth-child(8) { right: 8rem; } */
+
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -400,7 +412,7 @@ nav .primary-btn {
   left: 50px;
   z-index: 1;
 }
-#hero .fixed-btn .secondary-btn {
+/* #hero .fixed-btn .secondary-btn {
   background: transparent;
   border: 1px solid var(--green-500);
   color: var(--green-500);
@@ -409,6 +421,12 @@ nav .primary-btn {
   text-decoration: none;
   font-family: var(--mono);
   font-size: 2rem;
+} */
+#hero .fixed-btn .social-icon {
+  height: 60px;
+  width: 60px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px var(--white);
 }
 #hero p.flex {
   display: flex;
@@ -452,10 +470,8 @@ nav .primary-btn {
   align-items: center;
 }
 
-@media (min-width: 500px) {
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.process-grid {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media (min-width: 700px) {
@@ -927,6 +943,143 @@ nav .primary-btn {
   background-color: var(--base-900);
 }
 
+/* Qui */
+.who {
+  margin-bottom: 4rem;
+}
+
+.who-layout-grid {
+  margin-top: 3rem;
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 768px) {
+  .who .title {
+    text-align: left;
+    margin-left: 17%;
+  }
+  .who-layout-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 5rem;
+  }
+  .vision .title {
+    text-align: right;
+    margin-right: 17%;
+  }
+}
+@media (min-width: 900px) {
+  .who-layout-grid {
+    gap: 7rem;
+  }
+}
+@media (min-width: 1280px) {
+  .who-layout-grid {
+    gap: 10rem;
+  }
+}
+.who-flow {
+  margin-top: 3rem;
+  display: grid;
+  gap: 3rem;
+}
+.who-photo img {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+
+  border-radius: 50%;
+  background: var(--base-700);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35),
+    0 0 0 4px rgba(62, 215, 165, 0.15);
+}
+@media (min-width: 1024px) {
+  .who-photo {
+    transform: translateY(20px);
+  }
+}
+
+/* Étape */
+.flow-step {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 1.5rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: flowFade 0.6s ease forwards;
+  align-items: center;
+}
+
+.flow-step:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.flow-step:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.flow-step:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes flowFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Ligne verticale */
+.flow-step::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  width: 2px;
+  height: calc(100% + 1rem);
+  background: linear-gradient(to bottom, var(--green-400), transparent);
+}
+
+/* Dernière étape : pas de ligne */
+.flow-step:last-child::before {
+  display: none;
+}
+
+/* Point */
+.flow-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--tech-accent), var(--green-400));
+  box-shadow: 0 0 0 6px rgba(62, 215, 165, 0.15);
+}
+
+/* Dernier point accentué */
+.flow-marker.is-final {
+  box-shadow: 0 0 0 10px rgba(62, 215, 165, 0.25);
+}
+
+/* Contenu */
+.flow-content {
+  background: var(--base-700);
+  padding: 1.6rem 1.8rem;
+  border-radius: 16px;
+}
+
+.flow-content h3 {
+  margin-bottom: 0.5rem;
+  color: var(--green-400);
+  font-size: 1.1rem;
+}
+
+.flow-content p {
+  color: var(--gray-300);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Vision */
+
 /* CHIFFRES */
 #key-numbers {
   background-color: var(--base-800);
@@ -1153,7 +1306,7 @@ footer ul {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
   font-size: 2rem;
   padding: 0;
   margin: 2rem 0;
@@ -1182,6 +1335,18 @@ footer [class*="fa-"]:hover {
 
 footer p {
   padding-top: 2rem;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
 }
 
 /* SCROLL TO TOP */
