@@ -342,9 +342,9 @@ nav .primary-btn {
   }
 }
 
-/* Intro styles */
+/* Hero styles */
 
-#intro {
+#hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -354,26 +354,26 @@ nav .primary-btn {
   margin: 0 auto;
 }
 @media (min-width: 850px) {
-  #intro {
+  #hero {
     min-height: calc(100vh - 190px);
     padding: 5rem 1rem 4rem 1rem;
   }
 }
 @media (min-width: 1070px) {
-  #intro {
+  #hero {
     padding: 7.5rem 1rem 4rem 1rem;
   }
 }
 
-#intro h1 {
+#hero h1 {
   font-size: 1rem;
   line-height: 1.5;
 }
-#intro h1 {
+#hero h1 {
   font-family: var(--mono);
   letter-spacing: 0.2rem;
 }
-#intro h1 span {
+#hero h1 span {
   color: var(--tech-purple);
   display: inline;
   font-family: var(--sans);
@@ -381,12 +381,12 @@ nav .primary-btn {
   font-weight: 500;
   margin: 0;
 }
-#intro h2 {
+#hero h2 {
   font-size: 3.5rem;
   font-weight: normal;
   margin-top: 2rem;
 }
-#intro h2 span {
+#hero h2 span {
   color: var(--green-400);
   /* color: var(--green-400); */
   display: block;
@@ -394,13 +394,23 @@ nav .primary-btn {
   font-size: 1.5rem;
   margin-top: 6rem;
 }
-#intro p.fixed-btn {
+#hero .fixed-btn {
   position: fixed;
   bottom: 50px;
   left: 50px;
   z-index: 1;
 }
-#intro p.flex {
+#hero .fixed-btn .secondary-btn {
+  background: transparent;
+  border: 1px solid var(--green-500);
+  color: var(--green-500);
+  padding: 0rem 0.6rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 2rem;
+}
+#hero p.flex {
   display: flex;
   gap: 75px;
   margin-top: 10%;
@@ -408,7 +418,7 @@ nav .primary-btn {
   margin-right: auto;
 }
 @media (min-width: 600px) {
-  #intro p.flex {
+  #hero p.flex {
     margin-right: 0;
   }
 }
@@ -771,12 +781,7 @@ nav .primary-btn {
   background: var(--base-800);
 }
 
-#tarifs h2 span,
-#tarifs h3 span {
-  color: var(--white);
-}
-
-/* CARD */
+/* Card */
 .tarif-list,
 .skill-list {
   list-style: none;
@@ -876,9 +881,10 @@ nav .primary-btn {
 }
 
 .star-display {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
-.star-display span {
+.star {
+  color: var(--tech-accent);
   font-size: 1.75rem;
   font-weight: 600;
 }
@@ -1127,9 +1133,6 @@ nav .primary-btn {
   border-color: var(--green-400);
 }
 
-
-
-
 /* FOOTER */
 
 footer {
@@ -1161,12 +1164,8 @@ footer ul {
 footer [class*="fa-"]:hover {
   color: var(--green-400);
 } */
- footer [class*="fa-"] {
-  background: linear-gradient(
-    135deg,
-    var(--tech-purple),
-    var(--green-400)
-  );
+footer [class*="fa-"] {
+  background: linear-gradient(135deg, var(--tech-purple), var(--green-400));
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
