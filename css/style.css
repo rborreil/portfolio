@@ -59,6 +59,21 @@
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+a,
+button {
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+.card,
+.service-card,
+.tarif-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 *,
 *::before,
@@ -268,7 +283,7 @@ nav span img {
 @media (min-width: 850px) {
   nav span img {
     position: absolute;
-    top: -55px;
+    top: -30px;
     left: 125px;
     width: 200px;
   }
@@ -407,6 +422,7 @@ nav .primary-btn {
   margin-top: 6rem;
 }
 #hero .fixed-btn {
+  display: none;
   position: fixed;
   bottom: 50px;
   left: 50px;
@@ -422,11 +438,26 @@ nav .primary-btn {
   font-family: var(--mono);
   font-size: 2rem;
 } */
+
 #hero .fixed-btn .social-icon {
-  height: 60px;
-  width: 60px;
+  background-color: var(--base-900);
+  height: 50px;
+  width: 50px;
   border-radius: 5px;
   box-shadow: 0 1px 3px var(--white);
+  padding: 7px;
+}
+@media (min-width: 850px) {
+  #hero .fixed-btn .social-icon {
+    height: 60px;
+    width: 60px;
+  }
+}
+@media (min-width: 1280px) {
+  #hero .fixed-btn .social-icon {
+    height: 70px;
+    width: 70px;
+  }
 }
 #hero p.flex {
   display: flex;
@@ -906,19 +937,13 @@ nav .primary-btn {
 }
 
 /* CTA styles */
-.cta {
-  background-color: var(--plum);
-  text-align: center;
-  margin: 0 auto;
-  padding: 4rem 15%;
-  /* max-width: 70%; */
-}
+
 .cta div {
   margin-top: 3rem;
 }
 
 .cta {
-  background: linear-gradient(rgba(10, 26, 36, 0.35), rgba(10, 26, 36, 0.35)),
+  background: linear-gradient(rgba(10, 26, 36, 0.25), rgba(10, 26, 36, 0.25)),
     url("../img/cta-bg-tech.svg") center / cover fixed;
   padding: 6rem 2rem;
   text-align: center;
@@ -937,6 +962,24 @@ nav .primary-btn {
 .cta .primary-btn:hover {
   background: var(--green-400);
 }
+
+/* PARALLAX */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* Process */
+.parallax-process {
+  background-image:
+    linear-gradient(
+      rgba(10, 26, 36, 0.75),
+      rgba(10, 26, 36, 0.75)
+    ),
+    url("../img/cta-bg-tech.svg");
+}
+
 
 /* A PROPOS / VISION */
 #about {
@@ -1082,7 +1125,7 @@ nav .primary-btn {
 
 /* CHIFFRES */
 #key-numbers {
-  background-color: var(--base-800);
+  /* background-color: var(--base-800); */
 }
 
 .number-card {
@@ -1286,6 +1329,10 @@ nav .primary-btn {
   border-color: var(--green-400);
 }
 
+.contact-form .primary-btn {
+  cursor: pointer;
+}
+
 /* FOOTER */
 
 footer {
@@ -1344,7 +1391,8 @@ footer p {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.social-icon:hover {
+.social-icon:hover,
+#scroll_to_top img:hover {
   transform: translateY(-2px);
   opacity: 0.85;
 }
@@ -1358,10 +1406,12 @@ footer p {
   z-index: 1;
 }
 #scroll_to_top img {
+  background-color: var(--base-900);
   width: 50px;
   border-radius: 5px;
   -webkit-box-shadow: 0 2px 5px white;
   box-shadow: 0 2px 5px white;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 @media (min-width: 850px) {
   #scroll_to_top img {
@@ -1373,8 +1423,4 @@ footer p {
     width: 70px;
   }
 }
-#scroll_to_top img:hover,
-#scroll_to_top img:focus {
-  -webkit-box-shadow: 0 5px 7px var(--tech-purple);
-  box-shadow: 0 5px 7px var(--tech-purple);
-}
+
