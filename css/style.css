@@ -369,6 +369,53 @@ nav .primary-btn {
   }
 }
 
+/* Floating Nav */
+.floating-nav {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 100;
+}
+.nav-item {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(10, 26, 36, 0.75); /* base-900 */
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: background-color 0.25s ease, transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+.nav-item:hover,
+.nav-item:focus-visible {
+  background: rgba(10, 26, 36, 0.9);
+  box-shadow:
+    0 0 0 2px rgba(62, 215, 165, 0.35),
+    0 8px 20px rgba(0, 0, 0, 0.4);
+
+  transform: translateY(-2px);
+}
+.nav-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: url(#icon-gradient);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* Hero styles */
 
 #hero {
@@ -972,14 +1019,12 @@ nav .primary-btn {
 }
 /* Process */
 .parallax-process {
-  background-image:
-    linear-gradient(
+  background-image: linear-gradient(
       rgba(10, 26, 36, 0.75),
       rgba(10, 26, 36, 0.75)
     ),
     url("../img/cta-bg-tech.svg");
 }
-
 
 /* A PROPOS / VISION */
 #about {
@@ -1423,4 +1468,3 @@ footer p {
     width: 70px;
   }
 }
-
