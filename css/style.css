@@ -377,7 +377,6 @@ nav .primary-btn {
   font-size: 30px;
 }
 
-
 /* Fixed Mail */
 .fixed-btn .fixed-mail {
   display: none;
@@ -403,6 +402,7 @@ nav .primary-btn {
 /* Floating Nav */
 /* container */
 .floating-nav {
+  display: none;
   padding: 0;
   position: fixed;
   right: 0.5rem;
@@ -415,11 +415,13 @@ nav .primary-btn {
 }
 @media (min-width: 665px) {
   .floating-nav {
+    display: none;
     right: 1rem;
   }
 }
 @media (min-width: 1440px) {
   .floating-nav {
+    display: none;
     right: 3rem;
   }
 }
