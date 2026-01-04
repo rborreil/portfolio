@@ -1,7 +1,8 @@
 // SCROLL TO TOP
 // Obtenir le bouton
-const scrollToTopBtn = document.getElementById("scroll_to_top");
-const fixedBtn = document.querySelector(".fixed-btn");
+// const scrollToTopBtn = document.getElementById("scroll_to_top");
+const fixedMail = document.querySelector(".fixed-btn .fixed-mail");
+const fixedHome = document.querySelector(".fixed-btn .fixed-home");
 const floatingNav = document.querySelector(".floating-nav");
 
 // Définir le nombre de pixels à partir duquel le bouton doit apparaître
@@ -17,12 +18,14 @@ if (window.innerWidth > 500) {
 // Fonction pour afficher/masquer le bouton
 function toggleFixedButtons() {
   if (window.pageYOffset > scrollThreshold) {
-    scrollToTopBtn.style.display = "block";
-    fixedBtn.style.display = "block";
+    // scrollToTopBtn.style.display = "block";
+    fixedMail.style.display = "flex";
+    fixedHome.style.display = "flex";
     floatingNav.style.display = "flex";
   } else {
-    scrollToTopBtn.style.display = "none";
-    fixedBtn.style.display = "none";
+    // scrollToTopBtn.style.display = "none";
+    fixedMail.style.display = "none";
+    fixedHome.style.display = "none";
     floatingNav.style.display = "none";
   }
 }
@@ -36,7 +39,7 @@ function scrollToTop() {
 }
 
 // Ajouter un écouteur d'événement pour le clic sur le bouton
-scrollToTopBtn.addEventListener("click", scrollToTop);
+// scrollToTopBtn.addEventListener("click", scrollToTop);
 
 // DARK MODE
 // const toggleDarkMode = document.querySelector('.dark-light');

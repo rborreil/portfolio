@@ -71,13 +71,13 @@
 
   <body>
     <!-- Scroll Top -->
-    <div id="scroll_to_top">
+    <!-- <div id="scroll_to_top">
       <a href="#top"
         ><img
           src="./img/logos/logo-carre_blanc-nobg.png"
           alt="Retourner en haut"
       /></a>
-    </div>
+    </div> -->
 
     <!-- HEADER -->
     <header>
@@ -117,39 +117,65 @@
                     target="_blank" class="primary-btn">Parcours</a></li> -->
         </ul>
       </nav>
+      <!-- Nav Latérale Flottante -->
       <nav class="floating-nav">
-        <a href="#services" class="nav-item" aria-label="Services">
-          <svg viewBox="0 0 24 24" class="nav-icon" aria-hidden="true">
-            <circle cx="12" cy="12" r="3" />
-            <path
-              d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12
-           M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"
-            />
-          </svg>
+        <!-- Services -->
+        <a
+          class="nav-item"
+          href="#services"
+          aria-label="Services"
+          title="Services"
+        >
+          <i
+            class="fa-solid fa-hand-holding-heart nav-fa"
+            aria-hidden="true"
+          ></i>
         </a>
-
-        <a href="#projects" class="nav-item" aria-label="Projets">
-          <svg viewBox="0 0 24 24" class="nav-icon">
-            <path
-              d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
-            />
-          </svg>
+        <!-- Projets -->
+        <a
+          class="nav-item"
+          href="#projects"
+          aria-label="Projets"
+          title="Projets"
+        >
+          <i class="fa-solid fa-briefcase nav-fa" aria-hidden="true"></i>
         </a>
-        <a href="#tarifs" class="nav-item" aria-label="Tarifs">
-          <svg viewBox="0 0 24 24" class="nav-icon" aria-hidden="true">
-            <path d="M12 2v20" />
-            <path d="M17 6H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" />
-          </svg>
+        <!-- Offres -->
+        <a class="nav-item" href="#tarifs" aria-label="Offres" title="Offres">
+          <i class="fa-solid fa-hand-holding-dollar nav-fa" aria-hidden="true"></i>
         </a>
-        <a href="#about" class="nav-item" aria-label="À Propos">
-          <svg viewBox="0 0 24 24" class="nav-icon" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="14" rx="2" />
-            <circle cx="8" cy="11" r="2" />
-            <path d="M12 10h6" />
-            <path d="M12 14h5" />
-          </svg>
+        <!-- A Propos -->
+        <a
+          class="nav-item"
+          href="#about"
+          aria-label="À propos"
+          title="À propos"
+        >
+          <i class="fa-solid fa-address-card nav-fa" aria-hidden="true"></i>
         </a>
       </nav>
+      <!-- Boutons Fixes -->
+      <p class="fixed-btn">
+        <!-- Fixed Mail -->
+        <a
+          class="nav-item fixed-mail"
+          href="#contact"
+          aria-label="Contact"
+          title="Contact"
+        >
+          <i class="fa-solid fa-envelope nav-fa" aria-hidden="true"></i>
+        </a>
+        <!-- Fixed Home -->
+        <a
+          class="nav-item fixed-home"
+          href="#top"
+          aria-label="Accueil"
+          title="Accueil"
+        >
+          <i class="fa-solid fa-house nav-fa" aria-hidden="true"></i>
+        </a>
+      </p>
+      <!-- Hero -->
       <section id="hero">
         <h1>Bonjour, je suis <span>Robin Borreil.</span></h1>
         <h2>
@@ -160,32 +186,6 @@
           >
         </h2>
         <!-- <p>Rendez-moi visite sur <a href="https://www.linkedin.com/in/robin-borreil-201036197/">LinkedIn</a>.</p> -->
-        <p class="fixed-btn">
-          <a href="#contact">
-            <!-- <span class="fas fa-envelope" aria-hidden="true"></span>
-            <span class="sr-only">Email</span> -->
-            <!-- MAIL -->
-            <svg class="social-icon" viewBox="0 0 24 24">
-              <rect
-                x="3"
-                y="5"
-                width="18"
-                height="14"
-                rx="2"
-                ry="2"
-                fill="none"
-                stroke="url(#icon-gradient)"
-                stroke-width="1"
-              />
-              <path
-                d="M3 7l9 6 9-6"
-                fill="none"
-                stroke="url(#icon-gradient)"
-                stroke-width="1"
-              />
-            </svg>
-          </a>
-        </p>
         <p class="flex">
           <a href="#projects" class="secondary-btn">Mes Projets</a>
           <a href="#tarifs" class="primary-btn">Mes Offres</a>
@@ -195,7 +195,7 @@
 
     <div class="divider"></div>
 
-    <!-- SERVICES -->
+    <!-- Section SERVICES -->
     <section id="services">
       <div class="container">
         <div class="title-group">
@@ -490,6 +490,7 @@
           <!-- Offre 1 -->
           <article class="tarif-card">
             <div class="tarif-head">
+              <div class="tarif-icon">🧱</div>
               <h3>Site vitrine — Standard</h3>
             </div>
 
@@ -507,6 +508,7 @@
           <!-- Offre 2 -->
           <article class="tarif-card">
             <div class="tarif-head">
+              <div class="tarif-icon">🛡️</div>
               <h3>Maintenance — Basic</h3>
             </div>
 
@@ -524,6 +526,7 @@
           <!-- Offre 3 — Package Basic -->
           <article class="tarif-card">
             <div class="tarif-head">
+              <div class="tarif-icon">📦</div>
               <h3>Package — Basic <span class="star">**</span></h3>
             </div>
 
@@ -548,6 +551,7 @@
           <!-- Offre 4 -->
           <article class="tarif-card">
             <div class="tarif-head">
+              <div class="tarif-icon">✨</div>
               <h3>Site vitrine — Personnalisé</h3>
             </div>
 
@@ -566,6 +570,7 @@
 
           <article class="tarif-card">
             <div class="tarif-head">
+              <div class="tarif-icon">🔒</div>
               <h3>Maintenance — Premium</h3>
             </div>
 
@@ -584,6 +589,7 @@
           <!-- Offre 6 — Package Premium -->
           <article class="tarif-card">
             <div class="tarif-head">
+              <div class="tarif-icon">💎</div>
               <h3>Package — Premium <span class="star">**</span></h3>
             </div>
 
@@ -644,7 +650,7 @@
         <!-- Sous-section Qui suis-je -->
         <div class="who">
           <div class="title-group">
-            <h2 class="title">Qui suis-je ?</h2>
+            <h2 class="title">À Propos</h2>
             <!-- <p class="subtitle">
               Sport, cuisine, voyage, nature et WEB ! Tombé dans le code il y a
               5 ans, j'y ai vu une immense opportunité de réintégrer au travail
@@ -746,7 +752,7 @@
             <!-- Vision 1 -->
             <article class="vision-card">
               <div class="vision-head">
-                <div class="vision-icon">⚡</div>
+                <div class="vision-icon">🧩</div>
                 <h3>Personnalisé</h3>
               </div>
               <p>
@@ -759,7 +765,7 @@
             <!-- Vision 2 -->
             <article class="vision-card">
               <div class="vision-head">
-                <div class="vision-icon">🎨</div>
+                <div class="vision-icon">🚀</div>
                 <h3>Efficace</h3>
               </div>
               <p>
@@ -772,7 +778,7 @@
             <!-- Vision 3 -->
             <article class="vision-card">
               <div class="vision-head">
-                <div class="vision-icon">🔧</div>
+                <div class="vision-icon">🎯</div>
                 <h3>Direct</h3>
               </div>
               <p>
@@ -786,7 +792,7 @@
             <!-- Vision 4 -->
             <article class="vision-card">
               <div class="vision-head">
-                <div class="vision-icon">🔧</div>
+                <div class="vision-icon">🤝</div>
                 <h3>Humain</h3>
               </div>
               <p>
@@ -799,7 +805,7 @@
             <!-- Vision 5 -->
             <article class="vision-card">
               <div class="vision-head">
-                <div class="vision-icon">🔧</div>
+                <div class="vision-icon">🌿</div>
                 <h3>Green</h3>
               </div>
               <p>
@@ -813,7 +819,7 @@
             <!-- Vision 6 -->
             <article class="vision-card">
               <div class="vision-head">
-                <div class="vision-icon">🔧</div>
+                <div class="vision-icon">🔍</div>
                 <h3>Transparent</h3>
               </div>
               <p>
@@ -829,12 +835,12 @@
 
     <div class="divider"></div>
 
-    <!-- CHIFFRES -->
+    <!-- Section CHIFFRES -->
     <div id="key-numbers" class="parallax parallax-process">
       <div class="container">
         <!-- Titre Chiffres Clés -->
         <div class="title-group">
-          <h2 class="title">Quelques chiffres</h2>
+          <h2 class="title">Chiffres</h2>
           <!-- <p class="subtitle">
               Quelques repères concrets pour mieux comprendre mon approche et
               mon expérience.
@@ -843,27 +849,40 @@
 
         <div class="numbers-grid">
           <!-- Élément 1 -->
+
           <article class="number-card">
-            <!-- <div class="icon">🧭</div> -->
-            <h3 class="number">+5</h3>
+            <div class="number-head">
+              <div class="number-icon">⏳</div>
+              <h3 class="number">+5</h3>
+            </div>
             <p class="label">Années d’expérience</p>
           </article>
 
           <!-- Élément 2 -->
           <article class="number-card">
-            <h3 class="number">+20</h3>
+            <div class="number-head">
+              <div class="number-icon">🧰</div>
+              <h3 class="number">+20</h3>
+            </div>
+
             <p class="label">Projets livrés</p>
           </article>
 
           <!-- Élément 3 -->
           <article class="number-card">
-            <h3 class="number">100%</h3>
+            <div class="number-head">
+              <div class="number-icon">✅</div>
+              <h3 class="number">100%</h3>
+            </div>
             <p class="label">Clients satisfaits</p>
           </article>
 
           <!-- Élément 4 -->
           <article class="number-card">
-            <h3 class="number">-48h</h3>
+            <div class="number-head">
+              <div class="number-icon">⚡</div>
+              <h3 class="number">-48h</h3>
+            </div>
             <p class="label">Délais de réponse</p>
           </article>
         </div>
@@ -872,7 +891,7 @@
 
     <div class="reverse-divider"></div>
 
-    <!-- SKILLS -->
+    <!-- Section SKILLS -->
     <section id="skills">
       <div class="container">
         <div class="title-group">
@@ -887,6 +906,7 @@
           <!-- Skill bloc 1 -->
           <article class="skill-card">
             <div class="skill-head">
+              <div class="skill-icon">💻</div>
               <h3>Développement Front-End</h3>
             </div>
             <ul class="skill-list">
@@ -900,6 +920,7 @@
           <!-- Skill bloc 2 -->
           <article class="skill-card">
             <div class="skill-head">
+              <div class="skill-icon">⚙️</div>
               <h3>Performance & Qualité</h3>
             </div>
             <ul class="skill-list">
@@ -913,6 +934,7 @@
           <!-- Skill bloc 3 -->
           <article class="skill-card">
             <div class="skill-head">
+              <div class="skill-icon">🗂️</div>
               <h3>CMS & Contenu</h3>
             </div>
             <ul class="skill-list">
@@ -926,6 +948,7 @@
           <!-- Skill bloc 4 -->
           <article class="skill-card">
             <div class="skill-head">
+              <div class="skill-icon">🧭</div>
               <h3>Méthode & Accompagnement</h3>
             </div>
             <ul class="skill-list">
@@ -941,20 +964,23 @@
 
     <div class="divider"></div>
 
-    <!-- PROCESS -->
+    <!-- Section PROCESS -->
     <section id="process" class="section parallax parallax-process">
       <div class="container">
         <div class="title-group">
           <!-- <h2 class="title">Mon process</h2> -->
-          <h2>
+          <h2 class="title">
             <i class="fa fa-quote-left" aria-hidden="true"></i
             >&nbsp;&nbsp;Créateur de Sites Web depuis 2021&nbsp;&nbsp;<i
               class="fa fa-quote-right"
             ></i>
           </h2>
           <p class="subtitle">
-            Une méthode claire, structurée et transparente, du premier échange à
+            Un processus claire, structuré et transparent, du premier échange à
             la mise en ligne.
+            <br />
+            Méthode Agile : visibilité et possibilité d'effectuer des
+            modifications à la volée tout au long du projet.
           </p>
         </div>
 
@@ -964,7 +990,7 @@
               ☕
               <span class="step-num">1</span>
             </div>
-            <p class="process-label">Échange</p>
+            <p class="process-label">Discussion</p>
           </article>
 
           <article class="process-step">
@@ -1012,7 +1038,7 @@
 
     <div class="reverse-divider"></div>
 
-    <!-- TÉMOIGNAGES -->
+    <!-- Section TÉMOIGNAGES -->
     <section id="testimonials">
       <div class="container">
         <div class="title-group">
@@ -1074,7 +1100,7 @@
 
     <div class="reverse-divider"></div>
 
-    <!-- FAQ -->
+    <!-- Section FAQ -->
     <section id="faq">
       <div class="container">
         <div class="title-group">
@@ -1152,7 +1178,7 @@
 
     <div class="divider"></div>
 
-    <!-- CONTACT -->
+    <!-- Section CONTACT -->
     <section id="contact" class="parallax parallax-process">
       <div class="container">
         <div class="title-group">
@@ -1216,7 +1242,7 @@
       <section class="footer">
         <h2>Robin Borreil &middot; Website Builder & Manager</h2>
         <ul>
-          <svg width="0" height="0" style="position: absolute">
+          <!-- <svg width="0" height="0" style="position: absolute">
             <defs>
               <linearGradient
                 id="icon-gradient"
@@ -1229,15 +1255,14 @@
                 <stop offset="100%" stop-color="var(--green-400)" />
               </linearGradient>
             </defs>
-          </svg>
+          </svg> -->
 
+          <!-- LinkedIn -->
           <li>
-            <a
+            <!-- <a
               href="https://www.linkedin.com/in/robin-borreil-201036197/"
               target="new"
             >
-              <!-- <span class="fab fa-linkedin" aria-hidden="true"></span>
-              <span class="sr-only">LinkedIn</span> -->
               <svg viewBox="0 0 24 24" class="social-icon">
                 <path
                   d="M4.98 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM3 8.98h4v12H3zM9 8.98h3.8v1.64h.05
@@ -1248,12 +1273,22 @@
                   stroke-width="1.8"
                 />
               </svg>
+            </a> -->
+            <a
+              href="https://www.linkedin.com/in/robin-borreil-201036197/"
+              target="_blank"
+              aria-label="LinkedIn"
+              class="social-link"
+            >
+              <i
+                class="fa-brands fa-linkedin-in social-fa"
+                aria-hidden="true"
+              ></i>
             </a>
           </li>
+          <!-- Github -->
           <li>
-            <a href="https://github.com/rborreil" target="new">
-              <!-- <span class="fab fa-github-square" aria-hidden="true"></span>
-              <span class="sr-only">Github</span> -->
+            <!-- <a href="https://github.com/rborreil" target="new">
               <svg viewBox="0 0 24 24" class="social-icon" aria-hidden="true">
                 <path
                   d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.87 8.39 6.84 9.75.5.1.68-.22.68-.48
@@ -1271,11 +1306,19 @@
                   stroke-width="1.8"
                 />
               </svg>
+            </a> -->
+            <a
+              href="https://github.com/rborreil"
+              target="_blank"
+              aria-label="GitHub"
+              class="social-link"
+            >
+              <i class="fa-brands fa-github social-fa" aria-hidden="true"></i>
             </a>
           </li>
+          <!-- Mail -->
           <li>
-            <a href="mailto:contact@robinborreil.fr" aria-label="Email">
-              <!-- MAIL -->
+            <!-- <a href="mailto:contact@robinborreil.fr" aria-label="Email">
               <svg class="social-icon" viewBox="0 0 24 24">
                 <rect
                   x="3"
@@ -1295,6 +1338,14 @@
                   stroke-width="1.8"
                 />
               </svg>
+            </a> -->
+            <a
+              href="mailto:contact@robinborreil.fr"
+              target="_blank"
+              aria-label="Contact"
+              class="social-link"
+            >
+              <i class="fa-solid fa-envelope social-fa" aria-hidden="true"></i>
             </a>
           </li>
         </ul>
