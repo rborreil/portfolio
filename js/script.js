@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // const footer = document.querySelector("#footer");
 
   // Seuil d’apparition
-  let scrollThreshold = window.innerWidth > 475 ? 750 : 1050;
+  let scrollThreshold = window.innerWidth > 500 ? 700 : 1050;
 
   function toggleFixedButtons() {
     const scrollY = window.pageYOffset;
