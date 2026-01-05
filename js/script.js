@@ -1,59 +1,77 @@
-// SCROLL TO TOP
-// Obtenir le bouton
-// const scrollToTopBtn = document.getElementById("scroll_to_top");
-const fixedMail = document.querySelector(".fixed-btn .fixed-mail");
-const fixedHome = document.querySelector(".fixed-btn .fixed-home");
-const floatingNav = document.querySelector(".floating-nav");
+document.addEventListener("DOMContentLoaded", () => {
+  // MENU FLOTTANT + BOUTONS FIXES
+  const fixedMail = document.querySelector(".fixed-btn .fixed-mail");
+  const fixedHome = document.querySelector(".fixed-btn .fixed-home");
+  const floatingNav = document.querySelector(".floating-nav");
+  // const footer = document.querySelector("#footer");
 
-// Définir le nombre de pixels à partir duquel le bouton doit apparaître
-let scrollThreshold;
+  // Seuil d’apparition
+  let scrollThreshold = window.innerWidth > 500 ? 750 : 1050;
 
-if (window.innerWidth > 500) {
-  scrollThreshold = 750;
-} else {
-  scrollThreshold = 1050;
-}
+  function toggleFixedButtons() {
+    const scrollY = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
 
+    const isAtBottom = scrollY + windowHeight >= docHeight - 100;
+    const isAtContact = scrollY + windowHeight >= docHeight - 1000;
 
-// Fonction pour afficher/masquer le bouton
-function toggleFixedButtons() {
-  if (window.pageYOffset > scrollThreshold) {
-    // scrollToTopBtn.style.display = "block";
-    fixedMail.style.display = "flex";
-    fixedHome.style.display = "flex";
-    floatingNav.style.display = "flex";
-  } else {
-    // scrollToTopBtn.style.display = "none";
-    fixedMail.style.display = "none";
-    fixedHome.style.display = "none";
-    floatingNav.style.display = "none";
+    const shouldShow = scrollY > scrollThreshold && !isAtBottom;
+    const shouldShowMail = scrollY > scrollThreshold && !isAtContact;
+    const shouldShowHome = scrollY > scrollThreshold;
+
+    fixedMail.classList.toggle("fixed-hidden", !shouldShowMail);
+    fixedHome.classList.toggle("fixed-hidden", !shouldShowHome);
+    floatingNav.classList.toggle("fixed-hidden", !shouldShow);
   }
-}
 
-// Ajouter un écouteur d'événement pour détecter le scroll
-window.addEventListener("scroll", toggleFixedButtons);
+  window.addEventListener("scroll", toggleFixedButtons);
+  window.addEventListener("resize", toggleFixedButtons);
 
-// Fonction pour faire défiler vers le haut de la page
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
+  // CHIFFRES - COMPTEUR
 
-// Ajouter un écouteur d'événement pour le clic sur le bouton
-// scrollToTopBtn.addEventListener("click", scrollToTop);
+  const counters = document.querySelectorAll(".number");
 
-// DARK MODE
-// const toggleDarkMode = document.querySelector('.dark-light');
+  const animateCounter = (el) => {
+    const target = +el.dataset.value;
+    const prefix = el.dataset.prefix || "";
+    const suffix = el.dataset.suffix || "";
+    const duration = 1200;
+    const start = performance.now();
 
-// toggleDarkMode.addEventListener('change', () => {
-//   document.body.classList.toggle('dark-mode', toggleDarkMode.checked);
-// })
+    const update = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const value = Math.floor(progress * target);
+      el.textContent = `${prefix}${value}${suffix}`;
 
-// Empêcher Clic Droit
-// document.addEventListener("contextmenu", (e) => e.preventDefault());
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = `${prefix}${target}${suffix}`;
+    };
 
-// Empêcher CTRL+C, CTRL+U, F12
-// document.addEventListener("keydown", function (e) {
-//   if (e.ctrlKey && ["u", "U", "c", "C", "s", "S"].includes(e.key)) {
-//     e.preventDefault();
-//   }
-// });
+    requestAnimationFrame(update);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
+
+  // BLOQUER CLIC DROIT
+  // document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+  // Empêcher CTRL+C, CTRL+U, F12
+  // document.addEventListener("keydown", function (e) {
+  //   if (e.ctrlKey && ["u", "U", "c", "C", "s", "S"].includes(e.key)) {
+  //     e.preventDefault();
+  //   }
+  // });
+});
