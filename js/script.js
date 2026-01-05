@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
 
-    const isAtBottom = scrollY + windowHeight >= docHeight - 100;
+    const isAtBottom = scrollY + windowHeight >= docHeight - 200;
     const isAtContact = scrollY + windowHeight >= docHeight - 1000;
 
     const shouldShow = scrollY > scrollThreshold && !isAtBottom;
