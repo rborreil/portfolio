@@ -1273,7 +1273,7 @@ nav .primary-btn {
   position: absolute;
   /* bottom: -8px; */
   /* right: -8px; */
-  bottom: -5px;
+  top: 0px;
   left: -5px;
   width: 22px;
   height: 22px;
@@ -1294,6 +1294,75 @@ nav .primary-btn {
 .process-label {
   font-size: 0.9rem;
   color: var(--gray-300);
+}
+
+/* ---- APPROCHE : bloc "agile" (encadré) ---- */
+.approche-agile {
+  margin-top: 4rem;
+  background: var(--base-700);
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--green-400);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.25);
+}
+/* Titre du bloc */
+.approche-agile h3 {
+  margin: 0 0 0.6rem;
+  color: var(--green-400);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.2;
+}
+/* Texte */
+.approche-agile p {
+  margin: 0.6rem 0 0;
+  color: var(--gray-300);
+  line-height: 1.65;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  opacity: 0.95;
+}
+/* Mini-liste bénéfices (optionnelle) */
+.approche-agile .agile-points {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+/* Items avec "check" discret */
+.approche-agile .agile-points li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  color: var(--gray-300);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+.approche-agile .agile-points li::before {
+  content: "✓";
+  color: var(--green-400);
+  font-weight: 700;
+  margin-top: 0.05rem;
+}
+/* Option : un badge "Agile" (si tu veux) */
+.approche-agile .agile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(62, 215, 165, 0.12);
+  border: 1px solid rgba(62, 215, 165, 0.25);
+  color: var(--green-400);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+/* Responsive : un peu plus d’air sur desktop */
+@media (min-width: 900px) {
+  .approche-agile {
+    padding: 1.8rem 2rem;
+  }
 }
 
 /* TEMOIGNAGES */
