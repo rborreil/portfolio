@@ -117,6 +117,7 @@ h2,
 h3,
 h4 {
   margin: 0;
+  /* padding: 0; */
 }
 .menu-item a:hover {
   color: var(--green-400);
@@ -177,13 +178,13 @@ h4 {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 4rem 1rem;
+  padding: 4rem 1rem 4.75rem 1rem;
 }
 
 /* Titres */
 .title-group {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 .title {
   font-size: var(--text-h2);
@@ -1057,7 +1058,8 @@ nav .primary-btn {
 }
 
 /* PRIX */
-.tarifs-price {
+.tarifs-price,
+.tarif-card .tarifs-price {
   font-size: clamp(1.6rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--tech-purple);
@@ -1095,7 +1097,7 @@ nav .primary-btn {
 .star {
   color: var(--tech-accent);
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* CTA styles */
@@ -1125,7 +1127,7 @@ nav .primary-btn {
   background: var(--green-400);
 }
 
-/* PARALLAX */
+/* PARALLAX / TEXTURE */
 .parallax {
   background-attachment: fixed;
   background-position: center;
@@ -1139,6 +1141,12 @@ nav .primary-btn {
       rgba(10, 26, 36, 0.75)
     ),
     url("../img/cta-bg-tech.svg");
+}
+/* iPad / iOS / touch : on désactive le fixed */
+@supports (-webkit-touch-callout: none) {
+  .parallax {
+    background-attachment: scroll;
+  }
 }
 
 /* A PROPOS / VISION */
@@ -1371,7 +1379,7 @@ nav .primary-btn {
 
 /* ---- APPROCHE : bloc "agile" (encadré) ---- */
 .approche-agile {
-  margin-top: 4rem;
+  margin-top: 3rem;
   background: var(--base-700);
   border-radius: 16px;
   padding: 1.6rem 1.8rem;
@@ -1413,7 +1421,7 @@ nav .primary-btn {
 }
 .approche-agile .agile-points li::before {
   content: "✓";
-  color: var(--green-400);
+  color: var(--tech-accent);
   font-weight: 700;
   margin-top: 0.05rem;
 }
@@ -1426,7 +1434,7 @@ nav .primary-btn {
   border-radius: 999px;
   background: rgba(62, 215, 165, 0.12);
   border: 1px solid rgba(62, 215, 165, 0.25);
-  color: var(--green-400);
+  color: var(--tech-accent);
   font-weight: 600;
   font-size: 0.85rem;
   margin-bottom: 0.8rem;
@@ -1568,14 +1576,15 @@ nav .primary-btn {
 /* FOOTER */
 footer {
   background-color: var(--base-800);
-  padding: 4rem 0;
+  padding: 4rem 1rem 4.75rem 1rem;
   /* margin: 0 auto; */
 }
 
 .footer-grid {
   display: grid;
+  justify-content: center;
   gap: 2.5rem;
-  max-width: 80%;
+  max-width: 1280px;
   margin: 0 auto;
 }
 @media (min-width: 900px) {
@@ -1602,11 +1611,20 @@ footer {
   margin: 0 0 0.6rem;
 }
 .footer-col h3 {
-  margin: 0 0 1rem;
+  /* margin: 0 0 1rem;
   color: var(--green-400);
   font-size: 1.05rem;
+  opacity: 0.85; */
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-400);
   opacity: 0.85;
 }
+
 .footer-tagline {
   color: var(--text-secondary);
   line-height: 1.6;
@@ -1726,6 +1744,7 @@ footer {
   opacity: 1;
   transform: translateX(2px);
   outline: none;
+  color: var(--tech-accent);
 }
 
 /* FontAwesome gradient */
