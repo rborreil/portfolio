@@ -1461,6 +1461,49 @@ nav .primary-btn {
   opacity: 0.7;
 }
 
+/* ===== Testimonials carousel (sans boutons) ===== */
+.testimonials-carousel {
+  margin-top: 1.5rem;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: 16px;
+  touch-action: pan-y; /* on autorise le swipe horizontal via JS sans bloquer le scroll vertical */
+  cursor: grab;
+}
+
+.carousel-viewport:active {
+  cursor: grabbing;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.25rem 0.25rem 0.75rem;
+  will-change: transform;
+}
+
+/* Cards */
+.carousel-track .testimonial-card {
+  flex: 0 0 clamp(260px, 70vw, 420px);
+  user-select: none; /* évite de sélectionner le texte lors du drag */
+  -webkit-user-select: none;
+}
+
+/* Interaction directe: hover/focus */
+.carousel-track .testimonial-card:hover,
+.carousel-track .testimonial-card:focus-within {
+  transform: translateY(-2px);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    will-change: auto;
+  }
+}
+
 /* FAQ */
 .faq-list {
   margin-top: 3rem;
