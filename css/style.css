@@ -48,13 +48,29 @@
   --tech-accent: #36c4dd;
 
   /* Neutres */
-  --white: #f7f8fa;
-  --gray-300: #cbd5e1;
+  --text-main: #f7f8fa;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
 
   /* FONTS */
+  /* Globaux */
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
   --sans: Oxygen, sans-serif;
+
+  /* Titres */
+  --text-h2: clamp(1.6rem, 3vw, 2rem); /* titres de section */
+  --text-h3-card: clamp(1.1rem, 2vw, 1.4rem); /* cartes */
+  --text-h3-compact: 1.1rem; /* narratif / flow */
+  --text-h3-action: 1.2rem; /* FAQ, interactif */
+
+  /* Paragraphes */
+  --text-body-lg: 1.05rem; /* cartes larges */
+  --text-body: 1rem; /* standard */
+  --text-body-sm: 0.95rem; /* narratif dense */
+
+  /* Méta */
+  --text-meta: 0.85rem;
 }
 html {
   -webkit-box-sizing: border-box;
@@ -86,7 +102,7 @@ body {
   margin: 0;
   font-family: var(--sans);
   background-color: var(--base-900);
-  color: var(--white);
+  color: var(--text-main);
   font-size: var(--font-size);
 }
 html,
@@ -170,14 +186,14 @@ h4 {
   margin-bottom: 4rem;
 }
 .title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: var(--text-h2);
   margin-bottom: 1rem;
   text-align: center;
-  color: var(--white);
+  color: var(--text-main);
 }
 .subtitle {
-  color: var(--gray-300);
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  font-size: var(--text-body-lg);
   line-height: 2rem;
   text-align: center;
 }
@@ -265,7 +281,7 @@ nav ul {
   gap: 2rem;
 }
 nav li a {
-  color: var(--white);
+  color: var(--text-main);
   text-decoration: none;
   display: block;
 }
@@ -623,7 +639,6 @@ nav .primary-btn {
 
 /* Ordre des cards section Tarifs */
 @media (min-width: 701px) and (max-width: 1279px) {
-
   /* Ordre STANDARD */
   .tarif-standard-site {
     order: 1;
@@ -736,7 +751,7 @@ nav .primary-btn {
 .vision-card h3,
 .tarif-card h3,
 .skill-card h3 {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-size: var(--text-h3-card);
   color: var(--green-400);
   margin: 0;
   line-height: 1.3;
@@ -744,10 +759,12 @@ nav .primary-btn {
 
 /* DESCRIPTION */
 .service-card p,
-.vision-card p {
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+.vision-card p,
+.tarif-card p,
+.skill-card p {
+  font-size: var(--text-body-lg);
+  color: var(--text-secondary);
   line-height: 1.55;
-  opacity: 0.9;
 }
 
 /* Section PROJETS */
@@ -817,7 +834,7 @@ nav .primary-btn {
 }
 #projects .black-box {
   background-color: rgba(255, 255, 255, 0.039);
-  color: var(--white);
+  color: var(--text-main);
   padding: 1rem;
   font-size: 1rem;
   line-height: 2;
@@ -1006,7 +1023,7 @@ nav .primary-btn {
   padding-left: 2rem;
   font-size: 1rem;
   font-weight: 600;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .tarif-card li::before,
@@ -1036,12 +1053,12 @@ nav .primary-btn {
 }
 
 .package strong {
-  color: var(--white);
+  color: var(--text-main);
 }
 
 /* PRIX */
 .tarifs-price {
-  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-size: clamp(1.6rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--tech-purple);
   margin: 0.5rem 0 1rem;
@@ -1052,7 +1069,7 @@ nav .primary-btn {
 .tarifs-price span {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--gray-300);
+  color: var(--text-secondary);
 }
 
 .tarifs-price s {
@@ -1064,10 +1081,17 @@ nav .primary-btn {
   text-align: center;
   margin: 3rem 0;
 }
-
-.star-display {
-  font-size: 1.15rem;
+.sub-subtitle {
+  text-align: center;
 }
+.tarifs-note,
+.sub-subtitle,
+.star-display {
+  font-size: var(--text-meta);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 .star {
   color: var(--tech-accent);
   font-size: 1.75rem;
@@ -1085,7 +1109,7 @@ nav .primary-btn {
     url("../img/cta-bg-tech.svg") center / cover fixed;
   padding: 6rem 2rem;
   text-align: center;
-  color: var(--white);
+  color: var(--text-main);
 }
 
 .cta h2 {
@@ -1250,15 +1274,15 @@ nav .primary-btn {
 }
 
 .flow-content h3 {
-  margin-bottom: 0.5rem;
   color: var(--green-400);
-  font-size: 1.1rem;
+  font-size: var(--text-h3-compact);
+  margin-bottom: 0.5rem;
 }
 
 .flow-content p {
-  color: var(--gray-300);
+  color: var(--text-secondary);
+  font-size: var(--text-body-sm);
   line-height: 1.6;
-  font-size: 0.95rem;
 }
 
 /* Vision */
@@ -1273,21 +1297,21 @@ nav .primary-btn {
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
-  color: var(--white);
+  color: var(--text-main);
   border: 1px dashed var(--tech-purple);
   position: relative;
 }
 
 .number-card .number {
-  font-size: 2.5rem;
+  font-size: clamp(2.2rem, 4vw, 2.6rem);
   font-weight: 700;
   color: var(--green-400); /* adapté à ton branding greentech */
   margin-bottom: 0.5rem;
 }
 
 .number-card .label {
-  font-size: 0.95rem;
-  color: var(--gray-300);
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
 }
 
 /* SKILLS */
@@ -1301,7 +1325,7 @@ nav .primary-btn {
 }
 .process-step {
   text-align: center;
-  color: var(--white);
+  color: var(--text-main);
 }
 .process-icon {
   position: relative;
@@ -1342,7 +1366,7 @@ nav .primary-btn {
 }
 .process-label {
   font-size: 0.9rem;
-  color: var(--gray-300);
+  color: var(--text-secondary);
 }
 
 /* ---- APPROCHE : bloc "agile" (encadré) ---- */
@@ -1365,7 +1389,7 @@ nav .primary-btn {
 /* Texte */
 .approche-agile p {
   margin: 0.6rem 0 0;
-  color: var(--gray-300);
+  color: var(--text-secondary);
   line-height: 1.65;
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   opacity: 0.95;
@@ -1383,7 +1407,7 @@ nav .primary-btn {
   display: flex;
   gap: 0.6rem;
   align-items: flex-start;
-  color: var(--gray-300);
+  color: var(--text-secondary);
   line-height: 1.5;
   font-size: 0.95rem;
 }
@@ -1418,7 +1442,7 @@ nav .primary-btn {
 .testimonial-text {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--gray-300);
+  color: var(--text-secondary);
   margin-bottom: 1.2rem;
 }
 
@@ -1444,11 +1468,11 @@ nav .primary-btn {
   border-radius: 12px;
   border: 1px solid var(--base-800);
   padding: 1.2rem 1.5rem;
-  color: var(--white);
+  color: var(--text-main);
 }
 .faq-item summary {
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: var(--text-h3-action);
   font-weight: 500;
   color: var(--green-400);
   list-style: none;
@@ -1471,16 +1495,16 @@ nav .primary-btn {
   content: "–";
 }
 .faq-item p {
-  margin-top: 0.8rem;
-  font-size: 1rem;
+  font-size: var(--text-body);
+  color: var(--text-secondary);
   line-height: 1.6;
-  color: var(--gray-300);
+  margin-top: 0.8rem;
 }
 
 /* CONTACT */
 /* Textes & Infos */
 .contact-info {
-  color: var(--gray-300);
+  color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -1518,7 +1542,7 @@ nav .primary-btn {
 
 .form-group label {
   font-size: 0.85rem;
-  color: var(--gray-300);
+  color: var(--text-secondary);
 }
 
 .form-group input,
@@ -1527,7 +1551,7 @@ nav .primary-btn {
   border: 1px solid var(--base-800);
   border-radius: 8px;
   padding: 0.7rem 0.8rem;
-  color: var(--white);
+  color: var(--text-main);
   font-size: 0.95rem;
 }
 
@@ -1584,7 +1608,7 @@ footer {
   opacity: 0.85;
 }
 .footer-tagline {
-  color: var(--gray-300);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0.75rem 0 1.5rem;
   max-width: 45ch;
@@ -1642,8 +1666,8 @@ footer {
   font-size: 1rem;
 }
 .footer-nav a {
-  font-size: 0.95rem;
-  color: var(--white);
+  font-size: var(--text-body-sm);
+  color: var(--text-main);
   text-decoration: none;
   opacity: 0.85;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -1692,7 +1716,7 @@ footer {
   font-size: 1rem;
 }
 .footer-links a {
-  color: var(--white);
+  color: var(--text-main);
   opacity: 0.85;
   text-decoration: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -1754,9 +1778,8 @@ footer [class*="fa-"]:hover {
     justify-content: center;
   }
 }
+.footer-meta,
 .footer-bottom small {
-  opacity: 0.9;
-}
-.footer-meta {
-  opacity: 0.7;
+  font-size: var(--text-meta);
+  color: var(--text-muted);
 }
