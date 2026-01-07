@@ -1151,17 +1151,11 @@ nav .primary-btn {
 
 /* Test Parallax secondaire */
 /* Variables */
-/* .parallax-secondary-cta {
-  --bg-image: url("../img/parallax/bureau-ergo.webp");
-} */
-.parallax-secondary-numbers {
-  --bg-image: url("./img/bg-numbers.webp");
+.parallax-secondary-cta {
+  background-image: url("../img/parallax/bureau-ergo.webp");
 }
-.parallax-secondary-process {
-  --bg-image: url("./img/bg-process.webp");
-}
-.parallax-secondary-contact {
-  --bg-image: url("./img/bg-contact.webp");
+.parallax-secondary-others {
+  background-image: url("../img/parallax/abstract-data.webp");
 }
 /* Base */
 .parallax-secondary {
@@ -1172,7 +1166,6 @@ nav .primary-btn {
   align-items: center;
 
   /* IMAGE (change-la section par section) */
-  background-image: url("../img/parallax/bureau-ergo.webp");
   background-size: cover;
   background-position: center;
 
