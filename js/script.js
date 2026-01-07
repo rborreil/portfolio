@@ -3,30 +3,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const fixedMail = document.querySelector(".fixed-btn .fixed-mail");
   const fixedHome = document.querySelector(".fixed-btn .fixed-home");
   const floatingNav = document.querySelector(".floating-nav");
-  // const footer = document.querySelector("#footer");
+  const hero = document.querySelector("#hero");
 
-  // Seuil d’apparition
-  let scrollThreshold = window.innerWidth > 500 ? 700 : 1050;
+  // Seuils d’apparition / disparition
+  function getThreshold() {
+    if (!hero) return 300; // fallback sécurité
+    return hero.getBoundingClientRect().bottom + window.pageYOffset;
+  }
+
+  function getTop(el) {
+    return el.getBoundingClientRect().top + window.pageYOffset;
+  }
 
   function toggleFixedButtons() {
     const scrollY = window.pageYOffset;
     const windowHeight = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
+    const viewportBottom = scrollY + windowHeight;
+    const scrollThreshold = getThreshold();
 
-    const isAtBottom = scrollY + windowHeight >= docHeight - 200;
-    const isAtContact = scrollY + windowHeight >= docHeight - 1000;
+    const contact = document.querySelector("#contact");
+    const footer = document.querySelector("#footer");
+
+    // “on est au contact” dès que le bas du viewport atteint le haut de la section contact
+    const isAtContact = contact ? viewportBottom >= getTop(contact) : false;
+    // “on est en bas” dès que le bas du viewport atteint le footer
+    const isAtBottom = footer ? viewportBottom >= getTop(footer) : false;
 
     const shouldShow = scrollY > scrollThreshold && !isAtBottom;
     const shouldShowMail = scrollY > scrollThreshold && !isAtContact;
-    const shouldShowHome = scrollY > scrollThreshold;
+    // const shouldShowHome = scrollY > scrollThreshold;
 
     fixedMail.classList.toggle("fixed-hidden", !shouldShowMail);
-    fixedHome.classList.toggle("fixed-hidden", !shouldShowHome);
+    fixedHome.classList.toggle("fixed-hidden", !shouldShow);
     floatingNav.classList.toggle("fixed-hidden", !shouldShow);
   }
 
   window.addEventListener("scroll", toggleFixedButtons);
   window.addEventListener("resize", toggleFixedButtons);
+
+  // TEST PARALLAX SECONDAIRE
+
+
 
   // CHIFFRES - COMPTEUR
 

@@ -1107,8 +1107,8 @@ nav .primary-btn {
 }
 
 .cta {
-  background: linear-gradient(rgba(10, 26, 36, 0.25), rgba(10, 26, 36, 0.25)),
-    url("../img/cta-bg-tech.svg") center / cover fixed;
+  /* background: linear-gradient(rgba(10, 26, 36, 0.25), rgba(10, 26, 36, 0.25)),
+    url("../img/cta-bg-tech.svg") center / cover fixed; */
   padding: 6rem 2rem;
   text-align: center;
   color: var(--text-main);
@@ -1148,6 +1148,64 @@ nav .primary-btn {
     background-attachment: scroll;
   }
 }
+
+/* Test Parallax secondaire */
+/* Variables */
+/* .parallax-secondary-cta {
+  --bg-image: url("../img/parallax/bureau-ergo.webp");
+} */
+.parallax-secondary-numbers {
+  --bg-image: url("./img/bg-numbers.webp");
+}
+.parallax-secondary-process {
+  --bg-image: url("./img/bg-process.webp");
+}
+.parallax-secondary-contact {
+  --bg-image: url("./img/bg-contact.webp");
+}
+/* Base */
+.parallax-secondary {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  display: grid;
+  align-items: center;
+
+  /* IMAGE (change-la section par section) */
+  background-image: url("../img/parallax/bureau-ergo.webp");
+  background-size: cover;
+  background-position: center;
+
+  /* “Parallax” CSS pur */
+  background-attachment: fixed;
+}
+
+/* Overlay lisibilité */
+.parallax-secondary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 26, 36, 0.72),
+    rgba(10, 26, 36, 0.92)
+  );
+}
+
+/* Contenu au-dessus */
+.parallax-secondary > .container-media {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fallback iOS/iPad: on coupe le fixed (sinon rendu “cassé” ou ignoré) */
+@supports (-webkit-touch-callout: none) {
+  .parallax-secondary {
+    background-attachment: scroll;
+  }
+}
+
+
 
 /* A PROPOS / VISION */
 #about {
@@ -1292,10 +1350,6 @@ nav .primary-btn {
 /* Vision */
 
 /* CHIFFRES */
-#key-numbers {
-  /* background-color: var(--base-800); */
-}
-
 .number-card {
   background: var(--base-700);
   padding: 2rem;
@@ -1323,7 +1377,7 @@ nav .primary-btn {
   background-color: var(--base-900);
 }
 
-/* PROCESS */
+/* PROCESS / APPROCHE */
 #process {
   background-color: var(--base-800);
 }
@@ -1826,18 +1880,50 @@ footer [class*="fa-"]:hover {
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
   gap: 1.5rem;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   text-align: center;
+  /* position: relative; */
 }
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   .footer-bottom {
     justify-content: center;
   }
 }
+@media (max-width: 900px) {
+  .footer-bottom {
+    justify-content: center;
+  }
+} */
 .footer-meta,
 .footer-bottom small {
   font-size: var(--text-meta);
   color: var(--text-muted);
+}
+.footer-bottom img {
+  height: 125px;
+  width: 125px;
+  position: relative;
+  top: -10px;
+}
+.footer-bottom .footer-bottom-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+@media (min-width: 700px) {
+  .footer-bottom .footer-bottom-text {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+}
+@media (min-width: 900px) {
+  .footer-bottom .footer-bottom-text {
+    gap: 10rem;
+  }
 }
