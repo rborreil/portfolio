@@ -286,13 +286,11 @@ nav li a {
   text-decoration: none;
   display: block;
 }
-nav li a:hover {
-  /* color: var(--green-400); */
-}
 nav span img {
   position: relative;
   top: -50px;
   left: 50%;
+  z-index: 1;
   transform: translateX(-50%);
   margin-bottom: -100px;
   width: 150px;
@@ -1154,9 +1152,25 @@ nav .primary-btn {
 .parallax-secondary-cta {
   background-image: url("../img/parallax/bureau-ergo.webp");
 }
-.parallax-secondary-others {
+.parallax-secondary-cta-2 {
+  background-image: url("../img/parallax/bureau-ergo-3.webp");
+}
+.parallax-secondary-cta-3 {
+  background-image: url("../img/parallax/collab.webp");
+}
+.parallax-secondary-numbers {
+  background-image: url("../img/parallax/abstract-data-2.webp");
+}
+.parallax-secondary-process {
   background-image: url("../img/parallax/abstract-data.webp");
 }
+.parallax-secondary-contact {
+    background-image: url("../img/parallax/abstract-data-3.webp");
+
+}
+/* .parallax-secondary-others {
+  background-image: url("../img/parallax/abstract-data.webp");
+} */
 /* Base */
 .parallax-secondary {
   position: relative;
@@ -1367,7 +1381,7 @@ nav .primary-btn {
 
 /* SKILLS */
 #skills {
-  background-color: var(--base-900);
+  background-color: var(--base-800);
 }
 
 /* PROCESS / APPROCHE */
@@ -1552,6 +1566,9 @@ nav .primary-btn {
 }
 
 /* FAQ */
+#faq {
+  background-color: var(--base-800);
+}
 .faq-list {
   margin-top: 3rem;
   display: grid;
@@ -1661,7 +1678,7 @@ nav .primary-btn {
 
 /* FOOTER */
 footer {
-  background-color: var(--base-800);
+  background-color: var(--base-900);
   padding: 4rem 1rem 4.75rem 1rem;
   /* margin: 0 auto; */
 }
