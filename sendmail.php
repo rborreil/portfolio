@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Host = 'mail.robinborreil.fr'; // OU ssl0.ovh.net si soucis
         $mail->SMTPAuth = true;
         $mail->Username = 'contact@robinborreil.fr'; // ← à remplacer
-        $mail->Password = 'Chouquette;B49'; // ← à remplacer
+        $mail->Password = ''; // ← à remplacer
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
