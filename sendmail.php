@@ -41,9 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Port = 465;
 
         // Expéditeur et destinataire
-        $mail->setFrom('contact@robinborreil.fr', "$prenom $nom - $poste chez $entreprise");
+        $mail->setFrom('contact@robinborreil.fr', "Mme/Mr $nom - entreprise $entreprise");
         $mail->addAddress('contact@robinborreil.fr');
-        $mail->addReplyTo($email, "$prenom $nom");
+        $mail->addReplyTo($email, "$nom");
 
         // Contenu
         $mail->isHTML(true);
