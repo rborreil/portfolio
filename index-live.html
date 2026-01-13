@@ -62,7 +62,8 @@
       href="https://db.onlinewebfonts.com/c/77d394fa0c1103c648f880b77cb4a32f?family=Futura+LT+W01+Medium"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+    <link rel="stylesheet" href="./css/autoprefixer.css" />
     <script
       src="https://kit.fontawesome.com/747b4ee134.js"
       crossorigin="anonymous"
@@ -262,10 +263,12 @@
     <section class="cta parallax-secondary parallax-secondary-cta">
       <!-- <div class="parallax-bg" style="background-image: url('./img/parallax/bureau-ergo.webp');"></div> -->
       <div class="container-media">
-        <h2><i class="fa fa-quote-left" aria-hidden="true"></i
-            >&nbsp;&nbsp;Créateur de Sites Web depuis 2021&nbsp;&nbsp;<i
-              class="fa fa-quote-right"
-            ></i></h2>
+        <h2>
+          <i class="fa fa-quote-left" aria-hidden="true"></i
+          >&nbsp;&nbsp;Créateur de Sites Web depuis 2021&nbsp;&nbsp;<i
+            class="fa fa-quote-right"
+          ></i>
+        </h2>
         <div>
           <a href="mailto:contact@robinborreil.fr" class="primary-btn"
             >Échangeons</a
@@ -474,10 +477,11 @@
     <!-- CTA -->
     <section class="cta parallax-secondary parallax-secondary-cta-2">
       <div class="container-media">
-        <h2><i class="fa fa-quote-left" aria-hidden="true"></i
-            >&nbsp;&nbsp;Je réponds aux besoins des particuliers, TPE ou associations&nbsp;&nbsp;<i
-              class="fa fa-quote-right"
-            ></i></h2>
+        <h2>
+          <i class="fa fa-quote-left" aria-hidden="true"></i>&nbsp;&nbsp;Je
+          réponds aux besoins des particuliers, TPE ou
+          associations&nbsp;&nbsp;<i class="fa fa-quote-right"></i>
+        </h2>
         <div>
           <!-- <a href="mailto:contact@robinborreil.fr" class="primary-btn"
             >Discutons-en</a
@@ -993,9 +997,7 @@
       <div class="container container-media">
         <div class="title-group">
           <!-- <h2 class="title">Mon process</h2> -->
-          <h2 class="title">
-            Mon Approche
-          </h2>
+          <h2 class="title">Mon Approche</h2>
           <p class="subtitle">
             Des étapes claires, un accompagnement humain, un projet maîtrisé.
           </p>
@@ -1300,35 +1302,69 @@
             </p>
             <p class="contact-mail">
               📞
-              <a href="tel:0777890103"
-                >07 77 89 01 03</a
-              >
+              <a href="tel:0777890103">07 77 89 01 03</a>
             </p>
           </div>
 
           <!-- Formulaire -->
-          <form class="contact-form" method="post" action="#">
+          <form id="contact-form" class="contact-form" method="post" action="#">
             <div class="form-group">
-              <label for="name">Nom</label>
-              <input type="text" id="name" name="name" required />
+              <div class="form-subgroup">
+                <label for="nom">Nom <span class="asterisque">*</span></label>
+                <input type="text" id="nom" name="nom" required />
+              </div>
+              <div class="form-subgroup">
+                <label for="entreprise">Entreprise</label>
+                <input type="text" id="entreprise" name="entreprise" />
+              </div>
             </div>
 
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required />
+              <div class="form-subgroup">
+                <label for="email">Email <span class="asterisque">*</span></label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-subgroup">
+                <label for="tel">Téléphone</label>
+                <input type="tel" id="tel" name="tel" />
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-              ></textarea>
+            <div>
+              <div class="form-subgroup">
+                <label for="sujet">Sujet <span class="asterisque">*</span></label>
+                <input type="sujet" id="sujet" name="sujet" required />
+              </div>
+              <div class="form-subgroup">
+                <label for="message">Message <span class="asterisque">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
             </div>
 
-            <button type="submit" class="primary-btn">
+            <div class="consent-text">
+              <label class="">
+                <input type="checkbox" name="consentement" required />
+                &nbsp;<span
+                  >J’accepte que mes données personnelles soient traitées uniquement afin de répondre à ma demande.</span
+                ><span class="asterisque"> *</span>
+              </label>
+
+              <p class="">
+                <span
+                  >Pour en savoir plus sur la gestion de vos données
+                  personnelles et pour exercer vos droits, consultez notre </span
+                ><a href="" class="" target="_blank"
+                  ><span>Politique de confidentialité</span></a
+                >.
+              </p>
+            </div>
+
+            <button type="submit" id="form-status" class="primary-btn">
               Envoyer le message
             </button>
           </form>
@@ -1395,7 +1431,10 @@
                   aria-label="Contact téléphone"
                   class="social-link"
                 >
-                  <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+                  <i
+                    class="fa-solid fa-mobile-screen-button"
+                    aria-hidden="true"
+                  ></i>
                 </a>
               </li>
             </ul>
@@ -1459,6 +1498,9 @@
       </section>
     </footer>
 
+    <!-- JS Global -->
     <script src="./js/script.js" defer></script>
+    <!-- JS Formulaire -->
+    <script src="./form.js" defer></script>
   </body>
 </html>
