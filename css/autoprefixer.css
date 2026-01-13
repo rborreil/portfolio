@@ -1694,6 +1694,7 @@ nav .primary-btn {
 .validation-style {
   background: var(--base-900);
   color: var(--green-500);
+  margin-top: 1.2rem;
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
   text-decoration: none;
