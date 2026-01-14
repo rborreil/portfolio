@@ -1152,9 +1152,9 @@
 
               <article class="testimonial-card">
                 <p class="testimonial-text">
-                  “Robin propose une approche concrète et pragmatique, avec des explications
-                  accessibles. Le travail est sérieux et le site fonctionne
-                  comme attendu, sans complication.”
+                  “Robin propose une approche concrète et pragmatique, avec des
+                  explications accessibles. Le travail est sérieux et le site
+                  fonctionne comme attendu, sans complication.”
                 </p>
                 <div class="testimonial-author">
                   <strong>Sean Puel</strong>
@@ -1307,7 +1307,23 @@
           </div>
 
           <!-- Formulaire -->
-          <form id="contact-form" class="contact-form" method="post" action="#" netlify>
+          <form
+            id="contact-form"
+            class="contact-form"
+            method="post"
+            action="#"
+            netlify
+          >
+            <!-- Honeypot -->
+            <input
+              type="text"
+              name="website"
+              id="website"
+              autocomplete="off"
+              tabindex="-1"
+              style="display: none"
+            />
+
             <div class="form-group">
               <div class="form-subgroup">
                 <label for="nom">Nom <span class="asterisque">*</span></label>
@@ -1321,7 +1337,9 @@
 
             <div class="form-group">
               <div class="form-subgroup">
-                <label for="email">Email <span class="asterisque">*</span></label>
+                <label for="email"
+                  >Email <span class="asterisque">*</span></label
+                >
                 <input type="email" id="email" name="email" required />
               </div>
               <div class="form-subgroup">
@@ -1332,11 +1350,15 @@
 
             <div>
               <div class="form-subgroup">
-                <label for="sujet">Sujet <span class="asterisque">*</span></label>
+                <label for="sujet"
+                  >Sujet <span class="asterisque">*</span></label
+                >
                 <input type="text" id="sujet" name="sujet" required />
               </div>
               <div class="form-subgroup">
-                <label for="message">Message <span class="asterisque">*</span></label>
+                <label for="message"
+                  >Message <span class="asterisque">*</span></label
+                >
                 <textarea
                   id="message"
                   name="message"
@@ -1350,7 +1372,10 @@
               <label class="">
                 <input type="checkbox" name="consentement" required />
                 &nbsp;<span
-                  >En soumettant ce formulaire, j'accepte que les informations saisies soient utilisées exclusivement dans les contextes de traitement de cette demande de contact ainsi que la relation commerciale pouvant en résulter.</span
+                  >En soumettant ce formulaire, j'accepte que les informations
+                  saisies soient utilisées exclusivement dans les contextes de
+                  traitement de cette demande de contact ainsi que la relation
+                  commerciale pouvant en résulter.</span
                 ><span class="asterisque"> *</span>
               </label>
 

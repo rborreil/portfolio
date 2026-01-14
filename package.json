@@ -1,0 +1,24 @@
+{
+  "name": "7_portfolio_v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "form.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rborreil/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rborreil/portfolio/issues"
+  },
+  "homepage": "https://github.com/rborreil/portfolio#readme",
+  "dependencies": {
+    "nodemailer": "^7.0.12"
+  }
+}

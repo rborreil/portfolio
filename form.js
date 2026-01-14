@@ -1,51 +1,61 @@
-console.log("✅ form.js chargé !");
-
 document.addEventListener("DOMContentLoaded", function () {
+  // Debug
+  console.log("ENV CHECK", {
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: process.env.SMTP_SECURE,
+    user: process.env.SMTP_USER,
+    hasPass: Boolean(process.env.SMTP_PASS),
+  });
+  // Fin Debug
 
-  // FORMULAIRE DE CONTACT - ENVOI AJAX
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
 
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
+  if (!form) return;
 
-      fetch("sendmail.php", {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      nom: form.nom.value,
+      entreprise: form.entreprise.value,
+      email: form.email.value,
+      tel: form.tel.value,
+      sujet: form.sujet.value,
+      message: form.message.value,
+      consentement: form.consentement.checked,
+      website: form.website ? form.website.value : "",
+    };
+
+    try {
+      const res = await fetch("/.netlify/functions/contact", {
         method: "POST",
-        body: formData
-      })
-        .then((res) => res.text())
-        .then((data) => {
-          console.log("Réponse PHP :", data);
-          // status.removeAttribute("data-i18n");
-          // status.textContent = "Message envoyé ✔️";
-          status.textContent = "Message envoyé avec succès !";
-          status.classList.remove("primary-btn");
-          status.classList.add("validation-style");
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-          form.reset();
+      const data = await res.json().catch(() => ({}));
 
-          // Réinitialiser après 5 secondes
-          setTimeout(() => {
-            status.textContent = "Envoyer le message";
-            // status.setAttribute("data-i18n", "contactFormButton");
-            status.style.backgroundColor = ""; // annule override
-            status.style.color = "";
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || `HTTP ${res.status}`);
+      }
 
-            // Revenir aux classes originales
-            status.classList.remove("validation-style");
-            status.classList.add(
-              "primary-btn"
-            );
-          }, 8000);
-        })
-        .catch((err) => {
-          console.error("Erreur JS :", err);
-          status.textContent = "Erreur d'envoi.";
-          status.style.color = "red";
-          status.style.display = "block";
-        });
-    });
-  }
-})
+      status.textContent = "Message envoyé avec succès !";
+      status.classList.remove("primary-btn");
+      status.classList.add("validation-style");
+      form.reset();
+
+      setTimeout(() => {
+        status.textContent = "Envoyer le message";
+        status.classList.remove("validation-style");
+        status.classList.add("primary-btn");
+      }, 8000);
+    } catch (err) {
+      console.error(err);
+      status.textContent = "Erreur d'envoi : " + err.message;
+      status.style.color = "red";
+      status.style.display = "block";
+    }
+  });
+});
