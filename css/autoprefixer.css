@@ -5,6 +5,14 @@
 * Browsers: last 10 versions
 */
 
+/* 
+Responsive - Media Queries : Official breakpoint width CSS :
+sm	40rem (640px)	
+md	48rem (768px)	
+lg	64rem (1024px)	
+xl	80rem (1280px)	
+2xl	96rem (1536px) */
+
 /* Déclaration de variables réutilisables */
 :root {
   /* COULEURS */
@@ -1643,9 +1651,13 @@ nav .primary-btn {
 }
 
 .form-group {
-  display: flex;
-  /* justify-content: space-between; */
+  /* display: flex; */
   gap: 2rem;
+}
+@media (min-width: 640px) {
+  .form-group {
+    display: flex;
+  }
 }
 
 .form-subgroup {
