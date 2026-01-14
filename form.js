@@ -1,12 +1,13 @@
+console.log("✅ form.js chargé !");
 document.addEventListener("DOMContentLoaded", function () {
   // Debug
-  console.log("ENV CHECK", {
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    secure: process.env.SMTP_SECURE,
-    user: process.env.SMTP_USER,
-    hasPass: Boolean(process.env.SMTP_PASS),
-  });
+  // console.log("ENV CHECK", {
+  //   host: process.env.SMTP_HOST,
+  //   port: process.env.SMTP_PORT,
+  //   secure: process.env.SMTP_SECURE,
+  //   user: process.env.SMTP_USER,
+  //   hasPass: Boolean(process.env.SMTP_PASS),
+  // });
   // Fin Debug
 
   const form = document.getElementById("contact-form");
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok || !data.ok) {
+        console.log("Erreur backend (data) :", data);
         throw new Error(data.error || `HTTP ${res.status}`);
       }
 

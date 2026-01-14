@@ -54,6 +54,9 @@ exports.handler = async (event) => {
     return json(400, { ok: false, error: "Champs requis manquants." });
   }
 
+  console.log("SMTP_HOST=", process.env.SMTP_HOST);
+console.log("SMTP_PORT=", process.env.SMTP_PORT);
+
   // Transport SMTP (OVH)
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST, 

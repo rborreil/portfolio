@@ -1,2 +1,37 @@
-# Local Netlify folder
-.netlify
+# =========================
+# Environnement / secrets
+# =========================
+.env
+.env.*
+*.env
+
+# =========================
+# Node / Netlify
+# =========================
+node_modules/
+.netlify/
+.netlify/state.json
+
+# =========================
+# Logs & debug
+# =========================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Build / cache (si présents)
+# =========================
+dist/
+build/
+.cache/
