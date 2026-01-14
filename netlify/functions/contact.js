@@ -56,17 +56,17 @@ exports.handler = async (event) => {
 
   // Transport SMTP (OVH)
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST, // ex: mail.robinborreil.fr ou ssl0.ovh.net
+    host: process.env.SMTP_HOST, 
     port: Number(process.env.SMTP_PORT || 465),
-    secure: String(process.env.SMTP_SECURE || "true") === "true", // true pour 465
+    secure: String(process.env.SMTP_SECURE || "true") === "true", 
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
   });
 
-  const to = process.env.MAIL_TO; // ex: contact@robinborreil.fr
-  const from = process.env.MAIL_FROM; // ex: contact@robinborreil.fr
+  const to = process.env.MAIL_TO; 
+  const from = process.env.MAIL_FROM; 
 
   const subject = `Formulaire robinborreil.fr : ${sujet}`;
 
