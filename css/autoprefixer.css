@@ -429,8 +429,8 @@ nav .primary-btn {
   padding: 0;
   position: fixed;
   right: 10px;
-  top: 75%;
-  transform: translateY(-75%);
+  top: 50%;
+  transform: translateY(-50%);
   flex-direction: column;
   gap: 1rem;
   z-index: 1000;
