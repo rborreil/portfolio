@@ -1184,8 +1184,8 @@ nav .primary-btn {
   position: relative;
   overflow: hidden;
   min-height: 320px;
-  display: grid;
-  align-items: center;
+  /* display: grid;
+  align-items: center; */
 
   /* IMAGE (change-la section par section) */
   background-size: cover;
