@@ -1802,7 +1802,7 @@ footer {
 .footer-nav {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 3rem;
   margin-top: 0.25rem;
   flex-wrap: nowrap;
