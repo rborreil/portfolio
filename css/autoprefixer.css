@@ -2006,6 +2006,10 @@ footer {
 .footer-col h2 {
   margin: 0 0 0.6rem;
 }
+.footer-col h2 a {
+  color: inherit;
+  text-decoration: none;
+}
 .footer-col h3 {
   /* margin: 0 0 1rem;
   color: var(--green-400);
