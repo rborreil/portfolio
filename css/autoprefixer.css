@@ -1320,7 +1320,8 @@ nav .primary-btn {
   background-image: url("../img/parallax/collab-2.webp");
 }
 .parallax-secondary-cta-3 {
-  background-image: url("../img/parallax/collab.webp");
+  /* background-image: url("../img/parallax/collab.webp"); */
+  background-image: url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
 .parallax-secondary-numbers {
   background-image: url("../img/parallax/abstract-data-2.webp");
