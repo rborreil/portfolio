@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const token = window.grecaptcha ? window.grecaptcha.getResponse() : "";
       if (!token) {
         status.textContent = "Merci de valider le reCAPTCHA.";
-        status.style.color = "red";
+        status.classList.remove("primary-btn");
+        status.classList.add("error-style");
         status.style.display = "block";
         return;
       }
