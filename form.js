@@ -8,68 +8,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const DEFAULT_TEXT = "Envoyer le message";
 
-  function setButtonState({ text, add = [], remove = [], disabled = false }) {
-    status.textContent = text;
-    status.disabled = disabled;
-
-    // Nettoyage styles inline (au cas où)
-    status.style.display = "";
-
-    // Classes
-    remove.forEach((c) => status.classList.remove(c));
-    add.forEach((c) => status.classList.add(c));
-  }
+  /* =========================
+     Helpers bouton
+     ========================= */
 
   function resetButton() {
-    setButtonState({
-      text: DEFAULT_TEXT,
-      add: ["primary-btn"],
-      remove: ["validation-style", "error-style"],
-      disabled: false,
-    });
+    status.textContent = DEFAULT_TEXT;
+    status.classList.remove("error-style", "validation-style");
+    status.classList.add("primary-btn");
+    status.style.display = "block";
+    status.disabled = false;
   }
 
   function setError(text) {
-    setButtonState({
-      text,
-      add: ["error-style"],
-      remove: ["primary-btn", "validation-style"],
-      disabled: false,
-    });
+    status.textContent = text;
+    status.classList.remove("primary-btn", "validation-style");
+    status.classList.add("error-style");
+    status.style.display = "block";
+    status.disabled = false;
   }
 
   function setSuccess(text) {
-    setButtonState({
-      text,
-      add: ["validation-style"],
-      remove: ["primary-btn", "error-style"],
-      disabled: false,
-    });
+    status.textContent = text;
+    status.classList.remove("primary-btn", "error-style");
+    status.classList.add("validation-style");
+    status.style.display = "block";
+    status.disabled = false;
   }
 
   function setLoading() {
-    setButtonState({
-      text: "Envoi…",
-      add: ["primary-btn"],
-      remove: ["validation-style", "error-style"],
-      disabled: true,
-    });
+    status.textContent = "Envoi en cours…";
+    status.classList.remove("validation-style", "error-style");
+    status.classList.add("primary-btn");
+    status.disabled = true;
   }
 
-  // Exposées globalement pour que reCAPTCHA puisse les appeler
+  /* =========================
+     Callbacks reCAPTCHA
+     ========================= */
+
+  // Appelé automatiquement quand l’utilisateur coche le reCAPTCHA
   window.onRecaptchaSuccess = function () {
-    // Si on était en erreur "Merci de valider…", on remet le bouton normal
     resetButton();
   };
 
+  // Appelé si le token expire
   window.onRecaptchaExpired = function () {
-    // Token expiré → on force un état neutre (ou erreur si tu préfères)
     resetButton();
   };
 
+  // État initial
   resetButton();
 
-  form.addEventListener("submit", async (e) => {
+  /* =========================
+     Submit formulaire
+     ========================= */
+
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     try {
