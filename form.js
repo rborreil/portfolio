@@ -18,23 +18,34 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const payload = {
-      nom: form.nom.value,
-      entreprise: form.entreprise.value,
-      email: form.email.value,
-      tel: form.tel.value,
-      sujet: form.sujet.value,
-      message: form.message.value,
-      consentement: form.consentement.checked,
-      website: form.website ? form.website.value : "",
-      // reCAPTCHA token
-      recaptcha: window.grecaptcha ? window.grecaptcha.getResponse() : "",
-    };
-
     try {
-      if (!payload.recaptcha) {
-        throw new Error("Merci de valider le reCAPTCHA.");
+      const token = window.grecaptcha ? window.grecaptcha.getResponse() : "";
+      if (!token) {
+        status.textContent = "Merci de valider le reCAPTCHA.";
+        status.style.color = "red";
+        status.style.display = "block";
+        return;
       }
+
+      const payload = {
+        nom: form.nom.value,
+        entreprise: form.entreprise.value,
+        email: form.email.value,
+        tel: form.tel.value,
+        sujet: form.sujet.value,
+        message: form.message.value,
+        consentement: form.consentement.checked,
+        website: form.website ? form.website.value : "",
+        recaptcha: token,
+      };
+
+      console.log("reCAPTCHA token length:", payload.recaptcha.length);
+
+      const res = await fetch("/.netlify/functions/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
       const res = await fetch("/.netlify/functions/contact", {
         method: "POST",
