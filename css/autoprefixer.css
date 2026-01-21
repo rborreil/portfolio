@@ -1320,8 +1320,8 @@ nav .primary-btn {
   background-image: url("../img/parallax/collab-2.webp");
 }
 .parallax-secondary-cta-3 {
-  /* background-image: url("../img/parallax/collab.webp"); */
-  background-image: url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("../img/parallax/collab-3.webp");
+  /* background-image: url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
 }
 .parallax-secondary-numbers {
   background-image: url("../img/parallax/abstract-data-2.webp");
@@ -1754,18 +1754,24 @@ nav .primary-btn {
   opacity: 0.7;
 }
 
-/* ===== Testimonials carousel (sans boutons) ===== */
+/* ===== TEMOIGNAGES - CAROUSEL (sans boutons) ===== */
 .testimonials-carousel {
   margin-top: 1.5rem;
 }
 
 .carousel-viewport {
-  overflow: hidden;
-  border-radius: 16px;
-  -ms-touch-action: pan-y;
-      touch-action: pan-y; /* on autorise le swipe horizontal via JS sans bloquer le scroll vertical */
-  cursor: -webkit-grab;
+  overflow-x: auto;     /* OBLIGATOIRE pour scrollLeft */
+  overflow-y: hidden;
+
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / Edge legacy */
+
+  touch-action: pan-y;
   cursor: grab;
+}
+
+.carousel-viewport::-webkit-scrollbar {
+  display: none; /* Chrome / Safari */
 }
 
 .carousel-viewport:active {
@@ -1774,11 +1780,11 @@ nav .primary-btn {
 }
 
 .carousel-track {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 1.5rem;
   padding: 0.25rem 0.25rem 0.75rem;
+
+  width: max-content;   /* clé du débordement */
   will-change: transform;
 }
 

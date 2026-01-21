@@ -43,8 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // TEST PARALLAX SECONDAIRE
 
-
-
   // CHIFFRES - COMPTEUR
 
   const counters = document.querySelectorAll(".number");
@@ -77,175 +75,75 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.6 }
+    { threshold: 0.6 },
   );
 
   counters.forEach((counter) => observer.observe(counter));
 
-  // ===== Testimonials carousel (auto-scroll + interaction directe sur cartes) =====
-  (() => {
-    const root = document.querySelector("#testimonials .testimonials-carousel");
-    if (!root) return;
+  // ===== TEMOIGNAGES - CAROUSEL (auto-scroll + interaction directe sur cartes) =====
+window.addEventListener("load", () => {
+  const root = document.querySelector("#testimonials .testimonials-carousel");
+  if (!root) return;
 
-    const viewport = root.querySelector(".carousel-viewport");
-    const track = root.querySelector(".carousel-track");
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+  const viewport = root.querySelector(".carousel-viewport");
+  const track = root.querySelector(".carousel-track");
+  if (!viewport || !track) return;
 
-    // Config
-    const SPEED_PX_PER_SEC = 18; // défilement lent
-    const RESUME_AFTER_MS = 3500; // reprise après inactivité
-    const DRAG_THRESHOLD = 6; // px
+  // Clone une seule fois
+  if (!track.dataset.cloned) {
+    [...track.children].forEach((n) => track.appendChild(n.cloneNode(true)));
+    track.dataset.cloned = "true";
+  }
 
-    // State
-    let rafId = null;
-    let lastTs = null;
-    let resumeTimer = null;
-    let isHardPaused = false; // pause "fixe" si on clique/tap volontairement
+  const SPEED = 18;
+  let lastTs = null;
+  let rafId = null;
+  let paused = false;
+  let resumeTimer = null;
 
-    // Drag state
-    let isPointerDown = false;
-    let startX = 0;
-    let startScrollLeft = 0;
-    let moved = false;
-
-    // Clone for infinite loop
-    const originals = Array.from(track.children);
-    originals.forEach((node) => track.appendChild(node.cloneNode(true)));
-
-    function clearResumeTimer() {
-      if (resumeTimer) window.clearTimeout(resumeTimer);
-      resumeTimer = null;
-    }
-
-    function stopAuto() {
-      if (rafId) cancelAnimationFrame(rafId);
+  function tick(ts) {
+    if (paused) {
       rafId = null;
-      lastTs = null;
+      return;
     }
 
-    function startAuto() {
-      if (prefersReducedMotion) return;
-      if (isHardPaused) return;
-      if (rafId) return;
-      rafId = requestAnimationFrame(tick);
+    if (!lastTs) lastTs = ts;
+    const dt = (ts - lastTs) / 1000;
+    lastTs = ts;
+
+    const half = track.scrollWidth / 2;
+    viewport.scrollLeft += SPEED * dt;
+
+    if (viewport.scrollLeft >= half) {
+      viewport.scrollLeft -= half;
     }
 
-    function scheduleResume() {
-      clearResumeTimer();
-      if (prefersReducedMotion) return;
-      if (isHardPaused) return;
-      resumeTimer = window.setTimeout(() => startAuto(), RESUME_AFTER_MS);
-    }
+    rafId = requestAnimationFrame(tick);
+  }
 
-    function userInteracted({ hard = false } = {}) {
-      stopAuto();
-      clearResumeTimer();
-      if (hard) {
-        isHardPaused = true; // pause jusqu’au prochain click/tap
-        return;
-      }
-      scheduleResume();
-    }
+  function start() {
+    if (rafId) return;
+    paused = false;
+    lastTs = null;
+    rafId = requestAnimationFrame(tick);
+  }
 
-    function tick(ts) {
-      if (!lastTs) lastTs = ts;
-      const dt = (ts - lastTs) / 1000;
-      lastTs = ts;
+  function pauseTemporarily() {
+    paused = true;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(start, 1500);
+  }
 
-      const halfScrollWidth = track.scrollWidth / 2;
-      viewport.scrollLeft += SPEED_PX_PER_SEC * dt;
+  // Interactions
+  viewport.addEventListener("wheel", pauseTemporarily, { passive: true });
+  viewport.addEventListener("pointerdown", pauseTemporarily);
+  viewport.addEventListener("mouseenter", pauseTemporarily);
+  viewport.addEventListener("touchstart", pauseTemporarily, { passive: true });
 
-      if (viewport.scrollLeft >= halfScrollWidth) {
-        viewport.scrollLeft -= halfScrollWidth;
-      }
+  start();
+});
 
-      rafId = requestAnimationFrame(tick);
-    }
 
-    // Toggle hard pause on click/tap anywhere in the viewport (direct interaction)
-    function toggleHardPause() {
-      isHardPaused = !isHardPaused;
-      if (isHardPaused) {
-        stopAuto();
-        clearResumeTimer();
-      } else {
-        startAuto();
-      }
-    }
-
-    // Pause on hover (desktop) and resume after mouse leaves
-    viewport.addEventListener("mouseenter", () =>
-      userInteracted({ hard: false })
-    );
-    viewport.addEventListener("mouseleave", () =>
-      userInteracted({ hard: false })
-    );
-
-    // Wheel / touch / focus interactions => temporary pause + resume
-    viewport.addEventListener("wheel", () => userInteracted({ hard: false }), {
-      passive: true,
-    });
-    viewport.addEventListener("focusin", () => userInteracted({ hard: false }));
-
-    // Pointer drag to scroll (mouse + touch + pen)
-    viewport.addEventListener("pointerdown", (e) => {
-      isPointerDown = true;
-      moved = false;
-      startX = e.clientX;
-      startScrollLeft = viewport.scrollLeft;
-      viewport.setPointerCapture(e.pointerId);
-
-      userInteracted({ hard: false });
-    });
-
-    viewport.addEventListener("pointermove", (e) => {
-      if (!isPointerDown) return;
-      const dx = e.clientX - startX;
-      if (Math.abs(dx) > DRAG_THRESHOLD) moved = true;
-      viewport.scrollLeft = startScrollLeft - dx;
-    });
-
-    viewport.addEventListener("pointerup", (e) => {
-      if (!isPointerDown) return;
-      isPointerDown = false;
-
-      // Si c'était un "tap" (pas un drag), toggle pause/play
-      if (!moved) toggleHardPause();
-      else scheduleResume();
-
-      try {
-        viewport.releasePointerCapture(e.pointerId);
-      } catch {}
-    });
-
-    viewport.addEventListener("pointercancel", () => {
-      isPointerDown = false;
-      scheduleResume();
-    });
-
-    // Keyboard (viewport focus): Space/Enter toggle pause, flèches scroll
-    viewport.addEventListener("keydown", (e) => {
-      if (e.key === " " || e.key === "Enter") {
-        e.preventDefault();
-        toggleHardPause();
-      }
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        userInteracted({ hard: false });
-        viewport.scrollBy({ left: -320, behavior: "smooth" });
-      }
-      if (e.key === "ArrowRight") {
-        e.preventDefault();
-        userInteracted({ hard: false });
-        viewport.scrollBy({ left: 320, behavior: "smooth" });
-      }
-    });
-
-    // Init
-    startAuto();
-  })();
 
   // BLOQUER CLIC DROIT
   // document.addEventListener("contextmenu", (e) => e.preventDefault());
@@ -256,4 +154,5 @@ document.addEventListener("DOMContentLoaded", () => {
   //     e.preventDefault();
   //   }
   // });
+  
 });
