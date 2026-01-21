@@ -1,5 +1,33 @@
 const nodemailer = require("nodemailer");
 
+console.log("Has recaptcha secret:", Boolean(process.env.RECAPTCHA_SECRET));
+
+
+// Vérification recaptcha
+async function verifyRecaptcha(token, ip) {
+  const secret = process.env.RECAPTCHA_SECRET;
+  if (!secret) throw new Error("RECAPTCHA_SECRET manquant");
+
+  const params = new URLSearchParams();
+  params.append("secret", secret);
+  params.append("response", token);
+
+  // optionnel: IP (utile mais pas obligatoire)
+  if (ip) {
+    // si ip contient plusieurs IP séparées par virgules
+    const firstIp = String(ip).split(",")[0].trim();
+    if (firstIp) params.append("remoteip", firstIp);
+  }
+
+  const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: params.toString(),
+  });
+
+  return res.json();
+}
+
 function json(statusCode, payload) {
   return {
     statusCode,
@@ -55,21 +83,21 @@ exports.handler = async (event) => {
   }
 
   console.log("SMTP_HOST=", process.env.SMTP_HOST);
-console.log("SMTP_PORT=", process.env.SMTP_PORT);
+  console.log("SMTP_PORT=", process.env.SMTP_PORT);
 
   // Transport SMTP (OVH)
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST, 
+    host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT || 465),
-    secure: String(process.env.SMTP_SECURE || "true") === "true", 
+    secure: String(process.env.SMTP_SECURE || "true") === "true",
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
   });
 
-  const to = process.env.MAIL_TO; 
-  const from = process.env.MAIL_FROM; 
+  const to = process.env.MAIL_TO;
+  const from = process.env.MAIL_FROM;
 
   const subject = `Formulaire robinborreil.fr : ${sujet}`;
 
@@ -81,7 +109,7 @@ console.log("SMTP_PORT=", process.env.SMTP_PORT);
     <strong>Sujet :</strong> ${escapeHtml(sujet)}<br><br>
     <strong>Message :</strong><br>${escapeHtml(message).replace(
       /\n/g,
-      "<br>"
+      "<br>",
     )}<br><br>
     <strong>Consentement :</strong> ${consentement ? "oui" : "non"}<br>
   `;
@@ -89,6 +117,24 @@ console.log("SMTP_PORT=", process.env.SMTP_PORT);
   try {
     // Vérif connexion SMTP (utile en debug)
     // await transporter.verify();
+
+    const recaptchaToken = String(data.recaptcha || "").trim();
+    if (!recaptchaToken) {
+      return json(400, { ok: false, error: "reCAPTCHA manquant." });
+    }
+
+    const recaptchaResult = await verifyRecaptcha(
+      recaptchaToken,
+      event.headers["x-forwarded-for"],
+    );
+
+    if (!recaptchaResult.success) {
+      return json(400, {
+        ok: false,
+        error: "Échec reCAPTCHA.",
+        details: recaptchaResult["error-codes"] || [],
+      });
+    }
 
     await transporter.sendMail({
       from,
@@ -100,10 +146,17 @@ console.log("SMTP_PORT=", process.env.SMTP_PORT);
 
     return json(200, { ok: true, message: "Message envoyé." });
   } catch (err) {
+    const msg = String(err?.message || err);
+
+    // si ça ressemble à un souci reCAPTCHA, renvoie 400
+    if (msg.includes("RECAPTCHA") || msg.toLowerCase().includes("recaptcha")) {
+      return json(400, { ok: false, error: "Erreur reCAPTCHA.", details: msg });
+    }
+
     return json(500, {
       ok: false,
-      error: "Erreur SMTP.",
-      details: String(err?.message || err),
+      error: "Erreur serveur.",
+      details: msg,
     });
   }
 };

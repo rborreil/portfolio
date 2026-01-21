@@ -27,9 +27,15 @@ document.addEventListener("DOMContentLoaded", function () {
       message: form.message.value,
       consentement: form.consentement.checked,
       website: form.website ? form.website.value : "",
+      // reCAPTCHA token
+      recaptcha: window.grecaptcha ? window.grecaptcha.getResponse() : "",
     };
 
     try {
+      if (!payload.recaptcha) {
+        throw new Error("Merci de valider le reCAPTCHA.");
+      }
+
       const res = await fetch("/.netlify/functions/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -47,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       status.classList.remove("primary-btn");
       status.classList.add("validation-style");
       form.reset();
+      if (window.grecaptcha) window.grecaptcha.reset();
 
       setTimeout(() => {
         status.textContent = "Envoyer le message";
