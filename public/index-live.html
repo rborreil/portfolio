@@ -1,0 +1,1714 @@
+<!doctype html>
+<html lang="fr">
+  <!--
+		Salut à toi cher visiteur inspecteur, bienvenue sur mon site web =)
+		Mon code est 100% HTML / CSS / JS Vanilla (pas de CMS, pas de framework)
+		ATTENTION : 
+    L'ensemble du site est protégé par le droit d'auteur sur https://www.inpi.fr/ressources/propriete-intellectuelle/droit-dauteur
+		Respectons le contenu des autres et ne t'exposes pas à des poursuites judiciaires en plagiant.
+    Je te souhaite une bonne visite ;)
+	-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ce site est le Portfolio de Robin Borreil (RobdeV), il permet de regrouper ses principales réalisations en développement web. De plus, il permet d'explorer un peu son parcours et de prendre facilement contact avec lui via son adresse email si vous souhaitez travailler avec lui sur un projet web."
+    />
+    <meta
+      name="keywords"
+      content="Développeur Web, Développeur Front-end, Programmation côté client, Gestion de projet web, Freelance, Robin Borreil, Accueil"
+    />
+    <meta name="author" content="Robin Borreil - RobdeV" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="img/logos/logo-carre_blanc-bgnoir.png" />
+    <link rel="canonical" href="https://robinborreil.fr/" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Robin Borreil | Portfolio" />
+    <meta
+      property="og:description"
+      content="Robin Borreil - RobdeV : Votre développeur web front-end Freelance en région IDF"
+    />
+    <meta property="og:url" content="https://robinborreil.fr/" />
+    <meta property="og:site_name" content="Robin Borreil | Portfolio" />
+    <meta
+      property="og:image"
+      content="https://robinborreil.fr/img/portfolio-v2.PNG"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://robinborreil.fr/img/portfolio-v2.PNG"
+    />
+    <meta
+      name="twitter:card"
+      content="Robin Borreil - RobdeV : Votre développeur web front-end Freelance en région IDF"
+    />
+    <meta
+      name="twitter:description"
+      content="Robin Borreil - RobdeV : Votre développeur web front-end Freelance en région IDF"
+    />
+    <meta name="twitter:title" content="Robin Borreil | Portfolio" />
+    <meta
+      name="twitter:image"
+      content="https://robinborreil.fr/img/portfolio-v2.PNG"
+    />
+    <title>Robin Borreil Développeur Web - Accueil</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen&family=Oxygen+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/77d394fa0c1103c648f880b77cb4a32f?family=Futura+LT+W01+Medium"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="/css/style.css" /> -->
+    <link rel="stylesheet" href="/css/style.min.css" />
+    <script
+      src="https://kit.fontawesome.com/747b4ee134.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Scroll Top -->
+    <!-- <div id="scroll_to_top">
+      <a href="#top"
+        ><img
+          src="/img/logos/logo-carre_blanc-nobg.png"
+          alt="Retourner en haut"
+      /></a>
+    </div> -->
+
+    <!-- HEADER -->
+    <header>
+      <!-- Nav Principale -->
+      <nav>
+        <ul>
+          <li class="menu-item">
+            <a href="#index-live.html">
+              <!-- <span class="fa-solid fa-code" aria-hidden="true"></span> -->
+              <span
+                ><img
+                  src="/img/logos/logo-carre_blanc-nobg.png"
+                  alt=""
+              /></span>
+            </a>
+          </li>
+          <li class="menu-item"><a href="#services">Services</a></li>
+          <li class="menu-item"><a href="#projects">Projets</a></li>
+          <li class="menu-item"><a href="#tarifs">Offres</a></li>
+          <li class="menu-item"><a href="#about">À propos</a></li>
+          <li class="menu-item">
+            <a
+              href="https://www.linkedin.com/in/robin-borreil-201036197/"
+              target="_blank"
+            >
+              <span class="fab fa-linkedin" aria-hidden="true"></span>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="https://github.com/rborreil" target="_blank">
+              <span class="fab fa-github-square" aria-hidden="true"></span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="primary-btn">Contact</a>
+          </li>
+          <!-- <li><a href="https://www.dropbox.com/scl/fi/v0js9v9y34vl01zpijihl/CV_Dev_Robin-Borreil-Alternance.pdf?rlkey=rz6pjfec131r93wyol8nr7vbl&st=6qtgqcyk&dl=0"
+                    target="_blank" class="primary-btn">Parcours</a></li> -->
+        </ul>
+      </nav>
+      <!-- Nav Latérale Flottante -->
+      <nav class="floating-nav fixed-hidden">
+        <!-- Services -->
+        <a
+          class="nav-item"
+          href="#services"
+          aria-label="Services"
+          title="Services"
+        >
+          <i
+            class="fa-solid fa-hand-holding-heart nav-fa"
+            aria-hidden="true"
+          ></i>
+        </a>
+        <!-- Projets -->
+        <a
+          class="nav-item"
+          href="#projects"
+          aria-label="Projets"
+          title="Projets"
+        >
+          <i class="fa-solid fa-briefcase nav-fa" aria-hidden="true"></i>
+        </a>
+        <!-- Offres -->
+        <a class="nav-item" href="#tarifs" aria-label="Offres" title="Offres">
+          <i
+            class="fa-solid fa-hand-holding-dollar nav-fa"
+            aria-hidden="true"
+          ></i>
+        </a>
+        <!-- A Propos -->
+        <a
+          class="nav-item"
+          href="#about"
+          aria-label="À propos"
+          title="À propos"
+        >
+          <i class="fa-solid fa-address-card nav-fa" aria-hidden="true"></i>
+        </a>
+      </nav>
+      <!-- Boutons Fixes -->
+      <p class="fixed-btn">
+        <!-- Fixed Mail -->
+        <a
+          class="nav-item fixed-mail fixed-hidden"
+          href="#contact"
+          aria-label="Contact"
+          title="Contact"
+        >
+          <i class="fa-solid fa-envelope nav-fa" aria-hidden="true"></i>
+        </a>
+        <!-- Fixed Home -->
+        <a
+          class="nav-item fixed-home fixed-hidden"
+          href="#top"
+          aria-label="Accueil"
+          title="Accueil"
+        >
+          <i class="fa-solid fa-house nav-fa" aria-hidden="true"></i>
+        </a>
+      </p>
+      <!-- Hero -->
+      <section id="hero">
+        <h1>Bonjour, je suis <span>Robin Borreil.</span></h1>
+        <h2>
+          Construisons ensemble votre projet web.
+          <span
+            >Je conçois, développe et optimise des sites web efficaces et
+            durables.</span
+          >
+        </h2>
+        <!-- <p>Rendez-moi visite sur <a href="https://www.linkedin.com/in/robin-borreil-201036197/">LinkedIn</a>.</p> -->
+        <p class="flex">
+          <a href="#projects" class="primary-btn">Mes Projets</a>
+          <a href="#tarifs" class="secondary-btn">Mes Offres</a>
+        </p>
+      </section>
+    </header>
+
+    <div class="divider"></div>
+
+    <!-- Section SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="title-group">
+          <h2 class="title">Mes Services</h2>
+          <!-- <p class="subtitle">
+            <strong>100% Green :</strong> Il est important pour moi de respecter
+            les bonnes pratiques pour une tech durable et plus respectueuse de
+            la planète. <br />
+            <strong>100% Transparent :</strong> Ça veut dire ce que ça veut
+            dire.
+          </p> -->
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <article class="service-card">
+            <div class="service-head">
+              <div class="service-icon">🌐</div>
+              <h3>Site web professionnel</h3>
+            </div>
+            <p>
+              Création de sites modernes, rapides, administrables et adaptés à
+              votre activité. Une présence en ligne claire, efficace et
+              optimisée pour le référencement.
+            </p>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card">
+            <div class="service-head">
+              <div class="service-icon">🧩</div>
+              <h3>Expérience personnalisée</h3>
+            </div>
+            <p>
+              Développements personnalisés, animations, interfaces uniques et
+              intégrations avancées. Idéal pour se démarquer avec une identité
+              forte.
+            </p>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card">
+            <div class="service-head">
+              <div class="service-icon">⚙️</div>
+              <h3>Refonte, optimisation & maintenance</h3>
+            </div>
+            <p>
+              Modernisation graphique, amélioration des performances, nettoyage
+              du code, corrections et suivi technique pour garder votre site
+              fiable, rapide et sécurisé.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="reverse-divider"></div>
+
+    <!-- CTA -->
+    <section class="cta parallax-secondary parallax-secondary-cta">
+      <!-- <div class="parallax-bg" style="background-image: url('/img/parallax/bureau-ergo.webp');"></div> -->
+      <div class="container-media">
+        <h2>
+          <i class="fa fa-quote-left" aria-hidden="true"></i
+          >&nbsp;&nbsp;Créateur de Sites Web depuis 2021&nbsp;&nbsp;<i
+            class="fa fa-quote-right"
+          ></i>
+        </h2>
+        <div>
+          <a href="mailto:contact@robinborreil.fr" class="primary-btn"
+            >Échangeons</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section PROJETS -->
+    <section class="bg-projects">
+      <div id="projects">
+        <!-- Titre + Sous-titre -->
+        <div class="title-group">
+          <h2 class="title">Mes Projets</h2>
+          <p class="subtitle">
+            Voici quelques exemples de projets sur lesquels j'ai pu travailler.
+          </p>
+        </div>
+
+        <!-- JEUFORMATION -->
+        <article class="reverse">
+          <div class="text">
+            <!-- <h4>Le plus récent</h4> -->
+            <p class="project-title">Jeu Formation - Ateliers Soft Skills</p>
+            <!-- <p class="black-box">J'ai développé le site sur lequel vous êtes actuellement de A à Z en HTML et
+                        CSS uniquement. Il constitue mon nouveau Portfolio officiel, contenant les projets notables sur
+                        lesquels j'ai pu travailler jusqu'à présent.</p> -->
+            <h4>Technologies utilisées :</h4>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JS</li>
+              <li>Tailwind</li>
+            </ul>
+          </div>
+          <a href="https://jeuformation.fr/" target="_blank"
+            ><img
+              src="/img/captures/jeuformation.PNG"
+              alt="Capture de la landing du site jeuformation.fr"
+          /></a>
+        </article>
+
+        <!-- LA CANAILLERIE -->
+        <article>
+          <div class="text">
+            <!-- <h4>En cours...</h4> -->
+
+            <p class="project-title">La Quincaillerie - Restaurant</p>
+            <span class="in-progress">En cours...</span>
+            <!-- <p class="black-box">J'ai développé le site sur lequel vous êtes actuellement de A à Z en HTML et
+                        CSS uniquement. Il constitue mon nouveau Portfolio officiel, contenant les projets notables sur
+                        lesquels j'ai pu travailler jusqu'à présent.</p> -->
+            <h4>Technologies utilisées :</h4>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JS</li>
+              <li>Tailwind</li>
+            </ul>
+          </div>
+          <a href="https://rborreil.github.io/laquincaillerie/" target="_blank">
+            <img
+              src="/img/captures/laquincaillerie.png"
+              alt="Capture de l'écran d'accueil de La Canaillerie"
+            />
+          </a>
+        </article>
+
+        <!-- BMC AVOCATS -->
+        <article class="reverse">
+          <div class="text">
+            <!-- <h4>En cours...</h4> -->
+
+            <p class="project-title">B . M . C - Cabinet d'Avocats</p>
+            <span class="in-progress">En cours...</span>
+            <!-- <p class="black-box">J'ai développé le site sur lequel vous êtes actuellement de A à Z en HTML et
+                        CSS uniquement. Il constitue mon nouveau Portfolio officiel, contenant les projets notables sur
+                        lesquels j'ai pu travailler jusqu'à présent.</p> -->
+            <h4>Technologies utilisées :</h4>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JS</li>
+              <li>Tailwind</li>
+            </ul>
+          </div>
+          <a href="https://rborreil.github.io/bmc-avocats/" target="_blank"
+            ><img
+              src="/img/captures/bmc-avocats.png"
+              alt="Capture de la landing du site bmc-avocats.fr"
+          /></a>
+        </article>
+
+        <!-- SOPHRO BEABO -->
+        <article>
+          <div class="text">
+            <!-- <h4>En cours</h4> -->
+            <p class="project-title">Sophrologie</p>
+            <!-- <p class="black-box">Sur ce projet, j'ai réexploité le code source d'un site web préexistant pour
+                        l'adapter à des
+                        fins d'entrainement uniquement.</p> -->
+            <h4>Technologies utilisées :</h4>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Bootstrap</li>
+            </ul>
+          </div>
+          <a href="https://rborreil.github.io/BaBo-Sophro/" target="_blank"
+            ><img
+              src="/img/captures/sophro-beabo.png"
+              alt="Capture d'écran du site vitrine Sophro Beabo"
+          /></a>
+        </article>
+
+        <!-- OSTEO JON -->
+        <article class="reverse">
+          <div class="text">
+            <!-- <h4>Le plus enrichissant</h4> -->
+            <p class="project-title">Ostéopathie</p>
+            <!-- <p class="black-box">Ce projet a marqué un tournant dans mon apprentissage, on y retrouve de
+                        nombreux
+                        savoirs-faires essentiels au développement front-end : burger menu, carousel, CTA, bouton de
+                        remontée</p> -->
+            <h4>Technologies utilisées :</h4>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Bootstrap</li>
+            </ul>
+          </div>
+          <a href="https://rborreil.github.io/jb-osteo-v2/" target="_blank"
+            ><img
+              src="/img/captures/osteo-jonbo.png"
+              alt="Capture d'écran du site Ostéo Jo"
+          /></a>
+        </article>
+
+        <!-- ABONNEMENTS -->
+        <article>
+          <div class="text">
+            <!-- <h4>Frontend Mentor</h4> -->
+            <p class="project-title">Abonnements</p>
+            <!-- <p class="black-box">Je me suis ici inspiré d'une maquette fournie par Frontend Mentor, site
+                        qui me
+                        sert de base d'entrainement.</p> -->
+            <h4>Technologies utilisées :</h4>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JS</li>
+            </ul>
+          </div>
+          <a href="https://robdev-pricing-component.netlify.app/" target="new"
+            ><img
+              src="/img/captures/abonnements.png"
+              alt="Capture d'écran d'un composant de choix d'abonnement."
+          /></a>
+        </article>
+
+        <!-- NANTES -->
+        <!-- <article>
+          <div class="text">
+            <p class="project-title">Ville de Nantes</p>
+            <h4>Technologies utilisées :</h4>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Bootstrap</li>
+            </ul>
+          </div>
+          <a href="https://robdev-wf3-nantes.netlify.app/" target="_blank"
+            ><img
+              src="/img/captures/nantes-city_bootstrap.PNG"
+              alt="Capture d'écran d'une simulation de site pour la Ville de Nantes"
+          /></a>
+        </article> -->
+
+        <!-- VOITURES -->
+        <article class="reverse">
+          <div class="text">
+            <!-- <h4>À mes débuts</h4> -->
+            <p class="project-title">Location de voitures</p>
+            <!-- <p class="black-box">Cette version remonte également à mes débuts, c'est le premier "vrai" rendu
+                        réalisé par mes soins. Il s'agissait de mes premières semaines de formation chez WebForce3.</p> -->
+            <h4>Technologies utilisées :</h4>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Bootstrap</li>
+            </ul>
+          </div>
+          <a href="https://robdev-wf3-location.netlify.app" target="_blank"
+            ><img
+              src="/img/captures/loc-voitures.png"
+              alt="Capture d'écran du site Location de Voitures"
+          /></a>
+        </article>
+      </div>
+    </section>
+
+    <div class="reverse-divider"></div>
+
+    <!-- CTA -->
+    <section class="cta parallax-secondary parallax-secondary-cta-2">
+      <div class="container-media">
+        <h2>
+          <i class="fa fa-quote-left" aria-hidden="true"></i>&nbsp;&nbsp;Je
+          réponds aux besoins des particuliers, TPE ou
+          associations&nbsp;&nbsp;<i class="fa fa-quote-right"></i>
+        </h2>
+        <div>
+          <!-- <a href="mailto:contact@robinborreil.fr" class="primary-btn"
+            >Discutons-en</a
+          > -->
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section TARIFS / OFFRES -->
+    <section id="tarifs">
+      <div class="container">
+        <!-- Titre -->
+        <div class="title-group">
+          <h2 class="title">Mes Offres I</h2>
+          <p class="subtitle">
+            Des tarifs clairs <span class="star">*</span> pour un accompagnement
+            sur mesure.
+          </p>
+        </div>
+
+        <!-- Grille Offres -->
+        <div class="tarifs-grid">
+          <!-- Offre 1 -->
+          <article class="tarif-card tarif-standard-site">
+            <div class="tarif-head">
+              <div class="tarif-icon">🧱</div>
+              <h3>Site Web — Standard</h3>
+            </div>
+
+            <p class="tarifs-price">999 <small>€</small></p>
+
+            <ul class="tarif-list">
+              <li>Site moderne et responsive</li>
+              <li>Charte graphique adaptée</li>
+              <li>Mise en place du contenu</li>
+              <li>Formulaire de contact</li>
+              <li>Statistiques Google Analytics</li>
+            </ul>
+          </article>
+
+          <!-- Offre 2 -->
+          <article class="tarif-card tarif-standard-maintenance">
+            <div class="tarif-head">
+              <div class="tarif-icon">🛡️</div>
+              <h3>Maintenance — Standard</h3>
+            </div>
+
+            <p class="tarifs-price">600 <small>€ / an</small></p>
+
+            <ul class="tarif-list">
+              <li>Mises à jour régulières</li>
+              <li>Modifications légères de contenu</li>
+              <li>Sauvegardes externalisées</li>
+              <li>Optimisation des performances</li>
+              <li>Restauration en cas de piratage</li>
+            </ul>
+          </article>
+
+          <!-- Offre 3 — Package Standard -->
+          <article class="tarif-card tarif-standard-package">
+            <div class="tarif-head">
+              <div class="tarif-icon">📦</div>
+              <h3>Package — Standard <span class="star">**</span></h3>
+            </div>
+
+            <div class="package">
+              <h4>Offre combinée <span class="tarifs-price">-10%</span></h4>
+
+              <ul class="tarif-list">
+                <li>Site vitrine — Standard</li>
+                <li>Maintenance — Standard</li>
+              </ul>
+
+              <p class="tarifs-price">
+                <s>1 599€</s>&nbsp; 1 439 <small>€</small>
+              </p>
+
+              <p class="tarifs-note">
+                Offre valable jusqu’au <strong>29/01/2026</strong>
+              </p>
+            </div>
+          </article>
+
+          <!-- Offre 4 -->
+          <article class="tarif-card tarif-premium-site">
+            <div class="tarif-head">
+              <div class="tarif-icon">✨</div>
+              <h3>Site Web — Premium</h3>
+            </div>
+
+            <p class="tarifs-price">
+              <small>Dès</small> 1 990 <small>€</small>
+            </p>
+
+            <ul class="tarif-list">
+              <li>Design unique sur mesure</li>
+              <li>Interface administrateur personnalisée</li>
+              <li>Animations & intégrations avancées</li>
+              <li>Optimisation des performances</li>
+              <li>Formation & support</li>
+            </ul>
+          </article>
+
+          <!-- Offre 5 -->
+
+          <article class="tarif-card tarif-premium-maintenance">
+            <div class="tarif-head">
+              <div class="tarif-icon">🔒</div>
+              <h3>Maintenance — Premium</h3>
+            </div>
+
+            <p class="tarifs-price">1 000 <small>€ / an</small></p>
+
+            <ul class="tarif-list">
+              <li>Maintenance — Standard inclus</li>
+              <li>Hébergement & domaine</li>
+              <li>Mail professionnel</li>
+              <li>SEO de base</li>
+              <li>2 interventions / mois</li>
+              <li>1 refonte ou modification lourde / an</li>
+            </ul>
+          </article>
+
+          <!-- Offre 6 — Package Premium -->
+          <article class="tarif-card tarif-premium-package">
+            <div class="tarif-head">
+              <div class="tarif-icon">💎</div>
+              <h3>Package — Premium<span class="star">**</span></h3>
+            </div>
+
+            <div class="package">
+              <h4>Offre combinée <span class="tarifs-price">-15%</span></h4>
+
+              <ul class="tarif-list">
+                <li>Site vitrine — Premium</li>
+                <li>Maintenance — Premium</li>
+              </ul>
+
+              <p class="tarifs-price">
+                <s>2 990€</s>&nbsp; 2 541 <small>€</small>
+              </p>
+
+              <p class="tarifs-note">
+                Offre valable jusqu’au <strong>29/01/2026</strong>
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <p class="sub-subtitle">
+          <strong>-5%</strong> supplémentaires sur notre premier projet
+          ensemble. Offre cumulable.
+        </p>
+
+        <!-- CTA -->
+        <div class="tarifs-cta">
+          <a href="mailto:contact@robinborreil.fr" class="primary-btn">
+            Demander un devis
+          </a>
+        </div>
+
+        <!-- Mentions -->
+        <div class="tarifs-notes">
+          <p class="star-display">
+            <span class="star">*</span> Les tarifs sont affichés hors taxes et
+            peuvent être amenés à changer selon la demande. <br />
+            Interventions Ponctuelles : &nbsp;&nbsp; Taux
+            <strong>Journalier</strong> Moyen = 600€ HT/jour &nbsp;&nbsp; &
+            &nbsp;&nbsp; Taux <strong>Horaire</strong> Moyen = 100€ HT/heure.
+          </p>
+          <p class="star-display">
+            <span class="star">**</span> Les offres promotionnelles évoluent
+            régulièrement. Le tarif appliqué est celui en vigueur au moment de
+            la signature du devis. <br />
+            Les réductions sur les forfaits de maintenance s'appliquent pendant
+            1 an.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section TARIFS / OFFRES (refonte : 3 offres par niveau de délégation) -->
+    <section id="tarifs">
+      <div class="container">
+        <!-- Titre -->
+        <div class="title-group">
+          <h2 class="title">Mes Offres II</h2>
+          <p class="subtitle">
+            Trois niveaux d’accompagnement selon votre autonomie :
+            <strong>je vous rends autonome</strong>,
+            <strong>on co-pilote</strong>, ou
+            <strong>je m’occupe de tout</strong>.
+          </p>
+        </div>
+
+        <!-- Grille Offres -->
+        <div class="tarifs-grid">
+          <!-- Offre 1 -->
+          <article class="tarif-card tarif-offer autonomie">
+            <div class="tarif-head">
+              <div class="tarif-icon">🧭</div>
+              <h3>Autonomie encadrée</h3>
+            </div>
+
+            <p class="tarif-tagline">
+              Un site propre, clair et pro — et je vous donne les clés pour le
+              gérer.
+            </p>
+
+            <p class="tarifs-price">
+              <small>À partir de</small> 1 290 <small>€ HT</small>
+            </p>
+            <p class="tarifs-subprice">
+              + maintenance minimale sécurité : <strong>29 € HT / mois</strong>
+            </p>
+
+            <ul class="tarif-list">
+              <li>Site vitrine professionnel (1–3 pages selon besoin)</li>
+              <li>Design responsive + structure claire (UX)</li>
+              <li>Intégration du contenu (fourni par vos soins)</li>
+              <li>Formulaire de contact</li>
+              <li>SEO on-site basique (balises, structure, performance)</li>
+              <li>Formation courte + mini-guide pour être autonome</li>
+              <li>Maintenance sécurité : mises à jour + sauvegardes</li>
+            </ul>
+
+            <p class="tarifs-note">
+              Idéal si vous souhaitez publier et modifier vos contenus
+              vous-même.
+            </p>
+          </article>
+
+          <!-- Offre 2 (mise en avant) -->
+          <article class="tarif-card tarif-offer copilot is-featured">
+            <div class="tarif-head">
+              <div class="tarif-icon">🤝</div>
+              <h3>Co-pilotage</h3>
+              <!-- <span class="badge">Recommandée</span> -->
+            </div>
+
+            <p class="tarif-tagline">
+              Je gère la technique et la fiabilité, vous restez focus sur votre
+              activité.
+            </p>
+
+            <p class="tarifs-price">
+              <small>À partir de</small> 2 190 <small>€ HT</small>
+            </p>
+            <p class="tarifs-subprice">
+              + suivi & maintenance : <strong>69 € HT / mois</strong>
+            </p>
+
+            <ul class="tarif-list">
+              <li>Site vitrine structuré (jusqu’à 5 pages)</li>
+              <li>Design soigné + parcours de conversion (CTA)</li>
+              <li>Contenus : aide à la structure + reformulation légère</li>
+              <li>Formulaire + anti-spam basique</li>
+              <li>SEO solide (titres, maillage, performance)</li>
+              <li>
+                Hébergement + domaine (si souhaité) + mails pro (si besoin)
+              </li>
+              <li>
+                Maintenance complète : mises à jour, sauvegardes, sécurité
+              </li>
+              <li>
+                <strong>1 intervention / mois incluse</strong> (petites modifs)
+              </li>
+            </ul>
+
+            <p class="tarifs-note">
+              Le meilleur compromis : autonomie sur les contenus, tranquillité
+              technique.
+            </p>
+          </article>
+
+          <!-- Offre 3 -->
+          <article class="tarif-card tarif-offer serenite">
+            <div class="tarif-head">
+              <div class="tarif-icon">💎</div>
+              <h3>Sérénité totale</h3>
+            </div>
+
+            <p class="tarif-tagline">
+              Un accompagnement premium : image, performance et suivi long
+              terme.
+            </p>
+
+            <p class="tarifs-price">
+              <small>À partir de</small> 3 490 <small>€ HT</small>
+            </p>
+            <p class="tarifs-subprice">
+              + accompagnement premium : <strong>129 € HT / mois</strong>
+            </p>
+
+            <ul class="tarif-list">
+              <li>Site sur mesure (structure + design)</li>
+              <li>Animations / intégrations avancées si pertinentes</li>
+              <li>Optimisation performance & accessibilité</li>
+              <li>SEO on-site avancé + suivi</li>
+              <li>Hébergement + domaine + mails pro inclus</li>
+              <li>Maintenance premium + monitoring</li>
+              <li><strong>2 interventions / mois incluses</strong></li>
+              <li>
+                <strong>1 évolution majeure / an</strong> (refonte section, page
+                clé, etc.)
+              </li>
+            </ul>
+
+            <p class="tarifs-note">
+              Idéal si vous voulez un interlocuteur unique et un site qui
+              évolue.
+            </p>
+          </article>
+        </div>
+
+        <p class="sub-subtitle">
+          Besoin d’une demande spécifique (multilingue, réservation, paiement,
+          blog, etc.) ?
+          <strong>Je vous propose un devis sur mesure</strong> après un court
+          échange.
+        </p>
+
+        <!-- CTA -->
+        <div class="tarifs-cta">
+          <a href="mailto:contact@robinborreil.fr" class="primary-btn">
+            Demander un devis
+          </a>
+        </div>
+
+        <!-- Mentions -->
+        <div class="tarifs-notes">
+          <p class="star-display">
+            <span class="star">*</span> Tarifs affichés
+            <strong>hors taxes</strong> et indiqués “à partir de” : ils varient
+            selon le nombre de pages, le niveau de contenu, les intégrations et
+            les délais.
+          </p>
+          <p class="star-display">
+            <span class="star">**</span> Les abonnements (maintenance / suivi)
+            sont reconductibles tacitement et résiliables avec préavis (détails
+            au devis). Les interventions hors forfait sont facturées sur devis.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="reverse-divider"></div>
+
+    <!-- Section A PROPOS -->
+    <section id="about">
+      <div class="container">
+        <!-- Sous-section Qui suis-je -->
+        <div class="who">
+          <div class="title-group">
+            <h2 class="title">À Propos</h2>
+            <!-- <p class="subtitle">
+              Sport, cuisine, voyage, nature et WEB ! Tombé dans le code il y a
+              5 ans, j'y ai vu une immense opportunité de réintégrer au travail
+              certains aspects de la liberté telle que je la vois :
+              géographique, financière et organisationnelle. <br />
+              Titulaire d'un Master 1 à l'Essec Business School depuis 2015,
+              j'ai travaillé en tant qu'Acheteur, Commercial, Manager ou encore
+              Chef de Projet pour le compte de différents acteurs du secteur
+              touristique - Club Méditerranée, Hilton, Villa Pacifique, Okwide -
+              pour finalement décidé au moment de la pandémie de Covid19, de
+              mettre drastiquement à jour mes compétences pour ne plus dépendre
+              d'une activité pratiquable uniquement en présentiel.
+            </p> -->
+          </div>
+          <!-- Who Grid -->
+          <div class="who-layout-grid">
+            <!-- Frise narrative -->
+            <div class="who-flow">
+              <!-- Départ -->
+              <article class="flow-step">
+                <div class="flow-marker"></div>
+                <div class="flow-content">
+                  <h3>Le point de départ</h3>
+                  <p>
+                    J’ai d’abord évolué dans le commerce et la gestion de
+                    projets, après un cursus à l’ESSEC. J’y ai appris à
+                    structurer, décider et travailler avec des profils très
+                    variés.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Déclic -->
+              <article class="flow-step">
+                <div class="flow-marker"></div>
+                <div class="flow-content">
+                  <h3>Le déclic</h3>
+                  <p>
+                    Avec le temps, une frustration s’est installée : beaucoup
+                    d’idées, peu de liberté. La période du Covid a agi comme un
+                    révélateur.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Transition -->
+              <article class="flow-step">
+                <div class="flow-marker"></div>
+                <div class="flow-content">
+                  <h3>La transition</h3>
+                  <p>
+                    Je me suis alors plongé dans le développement web. Code,
+                    performance, design : construire est devenu central.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Aujourd'hui -->
+              <article class="flow-step">
+                <div class="flow-marker is-final"></div>
+                <div class="flow-content">
+                  <h3>Aujourd’hui</h3>
+                  <p>
+                    J’accompagne des entreprises et indépendants dans des
+                    projets web clairs, durables et humains.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <!-- Photo -->
+            <div class="who-photo">
+              <img
+                src="/img/moi/rob-chemise-grise_rect.png"
+                alt="Photo de Robin Borreil"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Sous-section Ma Vision -->
+        <div class="vision">
+          <!-- Titre Vision -->
+          <div class="title-group">
+            <h2 class="title">Ma vision</h2>
+            <!-- <p class="subtitle">
+              Il est évident pour moi de vous proposer une qualité de service
+              que j'attendrais si j'étais à votre place. <br />Bricoler est pour
+              moi une passion, internet la rend sans limite. Construire sur le
+              web offre des moyens très efficaces de promouvoir nos projets,
+              mais rend également vitale une bonne présence en ligne pour avoir
+              une chance d'être vu et donc de se développer. <br />
+              Pour moi, travailler devrait se faire en alignement avec qui nous
+              sommes et nos valeurs propres. <br />
+              Je place l'humain et la planète au coeur de mes préoccupations.
+            </p> -->
+          </div>
+          <!-- Grille Vision -->
+          <div class="vision-grid">
+            <!-- Vision 1 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🧩</div>
+                <h3>Personnalisé</h3>
+              </div>
+              <p>
+                Chaque projet est pensé sur mesure, en lien direct avec vos
+                objectifs. Un accompagnement de proximité, construit pour durer
+                et évoluer dans le temps.
+              </p>
+            </article>
+
+            <!-- Vision 2 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🚀</div>
+                <h3>Efficace</h3>
+              </div>
+              <p>
+                Des processus clairs pour avancer vite et bien, sans perte de
+                temps inutile. Des choix guidés, des décisions éclairées et un
+                projet qui progresse efficacement.
+              </p>
+            </article>
+
+            <!-- Vision 3 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🎯</div>
+                <h3>Direct</h3>
+              </div>
+              <p>
+                Un interlocuteur unique, sans intermédiaire ni complexité
+                superflue. Des échanges courts, des coûts maîtrisés et une
+                organisation simple et transparente.
+              </p>
+            </article>
+
+            <!-- Vision 4 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🤝</div>
+                <h3>Humain</h3>
+              </div>
+              <p>
+                Une collaboration basée sur l’écoute, la disponibilité et la
+                confiance. Un nombre de projets volontairement limité pour
+                garantir qualité et implication.
+              </p>
+            </article>
+
+            <!-- Vision 5 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🌿</div>
+                <h3>Green</h3>
+              </div>
+              <p>
+                Une approche web responsable, attentive aux performances et aux
+                bonnes pratiques. La technologie au service de projets plus
+                durables et réfléchis.
+              </p>
+            </article>
+
+            <!-- Vision 6 -->
+            <article class="vision-card">
+              <div class="vision-head">
+                <div class="vision-icon">🔍</div>
+                <h3>Transparent</h3>
+              </div>
+              <p>
+                Des devis clairs, des choix expliqués et aucune surprise en
+                cours de route. Chaque évolution est discutée et validée
+                ensemble, en toute confiance.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section CHIFFRES -->
+    <div id="key-numbers" class="parallax-secondary parallax-secondary-numbers">
+      <div class="container container-media">
+        <!-- Titre Chiffres Clés -->
+        <div class="title-group">
+          <h2 class="title">Chiffres</h2>
+          <!-- <p class="subtitle">
+              Quelques repères concrets pour mieux comprendre mon approche et
+              mon expérience.
+            </p> -->
+        </div>
+
+        <div class="numbers-grid">
+          <!-- Élément 1 -->
+
+          <article class="number-card">
+            <div class="number-head">
+              <div class="number-icon">⏳</div>
+            </div>
+            <h3 class="number" data-value="5" data-prefix="+" data-suffix="">
+              0
+            </h3>
+            <p class="label">Années d’expérience</p>
+          </article>
+
+          <!-- Élément 2 -->
+          <article class="number-card">
+            <div class="number-head">
+              <div class="number-icon">🧰</div>
+            </div>
+            <h3 class="number" data-value="20" data-prefix="+" data-suffix="">
+              0
+            </h3>
+            <p class="label">Projets livrés</p>
+          </article>
+
+          <!-- Élément 3 -->
+          <article class="number-card">
+            <div class="number-head">
+              <div class="number-icon">✅</div>
+            </div>
+            <h3 class="number" data-value="100" data-prefix="" data-suffix="%">
+              0
+            </h3>
+            <p class="label">Clients satisfaits</p>
+          </article>
+
+          <!-- Élément 4 -->
+          <article class="number-card">
+            <div class="number-head">
+              <div class="number-icon">⚡</div>
+            </div>
+            <h3 class="number" data-value="48" data-prefix="-" data-suffix="h">
+              0
+            </h3>
+            <p class="label">Délais de réponse</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="reverse-divider"></div>
+
+    <!-- Section SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="title-group">
+          <h2 class="title">Compétences</h2>
+          <p class="subtitle">
+            Un socle technique solide, orienté performance, clarté et
+            durabilité.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill bloc 1 -->
+          <article class="skill-card">
+            <div class="skill-head">
+              <div class="skill-icon">💻</div>
+              <h3>Développement Front-End</h3>
+            </div>
+            <ul class="skill-list">
+              <li>HTML sémantique & accessible</li>
+              <li>CSS moderne (Flexbox, Grid)</li>
+              <li>JavaScript vanilla</li>
+              <li>Animations légères & interactions</li>
+            </ul>
+          </article>
+
+          <!-- Skill bloc 2 -->
+          <article class="skill-card">
+            <div class="skill-head">
+              <div class="skill-icon">⚙️</div>
+              <h3>Performance & Qualité</h3>
+            </div>
+            <ul class="skill-list">
+              <li>Optimisation des performances</li>
+              <li>Bonnes pratiques SEO techniques</li>
+              <li>Code propre, lisible, maintenable</li>
+              <li>Compatibilité multi-navigateurs</li>
+            </ul>
+          </article>
+
+          <!-- Skill bloc 3 -->
+          <article class="skill-card">
+            <div class="skill-head">
+              <div class="skill-icon">🗂️</div>
+              <h3>CMS & Contenu</h3>
+            </div>
+            <ul class="skill-list">
+              <li>WordPress & ACF</li>
+              <li>Interfaces administrables sur mesure</li>
+              <li>Formation & prise en main client</li>
+              <li>Maintenance & évolutivité</li>
+            </ul>
+          </article>
+
+          <!-- Skill bloc 4 -->
+          <article class="skill-card">
+            <div class="skill-head">
+              <div class="skill-icon">🧭</div>
+              <h3>Gestion de Projet & Accompagnement</h3>
+            </div>
+            <ul class="skill-list">
+              <li>Analyse des besoins & cadrage</li>
+              <li>Conseil & pédagogie</li>
+              <li>Transparence & communication</li>
+              <li>Vision long terme</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section PROCESS / APPROCHE -->
+    <section id="process" class="parallax-secondary parallax-secondary-process">
+      <div class="container container-media">
+        <div class="title-group">
+          <!-- <h2 class="title">Mon process</h2> -->
+          <h2 class="title">Mon Approche</h2>
+          <p class="subtitle">
+            Des étapes claires, un accompagnement humain, un projet maîtrisé.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-step">
+            <div class="process-icon">
+              ☕
+              <span class="step-num">1</span>
+            </div>
+            <p class="process-label">Discussion</p>
+          </article>
+
+          <article class="process-step">
+            <div class="process-icon">
+              🧠
+              <span class="step-num">2</span>
+            </div>
+            <p class="process-label">Analyse</p>
+          </article>
+
+          <article class="process-step">
+            <div class="process-icon">
+              🎨
+              <span class="step-num">3</span>
+            </div>
+            <p class="process-label">Design</p>
+          </article>
+
+          <article class="process-step">
+            <div class="process-icon">
+              💻
+              <span class="step-num">4</span>
+            </div>
+            <p class="process-label">Développement</p>
+          </article>
+
+          <article class="process-step">
+            <div class="process-icon">
+              🧪
+              <span class="step-num">5</span>
+            </div>
+            <p class="process-label">Tests</p>
+          </article>
+
+          <article class="process-step">
+            <div class="process-icon">
+              🚀
+              <span class="step-num">6</span>
+            </div>
+            <p class="process-label">Livraison</p>
+          </article>
+        </div>
+        <div class="approche-agile">
+          <div class="agile-badge">⚡ Méthode agile</div>
+          <h3>Une méthode de travail agile et collaborative</h3>
+          <p>
+            Je travaille par étapes avec des validations régulières. Vous gardez
+            une visibilité sur l’avancement et vous pouvez ajuster les priorités
+            si besoin.
+          </p>
+          <ul class="agile-points">
+            <li>Avancement par étapes claires</li>
+            <li>Échanges et feedbacks réguliers</li>
+            <li>Validations progressives selon le projet</li>
+            <li>Ajustements possibles en cours de route</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="reverse-divider"></div>
+
+    <!-- Section TÉMOIGNAGES -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="title-group">
+          <h2 class="title">Ils m’ont fait confiance</h2>
+          <p class="subtitle">
+            Quelques retours de clients accompagnés sur leurs projets.
+          </p>
+        </div>
+
+        <!-- CAROUSEL (sans boutons) -->
+        <div class="testimonials-carousel" aria-label="Témoignages clients">
+          <div
+            class="carousel-viewport"
+            tabindex="0"
+            aria-roledescription="carousel"
+          >
+            <div class="carousel-track">
+              <article class="testimonial-card">
+                <p class="testimonial-text">
+                  “Une compréhension rapide des besoins, avec des solutions
+                  claires et durables. La communication est fluide et le travail
+                  mené avec sérieux.”
+                </p>
+                <div class="testimonial-author">
+                  <strong>J-C Pauget</strong>
+                  <span>Fondateur — Avenir En Héritage</span>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <p class="testimonial-text">
+                  “Robin est réactif, engagé et force de proposition. Les
+                  solutions sont claires, efficaces et toujours trouvées, même
+                  face à des problématiques nouvelles.”
+                </p>
+                <div class="testimonial-author">
+                  <strong>Sam Shafiee</strong>
+                  <span>Fondateur — Jeu Formation</span>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <p class="testimonial-text">
+                  “Une collaboration structurée et efficace, avec des méthodes
+                  claires et maîtrisées. Les échanges sont précis et permettent
+                  d’avancer sereinement sur des bases fiables.”
+                </p>
+                <div class="testimonial-author">
+                  <strong>Mathilde B.</strong>
+                  <span>Avocate Associée — B . M . C | Avocats</span>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <p class="testimonial-text">
+                  “Robin est engagé et impliqué, capable de s’adapter aux
+                  besoins du projet. On sent une vraie volonté de construire
+                  quelque chose de cohérent et durable.”
+                </p>
+                <div class="testimonial-author">
+                  <strong>Zeljka S.</strong>
+                  <span>Fondatrice — Split House</span>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <p class="testimonial-text">
+                  “Un accompagnement à l’écoute, rassurant et progressif. Les
+                  étapes sont claires et le projet se développe dans un cadre
+                  simple et bien expliqué.”
+                </p>
+                <div class="testimonial-author">
+                  <strong>Béatrice Bossi</strong>
+                  <span>Sophrologue</span>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <p class="testimonial-text">
+                  “Robin propose une approche concrète et pragmatique, avec des
+                  explications accessibles. Le travail est sérieux et le site
+                  fonctionne comme attendu, sans complication.”
+                </p>
+                <div class="testimonial-author">
+                  <strong>Sean Puel</strong>
+                  <span>Couvreur</span>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <p class="testimonial-text">
+                  “Une collaboration fluide et humaine, avec beaucoup de clarté
+                  dans les échanges. Le projet prend forme naturellement, dans
+                  le respect de mes attentes.”
+                </p>
+                <div class="testimonial-author">
+                  <strong>Oriane Bardelle</strong>
+                  <span>Coach de Yoga</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <!-- /CAROUSEL -->
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CTA -->
+    <section class="cta parallax-secondary parallax-secondary-cta-3">
+      <div class="container-media">
+        <h2>Une question, un projet ou une collab ?</h2>
+        <div>
+          <a href="mailto:contact@robinborreil.fr" class="primary-btn"
+            >Discutons-en</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <div class="reverse-divider"></div>
+
+    <!-- Section FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="title-group">
+          <h2 class="title">Questions fréquentes</h2>
+          <p class="subtitle">
+            Quelques réponses pour clarifier le fonctionnement et éviter les
+            zones d’ombre.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Quels sont les délais pour un site vitrine ?</summary>
+            <p>
+              En moyenne, un site vitrine standard est livré entre 2 et 4
+              semaines, selon la complexité du projet et la réactivité sur les
+              contenus. <br />
+              Pour un site vitrine personnalisé, tout dépend du contenu du
+              cahier des charges et donc du volume de travail estimé.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Travaillez-vous uniquement avec WordPress ?</summary>
+            <p>
+              Non. Je m’adapte au projet : site statique performant, WordPress
+              avec ACF pour l’administration, ou solutions hybrides selon les
+              besoins.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Que comprend la maintenance ?</summary>
+            <p>
+              La maintenance inclut les mises à jour techniques, les
+              sauvegardes, la surveillance de sécurité et, selon le forfait, des
+              modifications de contenu ou des interventions régulières.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Est-il possible de faire évoluer le site après livraison ?
+            </summary>
+            <p>
+              Oui. Tous les sites sont pensés pour être évolutifs. De nouvelles
+              fonctionnalités peuvent être ajoutées à tout moment.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Proposez-vous un accompagnement après la mise en ligne ?
+            </summary>
+            <p>
+              Oui. Je reste disponible après la livraison, soit via un forfait
+              de maintenance, soit ponctuellement selon vos besoins.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Et si mes besoins ne correspondent pas tout à fait aux packages
+              proposés ?
+            </summary>
+            <p>
+              Contactez-moi pour en discuter, je sais faire preuve d'adaptation
+              et si ce n'est pas dans mes cordes, j'aurai peut-être un
+              prestataire à vous proposer.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Section CONTACT -->
+    <section id="contact" class="parallax-secondary parallax-secondary-contact">
+      <div class="container container-media">
+        <div class="title-group">
+          <h2 class="title">Contact</h2>
+          <p class="subtitle">
+            Une question, un projet ou simplement envie d’échanger ? Parlons-en
+            ! 😄
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Texte / Infos -->
+          <div class="contact-info">
+            <p>
+              Je réponds généralement sous <strong>48h</strong>. Que ce soit
+              pour un projet précis ou une simple prise de contact, n’hésitez
+              pas.
+            </p>
+
+            <p class="contact-mail">
+              📩
+              <a href="mailto:contact@robinborreil.fr"
+                >contact@robinborreil.fr</a
+              >
+            </p>
+            <p class="contact-mail">
+              📞
+              <a href="tel:0777890103">07 77 89 01 03</a>
+            </p>
+          </div>
+
+          <!-- Formulaire -->
+          <form
+            id="contact-form"
+            class="contact-form"
+            method="post"
+            action="#"
+            netlify
+          >
+            <!-- Honeypot -->
+            <input
+              type="text"
+              name="website"
+              id="website"
+              autocomplete="off"
+              tabindex="-1"
+              style="display: none"
+            />
+
+            <div class="form-group">
+              <div class="form-subgroup">
+                <label for="nom">Nom <span class="asterisque">*</span></label>
+                <input type="text" id="nom" name="nom" required />
+              </div>
+              <div class="form-subgroup">
+                <label for="entreprise">Entreprise</label>
+                <input type="text" id="entreprise" name="entreprise" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-subgroup">
+                <label for="email"
+                  >Email <span class="asterisque">*</span></label
+                >
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-subgroup">
+                <label for="tel">Téléphone</label>
+                <input type="tel" id="tel" name="tel" />
+              </div>
+            </div>
+
+            <div>
+              <div class="form-subgroup">
+                <label for="sujet"
+                  >Sujet <span class="asterisque">*</span></label
+                >
+                <input type="text" id="sujet" name="sujet" required />
+              </div>
+              <div class="form-subgroup">
+                <label for="message"
+                  >Message <span class="asterisque">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="consent-text">
+              <label>
+                <input type="checkbox" name="consentement" required />
+                &nbsp;<span
+                  >En soumettant ce formulaire, j'accepte que les informations
+                  saisies soient utilisées exclusivement dans les contextes de
+                  traitement de cette demande de contact ainsi que la relation
+                  commerciale pouvant en résulter.</span
+                ><span class="asterisque"> *</span>
+              </label>
+
+              <p>
+                <span
+                  >Pour en savoir plus sur la gestion de vos données
+                  personnelles et pour exercer vos droits, consultez notre </span
+                ><a href="privacy-policy.html"
+                  ><span>Politique de confidentialité</span></a
+                >.
+              </p>
+            </div>
+
+            <br />
+
+            <!-- Recaptcha -->
+            <div
+              class="g-recaptcha"
+              data-sitekey="6Ld0oFEsAAAAAAfa-Wujv4oqlQrzZTQGcrubWoJG"
+              data-callback="onRecaptchaSuccess"
+              data-expired-callback="onRecaptchaExpired"
+            ></div>
+
+            <button type="submit" id="form-status" class="primary-btn">
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="reverse-divider"></div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <section class="footer">
+        <div class="footer-grid">
+          <!-- Col 1 : branding -->
+          <div class="footer-col">
+            <h2><a href="#">Robin Borreil</a></h2>
+            <p class="footer-tagline">
+              Concepteur, développeur & gestionnaire de sites web — Proximité,
+              performance, durabilité.
+            </p>
+
+            <ul class="footer-social">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/robin-borreil-201036197/"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                  class="social-link"
+                >
+                  <i
+                    class="fa-brands fa-linkedin-in social-fa"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/rborreil"
+                  target="_blank"
+                  aria-label="GitHub"
+                  class="social-link"
+                >
+                  <i
+                    class="fa-brands fa-github social-fa"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:contact@robinborreil.fr"
+                  aria-label="Contact email"
+                  class="social-link"
+                >
+                  <i
+                    class="fa-solid fa-envelope social-fa"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:0777890103"
+                  aria-label="Contact téléphone"
+                  class="social-link"
+                >
+                  <i
+                    class="fa-solid fa-mobile-screen-button"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 2 : nav interne -->
+          <nav class="footer-nav" aria-label="Navigation du site">
+            <div class="footer-nav-group">
+              <small class="footer-nav-title">Navigation</small>
+              <ul class="footer-links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#tarifs">Offres</a></li>
+                <li><a href="#about">À propos&nbsp;</a></li>
+                <!-- <li><a href="#contact">Contact</a></li> -->
+              </ul>
+            </div>
+
+            <span class="footer-divider" aria-hidden="true"></span>
+
+            <div class="footer-nav-group">
+              <small class="footer-nav-title">À découvrir</small>
+              <ul class="footer-links">
+                <li><a href="#numbers">Chiffres clés</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#process">Approche</a></li>
+                <li><a href="#testimonials">Témoignages</a></li>
+                <li><a href="#faq">FAQ</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <!-- Col 3 : légal -->
+          <nav class="footer-col" aria-label="Informations légales">
+            <h3>Informations</h3>
+            <ul class="footer-links">
+              <li><a href="/mentions-legales.html">Mentions légales</a></li>
+              <li>
+                <a href="/politique-confidentialite.html"
+                  >Politique de confidentialité</a
+                >
+              </li>
+              <li><a href="/cgv.html">CGV</a></li>
+              <!-- <li><a href="/cookies.html">Cookies</a></li> -->
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <a href="#">
+            <img src="/img/logos/logo-carre_blanc-nobg.png" alt="" />
+          </a>
+          <div class="footer-bottom-text">
+            <small>© 2026 Robin Borreil. Tous droits réservés.</small>
+            <small class="footer-meta"
+              >Micro-entrepreneur — SIRET : 933 650 194 00014</small
+            >
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <!-- JS Global -->
+    <script src="/js/script.min.js" defer></script>
+    <!-- <script src="/js/script.js" defer></script> -->
+    <!-- JS Formulaire -->
+    <script src="/js/form.min.js" defer></script>
+    <!-- <script src="/js/form.js" defer></script> -->
+    <!-- Recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </body>
+</html>

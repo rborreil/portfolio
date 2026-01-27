@@ -4,7 +4,16 @@
   "description": "",
   "main": "form.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "html:dev": "npm run html:build && chokidar \"src/pages/**/*.html\" -c \"npm run html:build\"",
+    "css:dev": "concurrently \"postcss src/css/style.css -o public/css/style.css -w\" \"postcss src/css/style.css -o public/css/style.min.css --env production -w\"",
+    "js:dev": "npm run js:build && chokidar \"src/js/**/*.js\" -c \"npm run js:build\"",
+    "dev:watch": "concurrently -n CSS,JS,HTML \"npm run css:dev\" \"npm run js:dev\" \"npm run html:dev\"",
+    "dev": "concurrently --kill-others-on-fail -n WATCH,NETLIFY \"npm run dev:watch\" \"npx netlify dev\"",
+    "html:build": "cpy \"src/pages/**\" public",
+    "css:build": "postcss src/css/style.css -o public/css/style.css && postcss src/css/style.css -o public/css/style.min.css --env production",
+    "js:build": "npx terser src/js/script.js -c -m -o public/js/script.min.js && npx terser src/js/form.js -c -m -o public/js/form.min.js",
+    "build": "npm run css:build && npm run js:build && npm run html:build"
   },
   "repository": {
     "type": "git",
@@ -20,5 +29,14 @@
   "homepage": "https://github.com/rborreil/portfolio#readme",
   "dependencies": {
     "nodemailer": "^7.0.12"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.2.1",
+    "cpy-cli": "^6.0.0",
+    "cssnano": "^7.1.2",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1"
   }
 }
