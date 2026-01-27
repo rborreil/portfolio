@@ -35,3 +35,16 @@ Thumbs.db
 dist/
 build/
 .cache/
+
+# Deno (parasite si jamais généré)
+deno.lock
+deno.json
+deno.jsonc
+
+# Mac/Windows “zones”
+*.tmp
+*.bak
+
+# (optionnel) caches supplémentaires
+.parcel-cache/
+

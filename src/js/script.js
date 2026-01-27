@@ -135,12 +135,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Interactions
-    viewport.addEventListener("wheel", pauseTemporarily, { passive: true });
-    viewport.addEventListener("pointerdown", pauseTemporarily);
-    viewport.addEventListener("mouseenter", pauseTemporarily);
-    viewport.addEventListener("touchstart", pauseTemporarily, {
-      passive: true,
-    });
+viewport.addEventListener("wheel", pauseTemporarily, { passive: true });
+viewport.addEventListener("touchstart", pauseTemporarily, { passive: true });
+
+// Pause au hover uniquement (sans bloquer si tu veux juste survoler)
+viewport.addEventListener("mouseenter", pauseTemporarily);
+
+// Drag-to-scroll (grab)
+let isDown = false;
+let startX = 0;
+let startScrollLeft = 0;
+
+viewport.addEventListener("pointerdown", (e) => {
+  // uniquement bouton principal souris / touch / pen
+  if (e.pointerType === "mouse" && e.button !== 0) return;
+
+  isDown = true;
+  viewport.setPointerCapture(e.pointerId);
+  viewport.classList.add("is-dragging");
+
+  startX = e.clientX;
+  startScrollLeft = viewport.scrollLeft;
+
+  paused = true;
+  clearTimeout(resumeTimer);
+});
+
+viewport.addEventListener("pointermove", (e) => {
+  if (!isDown) return;
+
+  const dx = e.clientX - startX;
+  viewport.scrollLeft = startScrollLeft - dx;
+});
+
+function endDrag(e) {
+  if (!isDown) return;
+  isDown = false;
+
+  try {
+    viewport.releasePointerCapture(e.pointerId);
+  } catch (_) {}
+
+  viewport.classList.remove("is-dragging");
+
+  // Reprend après un court délai
+  resumeTimer = setTimeout(start, 600);
+}
+
+viewport.addEventListener("pointerup", endDrag);
+viewport.addEventListener("pointercancel", endDrag);
+viewport.addEventListener("pointerleave", endDrag);
+
 
     start();
   });

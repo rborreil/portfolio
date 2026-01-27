@@ -1014,10 +1014,11 @@ nav .primary-btn {
 
 /* TARIFS II */
 .copilot {
-  transform: scale(1.025);
-  box-shadow: 0 0 20px var(--tech-accent);
+  transform: scale(1.0075);
+  box-shadow: 0 0 3px var(--tech-accent);
 }
 .copilot:hover {
+  box-shadow: 0 0 15px var(--tech-accent);
   transform: translateY(-5px);
 }
 
