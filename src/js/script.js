@@ -95,7 +95,15 @@ document.addEventListener("DOMContentLoaded", () => {
       track.dataset.cloned = "true";
     }
 
-    const SPEED = 18;
+    // Desktop : auto-scroll
+    const vw = window.innerWidth;
+
+const SPEED =
+  vw >= 1800 ? 150 :   // écrans très larges (27", 32")
+  vw >= 1400 ? 120 :   // desktop standard
+  vw >= 1024 ? 28 :   // laptop
+  18;                 // fallback (ne sera pas utilisé sur mobile si auto-scroll off)
+
     let lastTs = null;
     let rafId = null;
     let paused = false;
@@ -135,60 +143,61 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Interactions
-viewport.addEventListener("wheel", pauseTemporarily, { passive: true });
-viewport.addEventListener("touchstart", pauseTemporarily, { passive: true });
+    viewport.addEventListener("wheel", pauseTemporarily, { passive: true });
+    viewport.addEventListener("touchstart", pauseTemporarily, {
+      passive: true,
+    });
 
-// Pause au hover uniquement (sans bloquer si tu veux juste survoler)
-viewport.addEventListener("mouseenter", pauseTemporarily);
+    // Pause au hover uniquement (sans bloquer si tu veux juste survoler)
+    // viewport.addEventListener("mouseenter", pauseTemporarily);
 
-// Drag-to-scroll (grab)
-let isDown = false;
-let startX = 0;
-let startScrollLeft = 0;
+    // Drag-to-scroll (grab)
+    let isDown = false;
+    let startX = 0;
+    let startScrollLeft = 0;
 
-viewport.addEventListener("pointerdown", (e) => {
-  // uniquement bouton principal souris / touch / pen
-  if (e.pointerType === "mouse" && e.button !== 0) return;
+    viewport.addEventListener("pointerdown", (e) => {
+      // uniquement bouton principal souris / touch / pen
+      if (e.pointerType === "mouse" && e.button !== 0) return;
 
-  isDown = true;
-  viewport.setPointerCapture(e.pointerId);
-  viewport.classList.add("is-dragging");
+      isDown = true;
+      viewport.setPointerCapture(e.pointerId);
+      viewport.classList.add("is-dragging");
 
-  startX = e.clientX;
-  startScrollLeft = viewport.scrollLeft;
+      startX = e.clientX;
+      startScrollLeft = viewport.scrollLeft;
 
-  paused = true;
-  clearTimeout(resumeTimer);
-});
+      paused = true;
+      clearTimeout(resumeTimer);
+    });
 
-viewport.addEventListener("pointermove", (e) => {
-  if (!isDown) return;
+    viewport.addEventListener("pointermove", (e) => {
+      if (!isDown) return;
 
-  const dx = e.clientX - startX;
-  viewport.scrollLeft = startScrollLeft - dx;
-});
+      const dx = e.clientX - startX;
+      viewport.scrollLeft = startScrollLeft - dx;
+    });
 
-function endDrag(e) {
-  if (!isDown) return;
-  isDown = false;
+    function endDrag(e) {
+      if (!isDown) return;
+      isDown = false;
 
-  try {
-    viewport.releasePointerCapture(e.pointerId);
-  } catch (_) {}
+      try {
+        viewport.releasePointerCapture(e.pointerId);
+      } catch (_) {}
 
-  viewport.classList.remove("is-dragging");
+      viewport.classList.remove("is-dragging");
 
-  // Reprend après un court délai
-  resumeTimer = setTimeout(start, 600);
-}
+      // Reprend après un court délai
+      resumeTimer = setTimeout(start, 600);
+    }
 
-viewport.addEventListener("pointerup", endDrag);
-viewport.addEventListener("pointercancel", endDrag);
-viewport.addEventListener("pointerleave", endDrag);
-
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+    viewport.addEventListener("pointerleave", endDrag);
 
     start();
-  });
+  };);
 
   // BLOQUER CLIC DROIT
   // document.addEventListener("contextmenu", (e) => e.preventDefault());

@@ -16,28 +16,6 @@ xl	80rem (1280px)
 /* Déclaration de variables réutilisables */
 :root {
   /* COULEURS */
-  --black: #171321;
-  --dkblue: #0e3a55;
-  --darkerblue: #081e2d;
-
-  --plum: #4b0d49;
-  --elec-purple: #e200ff;
-  --tech-purple: #c93cff; /* violet électrique plus doux que #e200ff */
-
-  --tech-aqua: #5eeaf2; /* version adoucie de aqua */
-  --aqua: #86fbfb;
-  --aqua-blur: hsla(180, 94%, 75%, 0.2);
-  --white: #f7f8fa;
-  --petrol: #22675a;
-
-  --sunny: #f2cb05;
-  --sunnyafternoon: #f29f05;
-  --sunset: #f28705;
-  --pink-sunset: #f23030;
-  --energy-yellow: #f2c94c;
-  --energy-orange: #f2994a;
-
-  /* RECOS CHATGPT */
   /* Base Tech */
   --base-900: #0a1a24;
   --base-800: #0c2230;
@@ -80,6 +58,7 @@ xl	80rem (1280px)
   /* Méta */
   --text-meta: 0.85rem;
 }
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -187,29 +166,16 @@ h4 {
 }
 
 /* Scroll Bar */
-/* Firefox */
-/* html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--petrol) var(--tech-purple);
-  scrollbar-gutter: var(--green-400);
-} */
 /* Chrome/Safari/Edge */
 /* Largeur de la scrollbar */
 html::-webkit-scrollbar {
   width: 15px;
 }
-
-/* Piste de la scrollbar */
-/* html::-webkit-scrollbar-track {
-  background: #c30000;
-} */
-
 /* Poignée de la scrollbar */
 html::-webkit-scrollbar-thumb {
   background: var(--green-400);
   border-radius: 6px;
 }
-
 /* Poignée de la scrollbar au survol */
 html::-webkit-scrollbar-thumb:hover {
   background: var(--tech-accent);
@@ -493,25 +459,27 @@ nav .primary-btn {
 }
 
 #hero h1 {
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.5;
-}
-#hero h1 {
-  font-family: var(--mono);
-  letter-spacing: 0.2rem;
+  font-family: var(--sans);
+  font-weight: 400;
+  letter-spacing: 0.5rem;
 }
 #hero h1 span {
   color: var(--tech-purple);
   display: inline;
-  font-family: var(--sans);
-  font-size: 4rem;
-  font-weight: 500;
+  /* font-family: var(--sans); */
+  font-size: 5rem;
+  /* font-weight: 500; */
   margin: 0;
+  letter-spacing: 0.5rem;
 }
 #hero h2 {
+  font-family: var(--sans);
   font-size: 3.5rem;
-  font-weight: normal;
+  font-weight: 500;
   margin-top: 2rem;
+  letter-spacing: 0.3rem;
 }
 #hero h2 span {
   color: var(--green-400);
@@ -519,6 +487,7 @@ nav .primary-btn {
   font-family: var(--mono);
   font-size: 1.5rem;
   margin-top: 6rem;
+  letter-spacing: 0.1rem;
 }
 
 #hero p.flex {
@@ -561,6 +530,7 @@ nav .primary-btn {
 .services-grid,
 .vision-grid,
 .tarifs-grid,
+.tarifs-grid-2,
 .testimonials-grid,
 .numbers-grid,
 .skills-grid,
@@ -570,7 +540,8 @@ nav .primary-btn {
   gap: 2rem;
   grid-template-columns: 1fr;
 }
-.tarifs-grid {
+.tarifs-grid,
+.tarifs-grid-2 {
   margin-bottom: 3rem;
 }
 .process-grid,
@@ -584,9 +555,7 @@ nav .primary-btn {
 }
 
 @media (min-width: 700px) {
-  .services-grid,
-  .process-grid,
-  .testimonials-grid {
+  .process-grid {
     grid-template-columns: repeat(3, 1fr);
   }
   .vision-grid,
@@ -598,6 +567,12 @@ nav .primary-btn {
 }
 
 @media (min-width: 900px) {
+  .services-grid,
+  .tarifs-grid-2,
+  .process-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .contact-grid {
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -728,6 +703,29 @@ nav .primary-btn {
   box-shadow: 0 0 12px rgba(54, 196, 221, 0.25);
 }
 
+/* TEST BADGE */
+.icon-badge {
+  min-width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.25);
+}
+
+.icon-badge i {
+  font-size: 23px;
+  color: var(--tech-accent);
+}
+
+.service-card:hover .icon-badge {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
 /* TITLE */
 .service-card h3,
 .vision-card h3,
@@ -786,7 +784,7 @@ nav .primary-btn {
 }
 
 #projects h4 {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: clamp(1rem, 2vw, 1.25rem);
 }
 #projects ul {
@@ -1500,6 +1498,9 @@ nav .primary-btn {
 
   touch-action: pan-y;
   cursor: grab;
+
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: none;
 }
 
 .carousel-viewport::-webkit-scrollbar {
@@ -1527,6 +1528,19 @@ nav .primary-btn {
   -moz-user-select: none;
   user-select: none; /* évite de sélectionner le texte lors du drag */
   -webkit-user-select: none;
+
+  scroll-snap-align: none;
+}
+
+/* Mobile / tactile : snap activé (swipe naturel) */
+@media (hover: none), (pointer: coarse) {
+  #testimonials .carousel-viewport {
+    scroll-snap-type: x mandatory;
+  }
+
+  #testimonials .carousel-track .testimonial-card {
+    scroll-snap-align: start;
+  }
 }
 
 /* Interaction directe: hover/focus */
