@@ -81,123 +81,27 @@ document.addEventListener("DOMContentLoaded", () => {
   counters.forEach((counter) => observer.observe(counter));
 
   // ===== TEMOIGNAGES - CAROUSEL (auto-scroll + interaction directe sur cartes) =====
+  // ===== CAROUSEL MARQUEE (Option B – compatible Apple) =====
   window.addEventListener("load", () => {
-    const root = document.querySelector("#testimonials .testimonials-carousel");
-    if (!root) return;
+    const track = document.querySelector(
+      "#testimonials .carousel-track.marquee",
+    );
+    if (!track) return;
 
-    const viewport = root.querySelector(".carousel-viewport");
-    const track = root.querySelector(".carousel-track");
-    if (!viewport || !track) return;
-
-    // Clone une seule fois
+    // Dupliquer le contenu UNE fois pour boucle infinie
     if (!track.dataset.cloned) {
-      [...track.children].forEach((n) => track.appendChild(n.cloneNode(true)));
+      track.innerHTML += track.innerHTML;
       track.dataset.cloned = "true";
     }
 
-    // Desktop : auto-scroll
-    const vw = window.innerWidth;
-
-const SPEED =
-  vw >= 1800 ? 150 :   // écrans très larges (27", 32")
-  vw >= 1400 ? 120 :   // desktop standard
-  vw >= 1024 ? 28 :   // laptop
-  18;                 // fallback (ne sera pas utilisé sur mobile si auto-scroll off)
-
-    let lastTs = null;
-    let rafId = null;
+    // Pause / reprise sur mobile (tap)
     let paused = false;
-    let resumeTimer = null;
 
-    function tick(ts) {
-      if (paused) {
-        rafId = null;
-        return;
-      }
-
-      if (!lastTs) lastTs = ts;
-      const dt = (ts - lastTs) / 1000;
-      lastTs = ts;
-
-      const half = track.scrollWidth / 2;
-      viewport.scrollLeft += SPEED * dt;
-
-      if (viewport.scrollLeft >= half) {
-        viewport.scrollLeft -= half;
-      }
-
-      rafId = requestAnimationFrame(tick);
-    }
-
-    function start() {
-      if (rafId) return;
-      paused = false;
-      lastTs = null;
-      rafId = requestAnimationFrame(tick);
-    }
-
-    function pauseTemporarily() {
-      paused = true;
-      clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(start, 1500);
-    }
-
-    // Interactions
-    viewport.addEventListener("wheel", pauseTemporarily, { passive: true });
-    viewport.addEventListener("touchstart", pauseTemporarily, {
-      passive: true,
+    track.addEventListener("pointerdown", () => {
+      paused = !paused;
+      track.style.animationPlayState = paused ? "paused" : "running";
     });
-
-    // Pause au hover uniquement (sans bloquer si tu veux juste survoler)
-    // viewport.addEventListener("mouseenter", pauseTemporarily);
-
-    // Drag-to-scroll (grab)
-    let isDown = false;
-    let startX = 0;
-    let startScrollLeft = 0;
-
-    viewport.addEventListener("pointerdown", (e) => {
-      // uniquement bouton principal souris / touch / pen
-      if (e.pointerType === "mouse" && e.button !== 0) return;
-
-      isDown = true;
-      viewport.setPointerCapture(e.pointerId);
-      viewport.classList.add("is-dragging");
-
-      startX = e.clientX;
-      startScrollLeft = viewport.scrollLeft;
-
-      paused = true;
-      clearTimeout(resumeTimer);
-    });
-
-    viewport.addEventListener("pointermove", (e) => {
-      if (!isDown) return;
-
-      const dx = e.clientX - startX;
-      viewport.scrollLeft = startScrollLeft - dx;
-    });
-
-    function endDrag(e) {
-      if (!isDown) return;
-      isDown = false;
-
-      try {
-        viewport.releasePointerCapture(e.pointerId);
-      } catch (_) {}
-
-      viewport.classList.remove("is-dragging");
-
-      // Reprend après un court délai
-      resumeTimer = setTimeout(start, 600);
-    }
-
-    viewport.addEventListener("pointerup", endDrag);
-    viewport.addEventListener("pointercancel", endDrag);
-    viewport.addEventListener("pointerleave", endDrag);
-
-    start();
-  };);
+  });
 
   // BLOQUER CLIC DROIT
   // document.addEventListener("contextmenu", (e) => e.preventDefault());
@@ -208,4 +112,4 @@ const SPEED =
   //     e.preventDefault();
   //   }
   // });
-});
+};);
