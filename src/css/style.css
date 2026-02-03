@@ -339,11 +339,22 @@ nav .primary-btn {
 .primary-btn {
   background: var(--green-500);
   color: var(--base-900);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   border-radius: 0.3rem;
   text-decoration: none;
   font-family: var(--mono);
-  font-size: 80%;
+  font-size: 70%;
+}
+@media (min-width: 768px) {
+  .primary-btn {
+    font-size: 75%;
+    padding: 0.5rem 1rem;
+  }
+}
+@media (min-width: 1080px) {
+  .primary-btn {
+    font-size: 80%;
+  }
 }
 .primary-btn:hover {
   background-color: var(--green-400);
@@ -355,11 +366,22 @@ nav .primary-btn {
   background: transparent;
   border: 1px solid var(--green-500);
   color: var(--green-500);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   border-radius: 0.3rem;
   text-decoration: none;
   font-family: var(--mono);
-  font-size: 80%;
+  font-size: 70%;
+}
+@media (min-width: 768px) {
+  .secondary-btn {
+    font-size: 75%;
+    padding: 0.5rem 1rem;
+  }
+}
+@media (min-width: 1080px) {
+  .secondary-btn {
+    font-size: 80%;
+  }
 }
 .secondary-btn:hover {
   color: var(--green-400);
@@ -533,9 +555,10 @@ nav .primary-btn {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding: 2.5rem 1rem 4rem 1rem;
+  padding: 1rem 1rem 4rem 1rem;
   max-width: 1280px;
   min-height: calc(100vh - 190px); /* ta valeur actuelle */
+  max-height: 100vh;
   margin: 0 auto;
 }
 @media (min-width: 850px) {
@@ -551,7 +574,7 @@ nav .primary-btn {
 }
 
 #hero h1 {
-  font-size: 1.25rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   font-family: var(--sans);
   font-weight: 400;
@@ -560,41 +583,75 @@ nav .primary-btn {
 #hero h1 span {
   color: var(--tech-purple);
   display: inline;
-  /* font-family: var(--sans); */
-  font-size: 5rem;
-  /* font-weight: 500; */
+  font-size: 3rem;
   margin: 0;
+  margin-top: 2rem;
   letter-spacing: 0.5rem;
 }
+@media (min-width: 640px) {
+  #hero h1 span {
+    font-size: 4rem;
+    margin: 0;
+  }
+}
+@media (min-width: 1080px) {
+  #hero h1 span {
+    font-size: 5rem;
+  }
+}
+
 #hero h2 {
   font-family: var(--sans);
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 500;
-  margin-top: 2rem;
+  margin-top: 1rem;
   letter-spacing: 0.3rem;
+}
+@media (min-width: 640px) {
+  #hero h2 {
+    font-size: 2.75rem;
+    margin-top: 2rem;
+  }
+}
+@media (min-width: 1080px) {
+  #hero h2 {
+    font-size: 3.5rem;
+  }
 }
 #hero h2 span {
   color: var(--green-400);
   display: block;
   font-family: var(--mono);
-  font-size: 1.5rem;
-  margin-top: 6rem;
+  font-size: 1rem;
+  margin-top: 1rem;
   letter-spacing: 0.1rem;
 }
+@media (min-width: 640px) {
+  #hero h2 span {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+  }
+}
+@media (min-width: 1080px) {
+  #hero h2 span {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+}
 
+/* Boutons Hero */
 #hero p.flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 75px;
-  margin-top: 8vh;
+  margin-top: 4vh;
   margin-left: auto;
   margin-right: auto;
 }
 @media (min-width: 770px) {
   #hero p.flex {
     margin-right: 0;
-    margin-top: 4vh;
   }
 }
 @media (min-width: 1040px) {
@@ -1784,61 +1841,23 @@ nav .primary-btn {
   opacity: 0.7;
 }
 /* ===== TEMOIGNAGES - CAROUSEL ===== */
-/* ===== CAROUSEL MARQUEE (Option B) ===== */
+/* ===== SWIPER ===== */
 
-.testimonials-carousel {
+/* Swiper container */
+.testimonials-carousel.swiper {
   margin-top: 1.5rem;
-}
-
-.carousel-viewport {
   overflow: hidden;
-  position: relative;
 }
 
-.carousel-track:hover {
-  cursor: grab;
+/* Slides: largeur “cards” */
+.testimonials-carousel .swiper-slide {
+  width: clamp(260px, 70vw, 420px); /* comme ton carousel d’avant */
+  height: auto;
 }
 
-/* Track animé */
-.carousel-track.marquee {
-  display: flex;
-  gap: 1.5rem;
-  width: max-content;
-  animation: marquee-scroll 150s linear infinite;
-  will-change: transform;
-}
-
-/* Pause au hover (desktop) */
-.testimonials-carousel:hover .carousel-track.marquee {
-  animation-play-state: paused;
-}
-
-/* Cards */
-.carousel-track .testimonial-card {
-  flex: 0 0 clamp(260px, 70vw, 420px);
-  user-select: none;
-}
-
-/* Petite interaction visuelle */
-.carousel-track .testimonial-card:hover {
-  transform: translateY(-2px);
-}
-
-/* Animation */
-@keyframes marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* Respect des préférences d’accessibilité */
-@media (prefers-reduced-motion: reduce) {
-  .carousel-track.marquee {
-    animation: none;
-  }
+/* Pour espacer comme ton gap */
+.testimonials-carousel .swiper-wrapper {
+  align-items: stretch;
 }
 
 /* ===== FAQ ===== */

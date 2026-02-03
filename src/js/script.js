@@ -81,25 +81,61 @@ document.addEventListener("DOMContentLoaded", () => {
   counters.forEach((counter) => observer.observe(counter));
 
   // ===== TEMOIGNAGES - CAROUSEL (auto-scroll + interaction directe sur cartes) =====
-  // ===== CAROUSEL MARQUEE (Option B – compatible Apple) =====
+  // ===== CAROUSEL SWIPER =====
   window.addEventListener("load", () => {
-    const track = document.querySelector(
-      "#testimonials .carousel-track.marquee",
+    const el = document.querySelector(
+      "#testimonials .testimonials-carousel.swiper",
     );
-    if (!track) return;
+    console.log("[swiper] el found:", !!el);
+    console.log("[swiper] Swiper type:", typeof window.Swiper);
 
-    // Dupliquer le contenu UNE fois pour boucle infinie
-    if (!track.dataset.cloned) {
-      track.innerHTML += track.innerHTML;
-      track.dataset.cloned = "true";
+    if (!el) return;
+
+    if (!window.Swiper) {
+      console.error(
+        "[swiper] Swiper n'est pas chargé. Vérifie le script CDN et l'ordre.",
+      );
+      return;
     }
 
-    // Pause / reprise sur mobile (tap)
-    let paused = false;
+    const instance = new Swiper(el, {
+      loop: true,
+      slidesPerView: "auto",
+      spaceBetween: 24,
 
-    track.addEventListener("pointerdown", () => {
-      paused = !paused;
-      track.style.animationPlayState = paused ? "paused" : "running";
+      allowTouchMove: true,
+      simulateTouch: true,
+      grabCursor: true,
+
+      speed: 18000,
+      autoplay: {
+        delay: 1,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+
+      freeMode: {
+        enabled: true,
+        momentum: false,
+        sticky: false,
+      },
+
+      watchSlidesProgress: true,
+    });
+
+    // Debug global
+    window.__swiper = instance;
+    console.log("[swiper] init ok:", instance);
+
+    const stop = () => instance.autoplay.stop();
+    const start = () => instance.autoplay.start();
+
+    el.addEventListener("pointerdown", stop, { passive: true });
+    el.addEventListener("pointerup", start, { passive: true });
+    el.addEventListener("pointercancel", start, { passive: true });
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) instance.autoplay.start();
     });
   });
 
@@ -112,4 +148,4 @@ document.addEventListener("DOMContentLoaded", () => {
   //     e.preventDefault();
   //   }
   // });
-};);
+});

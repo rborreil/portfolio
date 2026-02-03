@@ -62,6 +62,12 @@
       href="https://db.onlinewebfonts.com/c/77d394fa0c1103c648f880b77cb4a32f?family=Futura+LT+W01+Medium"
       rel="stylesheet"
     />
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <!-- <link rel="stylesheet" href="/css/style.css" /> -->
     <link rel="stylesheet" href="/css/style.min.css" />
     <script
@@ -820,7 +826,7 @@
             <p class="tarif-tagline">
               Un accompagnement premium : image, performance et suivi long
               terme.
-            </p> 
+            </p>
 
             <p class="tarifs-price">
               <small>À partir de</small> 3 490 <small>€ HT</small>
@@ -1340,14 +1346,13 @@
           </p>
         </div>
 
-        <!-- CAROUSEL (sans boutons) -->
-        <div class="testimonials-carousel" aria-label="Témoignages clients">
-          <div
-            class="carousel-viewport"
-            tabindex="0"
-            aria-roledescription="carousel"
-          >
-            <div class="carousel-track marquee">
+        <!-- CAROUSEL (SWiper) -->
+        <div
+          class="testimonials-carousel swiper"
+          aria-label="Témoignages clients"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
               <article class="testimonial-card">
                 <p class="testimonial-text">
                   “Une compréhension rapide des besoins, avec des solutions
@@ -1359,7 +1364,8 @@
                   <span>Fondateur — Avenir En Héritage</span>
                 </div>
               </article>
-
+            </div>
+            <div class="swiper-slide">
               <article class="testimonial-card">
                 <p class="testimonial-text">
                   “Robin est réactif, engagé et force de proposition. Les
@@ -1371,7 +1377,9 @@
                   <span>Fondateur — Jeu Formation</span>
                 </div>
               </article>
+            </div>
 
+            <div class="swiper-slide">
               <article class="testimonial-card">
                 <p class="testimonial-text">
                   “Une collaboration structurée et efficace, avec des méthodes
@@ -1383,7 +1391,9 @@
                   <span>Avocate Associée — B . M . C | Avocats</span>
                 </div>
               </article>
+            </div>
 
+            <div class="swiper-slide">
               <article class="testimonial-card">
                 <p class="testimonial-text">
                   “Robin est engagé et impliqué, capable de s’adapter aux
@@ -1395,7 +1405,9 @@
                   <span>Fondatrice — Split House</span>
                 </div>
               </article>
+            </div>
 
+            <div class="swiper-slide">
               <article class="testimonial-card">
                 <p class="testimonial-text">
                   “Un accompagnement à l’écoute, rassurant et progressif. Les
@@ -1407,7 +1419,9 @@
                   <span>Sophrologue</span>
                 </div>
               </article>
+            </div>
 
+            <div class="swiper-slide">
               <article class="testimonial-card">
                 <p class="testimonial-text">
                   “Robin propose une approche concrète et pragmatique, avec des
@@ -1419,7 +1433,9 @@
                   <span>Couvreur</span>
                 </div>
               </article>
+            </div>
 
+            <div class="swiper-slide">
               <article class="testimonial-card">
                 <p class="testimonial-text">
                   “Une collaboration fluide et humaine, avec beaucoup de clarté
@@ -1790,6 +1806,8 @@
       </section>
     </footer>
 
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- JS Global -->
     <script src="/js/script.min.js" defer></script>
     <!-- <script src="/js/script.js" defer></script> -->
