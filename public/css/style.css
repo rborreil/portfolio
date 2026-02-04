@@ -616,8 +616,7 @@ nav .primary-btn {
     grid-template-columns: repeat(3, 1fr);
   }
   .contact-grid {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   }
 }
 
@@ -1618,6 +1617,11 @@ nav .primary-btn {
   text-decoration: underline;
 }
 
+/* Grid */
+.contact-grid > * {
+  min-width: 0;
+}
+
 /* Formulaire */
 .contact-form {
   background: var(--base-700);
@@ -1666,6 +1670,27 @@ nav .primary-btn {
   color: var(--tech-accent);
   text-decoration: none;
   font-weight: 600;
+}
+.recaptcha-wrapper {
+  width: 100%;
+  max-width: 304px; /* largeur native reCAPTCHA */
+  transform-origin: 0 0;
+}
+/* Responsive */
+@media (max-width: 400px) {
+  .recaptcha-wrapper {
+    transform: scale(0.85);
+  }
+}
+@media (max-width: 360px) {
+  .recaptcha-wrapper {
+    transform: scale(0.7);
+  }
+}
+@media (max-width: 320px) {
+  .recaptcha-wrapper {
+    transform: scale(0.6);
+  }
 }
 .contact-form .primary-btn {
   cursor: pointer;

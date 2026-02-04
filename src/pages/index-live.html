@@ -88,7 +88,7 @@
 
     <!-- HEADER -->
     <header>
-              <img class="fixed" src="/img/logos/logo-carre_blanc-nobg.png" alt="" />
+      <img class="fixed" src="/img/logos/logo-carre_blanc-nobg.png" alt="" />
       <!-- Nav Principale -->
       <nav>
         <ul>
@@ -129,7 +129,6 @@
 
       <!-- Hero -->
       <section id="hero">
-
         <h1>Bonjour, je suis <span>Robin Borreil.</span></h1>
         <h2>
           Construisons ensemble votre projet web.
@@ -1669,12 +1668,14 @@
             <br />
 
             <!-- Recaptcha -->
-            <div
-              class="g-recaptcha"
-              data-sitekey="6Ld0oFEsAAAAAAfa-Wujv4oqlQrzZTQGcrubWoJG"
-              data-callback="onRecaptchaSuccess"
-              data-expired-callback="onRecaptchaExpired"
-            ></div>
+            <div class="recaptcha-wrapper">
+              <div
+                class="g-recaptcha"
+                data-sitekey="6Ld0oFEsAAAAAAfa-Wujv4oqlQrzZTQGcrubWoJG"
+                data-callback="onRecaptchaSuccess"
+                data-expired-callback="onRecaptchaExpired"
+              ></div>
+            </div>
 
             <button type="submit" id="form-status" class="primary-btn">
               Envoyer le message
