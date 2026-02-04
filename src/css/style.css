@@ -251,7 +251,7 @@ header {
 header img.fixed {
   position: fixed;
   top: 50%;
-  left: 50%;
+  left: 55%;
 
   transform: translate(-50%, -50%);
 
@@ -583,10 +583,10 @@ nav .primary-btn {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: clamp(0.75rem, 2vh, 1.5rem);
+  /* gap: clamp(0.75rem, 2vh, 1.5rem); */
 
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 40px auto;
 
   /* padding responsive, sans casser la hauteur écran */
   padding: clamp(1.5rem, 3vw, 3rem) clamp(2rem, 6vw, 4rem);
@@ -675,10 +675,16 @@ nav .primary-btn {
   flex-wrap: wrap; /* évite le débordement sur petits écrans */
   justify-content: center;
 }
-@media (min-width: 770px) {
+@media (min-width: 768px) {
   #hero p.flex {
+    margin-top: clamp(1.5rem, 6vh, 5rem);
     margin-right: 0;
     justify-content: flex-start;
+  }
+}
+@media (min-width: 1024px) {
+  #hero p.flex {
+    margin-top: clamp(3rem, 12vh, 10rem);
   }
 }
 
@@ -1005,7 +1011,7 @@ nav .primary-btn {
 /* ===== PROJETS ===== */
 
 #projects {
-  background-color: var(--base-900);
+  /* background-color: var(--base-900); */
   padding: 4rem 1rem 3rem 1rem;
   max-width: 1280px;
   margin: 0 auto;
@@ -1473,9 +1479,9 @@ nav .primary-btn {
 
 /* ===== A PROPOS / VISION ===== */
 
-#about {
+/* #about {
   background-color: var(--base-900);
-}
+} */
 
 /* Qui */
 .who {
@@ -1861,11 +1867,25 @@ nav .primary-btn {
 .testimonials-carousel .swiper-slide {
   width: clamp(260px, 70vw, 420px); /* comme ton carousel d’avant */
   height: auto;
+  display: flex;
 }
 
 /* Pour espacer comme ton gap */
 .testimonials-carousel .swiper-wrapper {
   align-items: stretch;
+}
+
+/* La card remplit la slide */
+.testimonials-carousel .testimonial-card {
+  /* display: flex;
+  flex-direction: column;
+  height: 100%; */
+  border-radius: 0;
+}
+@media (min-width: 640px) {
+  .testimonials-carousel .testimonial-card {
+    border-radius: 16px;
+  }
 }
 
 /* ===== FAQ ===== */
