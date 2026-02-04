@@ -137,6 +137,8 @@ body {
   background-color: var(--base-900);
   color: var(--text-main);
   font-size: var(--font-size);
+  position: relative;
+  isolation: isolate;
 }
 html,
 body {
@@ -250,6 +252,7 @@ header {
 
 header img.fixed {
   position: fixed;
+  inset: 50% auto auto 50%;
   top: 50%;
   left: 55%;
 
@@ -258,7 +261,7 @@ header img.fixed {
   width: 800px;
   height: 800px;
 
-  z-index: -2;
+  z-index: -1;
   opacity: 0.025;
   pointer-events: none;
 }
@@ -1392,42 +1395,42 @@ nav .primary-btn {
 
 /* ===== PARALLAX ===== */
 
-.parallax {
+/* .parallax {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-}
+} */
 /* iPad / iOS / touch : on désactive le fixed */
-@supports (-webkit-touch-callout: none) {
+/* @supports (-webkit-touch-callout: none) {
   .parallax {
     background-attachment: scroll;
   }
-}
+} */
 
 /* Test Parallax secondaire */
 /* Variables */
-.parallax-secondary-cta {
+.parallax-cta {
   background-image: url("../img/parallax/bureau-ergo.webp");
 }
-.parallax-secondary-cta-2 {
+.parallax-cta-2 {
   background-image: url("../img/parallax/collab-2.webp");
 }
-.parallax-secondary-cta-3 {
+.parallax-cta-3 {
   background-image: url("../img/parallax/collab-3.webp");
 }
-.parallax-secondary-numbers {
+.parallax-numbers {
   background-image: url("../img/parallax/abstract-data-2.webp");
 }
-.parallax-secondary-process {
+.parallax-process {
   background-image: url("../img/parallax/abstract-data.webp");
 }
-.parallax-secondary-contact {
+.parallax-contact {
   background-image: url("../img/parallax/abstract-data-3.webp");
 }
 
 /* Base */
-.parallax-secondary {
+.parallax {
   position: relative;
   overflow: hidden;
   min-height: 320px;
@@ -1438,10 +1441,12 @@ nav .primary-btn {
 
   /* “Parallax” CSS pur */
   background-attachment: fixed;
+
+  z-index: 0;
 }
 
 /* Overlay lisibilité */
-.parallax-secondary::before {
+.parallax::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1465,17 +1470,17 @@ nav .primary-btn {
 }
 
 /* Contenu au-dessus */
-.parallax-secondary > .container-media {
+.parallax > .container-media {
   position: relative;
   z-index: 1;
 }
 
 /* Fallback iOS/iPad: on coupe le fixed (sinon rendu “cassé” ou ignoré) */
-@supports (-webkit-touch-callout: none) {
-  .parallax-secondary {
+/* @supports (-webkit-touch-callout: none) {
+  .parallax {
     background-attachment: scroll;
   }
-}
+} */
 
 /* ===== A PROPOS / VISION ===== */
 
@@ -2017,7 +2022,7 @@ nav .primary-btn {
   border-color: var(--green-400);
 }
 .contact-form span.asterisque {
-  color: var(--elec-purple);
+  color: var(--tech-purple);
 }
 .contact-form .consent-text a {
   color: var(--tech-accent);
@@ -2447,7 +2452,7 @@ header.legal-hero {
   min-height: 0;
 }
 
-/* Titre + meta */
+/* Titre + Meta */
 .legal-meta {
   margin-top: 0.75rem;
   font-size: var(--text-meta);
