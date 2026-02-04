@@ -1220,11 +1220,11 @@ nav .primary-btn {
 }
 
 /* Fallback iOS/iPad: on coupe le fixed (sinon rendu “cassé” ou ignoré) */
-/* @supports (-webkit-touch-callout: none) {
+@supports (-webkit-touch-callout: none) {
   .parallax {
     background-attachment: scroll;
   }
-} */
+}
 
 /* ===== A PROPOS / VISION ===== */
 
@@ -1271,17 +1271,21 @@ nav .primary-btn {
   gap: 3rem;
 }
 .who-photo img {
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   display: block;
 
   border-radius: 50%;
 }
+/* @media (min-width: 640px) {
+  .who-photo img {
+    scale: 0.75;
+  }
+} */
 @media (min-width: 770px) {
   .who-photo img {
     scale: 1.5;
-    width: 100%;
   }
 }
 
