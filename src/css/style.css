@@ -1879,6 +1879,26 @@ nav .primary-btn {
   display: flex;
 }
 
+#testimonials .swiper-slide {
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease;
+  transform: scale(0.92);
+  opacity: 0.55;
+  will-change: transform, opacity;
+}
+
+#testimonials .swiper-slide.swiper-slide-active,
+#testimonials .swiper-slide.swiper-slide-prev {
+  transform: scale(0.96);
+  opacity: 0.75;
+}
+
+#testimonials .swiper-slide.swiper-slide-next {
+  transform: scale(1);
+  opacity: 1;
+}
+
 /* Pour espacer comme ton gap */
 .testimonials-carousel .swiper-wrapper {
   align-items: stretch;

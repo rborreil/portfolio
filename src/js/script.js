@@ -100,6 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const instance = new Swiper(el, {
       loop: true,
+      loopAdditionalSlides: 8,
+      // centeredSlides: false,
       slidesPerView: "auto",
       spaceBetween: 24,
 
@@ -109,9 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       speed: 18000,
       autoplay: {
-        delay: 1,
+        delay: 0,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
+        waitForTransition: true,
       },
 
       freeMode: {
@@ -127,8 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.__swiper = instance;
     console.log("[swiper] init ok:", instance);
 
-    const stop = () => instance.autoplay.stop();
-    const start = () => instance.autoplay.start();
+    const stop = () => {
+      instance.autoplay.stop();
+      // instance.setTranslate(instance.translate);
+    }
+    const start = () => {
+      // instance.update();
+      instance.autoplay.start();
+    }
 
     el.addEventListener("pointerdown", stop, { passive: true });
     el.addEventListener("pointerup", start, { passive: true });
