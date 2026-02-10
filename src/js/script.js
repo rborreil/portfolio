@@ -157,6 +157,145 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.__swiper = swiper;
 
+  // ========== FAQ (clic partout + anim) ==========
+
+  const items = document.querySelectorAll("#faq details.faq-item");
+  const DURATION = 260;
+  const EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
+
+  const prefersReduced =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const getContent = (details) => details.querySelector(".faq-content");
+  const getInner = (details) => details.querySelector(".faq-content > *"); // p
+
+  const cancelAnims = (el) => {
+    if (!el) return;
+    el.getAnimations?.().forEach((a) => a.cancel());
+  };
+
+  function closeOthers(current) {
+    items.forEach((d) => {
+      if (d !== current && d.open) {
+        animateClose(d);
+      }
+    });
+  }
+
+  function animateOpen(details) {
+    const content = getContent(details);
+    const inner = getInner(details);
+    if (!content || !inner) return;
+
+    cancelAnims(content);
+
+    // Ouvrir pour que les dimensions existent
+    details.open = true;
+
+    // Partir de 0
+    content.style.overflow = "hidden";
+    content.style.height = "0px";
+    content.style.opacity = "0";
+
+    const target = inner.scrollHeight; // hauteur réelle du <p>
+
+    if (prefersReduced) {
+      content.style.height = "auto";
+      content.style.opacity = "1";
+      return;
+    }
+
+    const anim = content.animate(
+      [
+        { height: "0px", opacity: 0 },
+        { height: `${target}px`, opacity: 1 },
+      ],
+      { duration: DURATION, easing: EASING, fill: "forwards" },
+    );
+
+    anim.onfinish = () => {
+      content.style.height = "auto"; // laisse vivre si le texte wrap différemment
+      content.style.opacity = "1";
+    };
+  }
+
+  function animateClose(details) {
+    const content = getContent(details);
+    const inner = getInner(details);
+    if (!content || !inner) return;
+
+    cancelAnims(content);
+
+    // Figer hauteur actuelle (si auto)
+    const start = inner.getBoundingClientRect().height;
+    content.style.overflow = "hidden";
+    content.style.height = `${start}px`;
+    content.style.opacity = "1";
+
+    if (prefersReduced) {
+      details.open = false;
+      content.style.height = "0px";
+      content.style.opacity = "0";
+      return;
+    }
+
+    const anim = content.animate(
+      [
+        { height: `${start}px`, opacity: 1 },
+        { height: "0px", opacity: 0 },
+      ],
+      { duration: DURATION, easing: EASING, fill: "forwards" },
+    );
+
+    anim.onfinish = () => {
+      details.open = false;
+      content.style.height = "0px";
+      content.style.opacity = "0";
+    };
+  }
+
+  function toggle(details) {
+    if (details.open) {
+      animateClose(details);
+    } else {
+      closeOthers(details); // 👈 NOUVEAU
+      animateOpen(details);
+    }
+  }
+
+
+  items.forEach((details) => {
+    const summary = details.querySelector("summary");
+    if (!summary) return;
+
+    // Remplace le toggle natif par notre anim
+    summary.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggle(details);
+    });
+
+    // Clic n’importe où dans la card
+    details.addEventListener("click", (e) => {
+      if (e.target.closest("summary")) return;
+      if (e.target.closest("a, button, input, textarea, select, label")) return;
+      toggle(details);
+    });
+
+    // Focus clavier sur toute la card
+    if (!details.hasAttribute("tabindex"))
+      details.setAttribute("tabindex", "0");
+    details.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      if (
+        e.target.closest("summary, a, button, input, textarea, select, label")
+      )
+        return;
+      e.preventDefault();
+      toggle(details);
+    });
+  });
+
   // BLOQUER CLIC DROIT
   // document.addEventListener("contextmenu", (e) => e.preventDefault());
 

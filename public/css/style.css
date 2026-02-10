@@ -224,11 +224,11 @@ nav {
   font-size: 80%;
   padding: 1.5rem 1rem 0 1rem;
 }
-nav li:first-child {
+header nav li:first-child {
   display: none;
 }
 @media (min-width: 850px) {
-  nav li:first-child {
+  header nav li:first-child {
     display: block;
     font-family: var(--sans);
     flex-basis: 100%;
@@ -1650,6 +1650,11 @@ nav .primary-btn {
   border: 1px solid var(--base-800);
   padding: 1.2rem 1.5rem;
   color: var(--text-main);
+  cursor: pointer;
+}
+.faq-item:focus-visible {
+  outline: 2px solid var(--tech-accent);
+  outline-offset: 3px;
 }
 .faq-item summary {
   cursor: pointer;
@@ -1675,11 +1680,33 @@ nav .primary-btn {
 .faq-item[open] summary::after {
   content: "–";
 }
+
+
+
+/* Le wrapper gère l’espacement, pas le <p> */
+.faq-content {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  padding-top: 0;          /* fermé */
+  padding-bottom: 0;       /* fermé */
+  transition: opacity 200ms ease;
+}
+
+.faq-item[open] .faq-content {
+  opacity: 1;
+  padding-top: 0.8rem;     /* équivalent à ton margin-top */
+  padding-bottom: 0.2rem;  /* petit confort visuel */
+}
+
+/* Plus de margin => plus de rognage */
 .faq-item p {
+  margin: 0;
   font-size: var(--text-body);
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-top: 0.8rem;
+  transform: translateY(-4px);
+  transition: transform 200ms ease;
 }
 
 /* ===== CONTACT ===== */
@@ -1945,6 +1972,14 @@ footer {
 }
 .footer-links li {
   font-size: 1rem;
+}
+.footer-links li:first-child a {
+  display: block;
+  font-family: var(--sans);
+  flex-basis: 100%;
+  font-size: 130%;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
 }
 .footer-links a {
   color: var(--text-main);
