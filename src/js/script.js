@@ -1,4 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ===== HERO : EFFET CLAVIER TYPING =====
+  const text = "Robin Borreil.";
+  const target = document.getElementById("typed-name");
+
+  let index = 0;
+  const speed = 100; // ms entre chaque lettre
+
+  function typeWriter() {
+    if (index < text.length) {
+      target.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  typeWriter();
+
   // MENU FLOTTANT + BOUTONS FIXES
   const fixedMail = document.querySelector(".fixed-btn .fixed-mail");
   const fixedHome = document.querySelector(".fixed-btn .fixed-home");

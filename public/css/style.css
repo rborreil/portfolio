@@ -231,7 +231,8 @@ header nav li:first-child {
   header nav li:first-child {
     display: block;
     font-family: var(--sans);
-    flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    /* flex-basis: 100%; */
     font-size: 2rem;
     font-weight: bold;
   }
