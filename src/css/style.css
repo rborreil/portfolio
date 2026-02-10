@@ -1452,39 +1452,21 @@ nav .primary-btn {
 /* Images parallax  */
 .parallax-cta {
   background-image: url("../img/parallax/bureau-ergo.webp");
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
 }
 .parallax-cta-2 {
   background-image: url("../img/parallax/collab-2.webp");
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
 }
 .parallax-cta-3 {
   background-image: url("../img/parallax/collab-3.webp");
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
 }
 .parallax-numbers {
   background-image: url("../img/parallax/abstract-data-2.webp");
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
 }
 .parallax-process {
   background-image: url("../img/parallax/abstract-data.webp");
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
 }
 .parallax-contact {
   background-image: url("../img/parallax/abstract-data-3.webp");
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
 }
 
 /* ===== A PROPOS / VISION ===== */
@@ -1885,9 +1867,15 @@ nav .primary-btn {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 8%;
+  width: 5%;
   pointer-events: none;
   z-index: 5; /* au-dessus des slides */
+}
+@media (min-width: 770px) {
+  #testimonials .testimonials-carousel::before,
+  #testimonials .testimonials-carousel::after {
+    width: 8%;
+  }
 }
 
 #testimonials .testimonials-carousel::before {
@@ -2007,22 +1995,20 @@ nav .primary-btn {
   content: "–";
 }
 
-
-
 /* Le wrapper gère l’espacement, pas le <p> */
 .faq-content {
   overflow: hidden;
   height: 0;
   opacity: 0;
-  padding-top: 0;          /* fermé */
-  padding-bottom: 0;       /* fermé */
+  padding-top: 0; /* fermé */
+  padding-bottom: 0; /* fermé */
   transition: opacity 200ms ease;
 }
 
 .faq-item[open] .faq-content {
   opacity: 1;
-  padding-top: 0.8rem;     /* équivalent à ton margin-top */
-  padding-bottom: 0.2rem;  /* petit confort visuel */
+  padding-top: 0.8rem; /* équivalent à ton margin-top */
+  padding-bottom: 0.2rem; /* petit confort visuel */
 }
 
 /* Plus de margin => plus de rognage */

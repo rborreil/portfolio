@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let paused = false;
 
   // px par frame (à 60fps). Ajuste pour vitesse.
-  const SPEED_PX_PER_FRAME = 0.6;
+  const SPEED_PX_PER_FRAME = 0.15;
 
   const tick = () => {
     if (!paused) {
@@ -263,7 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
       animateOpen(details);
     }
   }
-
 
   items.forEach((details) => {
     const summary = details.querySelector("summary");
