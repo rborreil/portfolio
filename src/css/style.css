@@ -375,7 +375,8 @@ nav .primary-btn {
   background: var(--green-500);
   color: var(--base-900);
   padding: 0.5rem;
-  border-radius: 0.3rem;
+  /* border-radius: 0.3rem; */
+  /* border-radius: 0; */
   text-decoration: none;
   font-family: var(--mono);
   font-size: 70%;
@@ -402,7 +403,7 @@ nav .primary-btn {
   border: 1px solid var(--green-500);
   color: var(--green-500);
   padding: 0.5rem;
-  border-radius: 0.3rem;
+  /* border-radius: 0.3rem; */
   text-decoration: none;
   font-family: var(--mono);
   font-size: 70%;
@@ -1395,40 +1396,6 @@ nav .primary-btn {
 
 /* ===== PARALLAX ===== */
 
-/* .parallax {
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-} */
-/* iPad / iOS / touch : on désactive le fixed */
-/* @supports (-webkit-touch-callout: none) {
-  .parallax {
-    background-attachment: scroll;
-  }
-} */
-
-/* Test Parallax secondaire */
-/* Variables */
-.parallax-cta {
-  background-image: url("../img/parallax/bureau-ergo.webp");
-}
-.parallax-cta-2 {
-  background-image: url("../img/parallax/collab-2.webp");
-}
-.parallax-cta-3 {
-  background-image: url("../img/parallax/collab-3.webp");
-}
-.parallax-numbers {
-  background-image: url("../img/parallax/abstract-data-2.webp");
-}
-.parallax-process {
-  background-image: url("../img/parallax/abstract-data.webp");
-}
-.parallax-contact {
-  background-image: url("../img/parallax/abstract-data-3.webp");
-}
-
 /* Base */
 .parallax {
   position: relative;
@@ -1480,6 +1447,44 @@ nav .primary-btn {
   .parallax {
     background-attachment: scroll;
   }
+}
+
+/* Images parallax  */
+.parallax-cta {
+  background-image: url("../img/parallax/bureau-ergo.webp");
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
+.parallax-cta-2 {
+  background-image: url("../img/parallax/collab-2.webp");
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
+.parallax-cta-3 {
+  background-image: url("../img/parallax/collab-3.webp");
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
+.parallax-numbers {
+  background-image: url("../img/parallax/abstract-data-2.webp");
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
+.parallax-process {
+  background-image: url("../img/parallax/abstract-data.webp");
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
+.parallax-contact {
+  background-image: url("../img/parallax/abstract-data-3.webp");
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* ===== A PROPOS / VISION ===== */
@@ -1870,52 +1875,84 @@ nav .primary-btn {
 .testimonials-carousel.swiper {
   margin-top: 1.5rem;
   overflow: hidden;
+  position: relative; /* important pour les voiles */
 }
 
-/* Slides: largeur “cards” */
-.testimonials-carousel .swiper-slide {
-  width: clamp(260px, 70vw, 420px); /* comme ton carousel d’avant */
-  height: auto;
-  display: flex;
+/* Voiles latéraux (dégradés) */
+#testimonials .testimonials-carousel::before,
+#testimonials .testimonials-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8%;
+  pointer-events: none;
+  z-index: 5; /* au-dessus des slides */
 }
 
-#testimonials .swiper-slide {
-  transition:
-    transform 300ms ease,
-    opacity 300ms ease;
-  transform: scale(0.92);
-  opacity: 0.55;
-  will-change: transform, opacity;
+#testimonials .testimonials-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
 }
 
-#testimonials .swiper-slide.swiper-slide-active,
-#testimonials .swiper-slide.swiper-slide-prev {
-  transform: scale(0.96);
-  opacity: 0.75;
+#testimonials .testimonials-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
 }
 
-#testimonials .swiper-slide.swiper-slide-next {
-  transform: scale(1);
-  opacity: 1;
-}
-
-/* Pour espacer comme ton gap */
+/* Wrapper: permet aux slides d'avoir la même hauteur */
 .testimonials-carousel .swiper-wrapper {
   align-items: stretch;
 }
 
+/* Slides: largeur “cards” + hauteur uniforme */
+.testimonials-carousel .swiper-slide {
+  width: clamp(260px, 35vw, 520px);
+  height: auto;
+  display: flex;
+  flex-shrink: 0;
+  align-self: stretch; /* important */
+}
+
 /* La card remplit la slide */
 .testimonials-carousel .testimonial-card {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  height: 100%; */
+  height: 100%;
+  width: 100%;
   border-radius: 0;
 }
-@media (min-width: 640px) {
+
+#testimonials .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* Effet centre basé sur les classes Swiper calculées par updateSlidesClasses() */
+#testimonials .swiper-slide {
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease;
+  transform: scale(1);
+  opacity: 0.8;
+}
+
+#testimonials .swiper-slide.swiper-slide-active {
+  /* transform: scale(1.04); */
+  opacity: 1;
+}
+
+#testimonials .swiper-slide.swiper-slide-prev,
+#testimonials .swiper-slide.swiper-slide-next {
+  /* transform: scale(1.02); */
+  opacity: 0.9;
+}
+
+/* Radius responsive */
+/* @media (min-width: 640px) {
   .testimonials-carousel .testimonial-card {
     border-radius: 16px;
   }
-}
+} */
 
 /* ===== FAQ ===== */
 #faq {

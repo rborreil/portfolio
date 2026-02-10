@@ -82,71 +82,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== TEMOIGNAGES - CAROUSEL (auto-scroll + interaction directe sur cartes) =====
   // ===== CAROUSEL SWIPER =====
-  window.addEventListener("load", () => {
-    const el = document.querySelector(
-      "#testimonials .testimonials-carousel.swiper",
-    );
-    console.log("[swiper] el found:", !!el);
-    console.log("[swiper] Swiper type:", typeof window.Swiper);
 
-    if (!el) return;
+  const el = document.querySelector(
+    "#testimonials .testimonials-carousel.swiper",
+  );
+  if (!el || !window.Swiper) return;
 
-    if (!window.Swiper) {
-      console.error(
-        "[swiper] Swiper n'est pas chargé. Vérifie le script CDN et l'ordre.",
-      );
-      return;
+  const wrapper = el.querySelector(".swiper-wrapper");
+  if (!wrapper) return;
+
+  // Dupliquer pour assurer l’infini (important)
+  const base = Array.from(wrapper.children);
+  const MIN = 28; // plus c’est grand, plus c’est smooth
+  if (base.length && wrapper.children.length < MIN) {
+    let i = 0;
+    while (wrapper.children.length < MIN) {
+      wrapper.appendChild(base[i % base.length].cloneNode(true));
+      i++;
     }
+  }
 
-    const instance = new Swiper(el, {
-      loop: true,
-      loopAdditionalSlides: 8,
-      // centeredSlides: false,
-      slidesPerView: "auto",
-      spaceBetween: 24,
+  if (el.swiper) el.swiper.destroy(true, true);
 
-      allowTouchMove: true,
-      simulateTouch: true,
-      grabCursor: true,
-
-      speed: 18000,
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-        waitForTransition: true,
-      },
-
-      freeMode: {
-        enabled: true,
-        momentum: false,
-        sticky: false,
-      },
-
-      watchSlidesProgress: true,
-    });
-
-    // Debug global
-    window.__swiper = instance;
-    console.log("[swiper] init ok:", instance);
-
-    const stop = () => {
-      instance.autoplay.stop();
-      // instance.setTranslate(instance.translate);
-    }
-    const start = () => {
-      // instance.update();
-      instance.autoplay.start();
-    }
-
-    el.addEventListener("pointerdown", stop, { passive: true });
-    el.addEventListener("pointerup", start, { passive: true });
-    el.addEventListener("pointercancel", start, { passive: true });
-
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden) instance.autoplay.start();
-    });
+  const swiper = new Swiper(el, {
+    loop: true,
+    slidesPerView: "auto",
+    spaceBetween: 24,
+    freeMode: { enabled: true, momentum: false, sticky: false },
+    watchSlidesProgress: true,
+    grabCursor: true,
   });
+
+  // --- Ticker continu ---
+  let rafId = null;
+  let paused = false;
+
+  // px par frame (à 60fps). Ajuste pour vitesse.
+  const SPEED_PX_PER_FRAME = 0.6;
+
+  const tick = () => {
+    if (!paused) {
+      // translate diminue => ça avance vers la gauche
+      const next = swiper.translate - SPEED_PX_PER_FRAME;
+
+      swiper.setTranslate(next);
+      swiper.updateProgress();
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+
+      // Important : maintient le loop propre
+      if (swiper.loopFix) swiper.loopFix();
+    }
+    rafId = requestAnimationFrame(tick);
+  };
+
+  const stop = () => (paused = true);
+  const start = () => (paused = false);
+
+  // Pause sur hover + interaction tactile
+  el.addEventListener("mouseenter", stop);
+  el.addEventListener("mouseleave", start);
+  swiper.on("touchStart", stop);
+  swiper.on("touchEnd", start);
+
+  document.addEventListener("visibilitychange", () => {
+    paused = document.hidden ? true : false;
+  });
+
+  // Démarrage après layout
+  requestAnimationFrame(() => {
+    swiper.update();
+    tick();
+  });
+
+  window.__swiper = swiper;
 
   // BLOQUER CLIC DROIT
   // document.addEventListener("contextmenu", (e) => e.preventDefault());
