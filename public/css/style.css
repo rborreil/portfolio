@@ -824,6 +824,9 @@ nav .primary-btn {
 #projects .text {
   margin: auto 0 auto auto;
   font-size: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 #projects .project-title {
   color: var(--green-400);
