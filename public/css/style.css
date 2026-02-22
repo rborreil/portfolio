@@ -224,17 +224,20 @@ nav {
   font-size: 80%;
   padding: 1.5rem 1rem 0 1rem;
 }
-header nav li:first-child {
+.main-nav li:first-child {
   display: none;
 }
 @media (min-width: 850px) {
-  header nav li:first-child {
+  .main-nav li:first-child {
     display: block;
     font-family: var(--sans);
     -ms-flex-preferred-size: 100%;
     /* flex-basis: 100%; */
     font-size: 2rem;
     font-weight: bold;
+  }
+  .main-nav li:nth-child(2) {
+    display: none;
   }
 }
 nav ul {
@@ -2183,8 +2186,12 @@ header.legal-hero {
 }
 
 /* CTA bas de page */
-.legal-cta {
-  margin-top: 2.5rem;
+.legal-hero .legal-cta {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.legal-content .legal-cta {
+  margin-top: 4.75rem;
   text-align: center;
 }
 
