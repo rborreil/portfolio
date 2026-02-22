@@ -293,7 +293,7 @@ nav {
     font-size: 2rem;
     font-weight: bold;
   }
-  .main-nav li:nth-child(2) {
+  .main-nav .home-item {
     display: none;
   }
 }
