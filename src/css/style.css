@@ -2084,7 +2084,7 @@ details.accordion-card[open] > .accordion-content {
   left: 0;
   right: 0;
   padding: 0.8rem 1rem;
-  background: linear-gradient(transparent, rgba(10, 26, 36, 0.95));
+  background: linear-gradient(#00000079, rgba(10, 26, 36, 0.95));
   color: var(--text-main);
 }
 .carousel-label h3 {
