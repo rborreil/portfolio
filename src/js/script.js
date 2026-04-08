@@ -99,84 +99,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== TEMOIGNAGES - CAROUSEL (auto-scroll + interaction directe sur cartes) =====
   // ===== CAROUSEL SWIPER =====
+  // Wrapped in IIFE so early returns don’t kill accordion/carousel init below
+  (() => {
+    const el = document.querySelector(
+      "#testimonials .testimonials-carousel.swiper",
+    );
+    if (!el || !window.Swiper) return;
 
-  const el = document.querySelector(
-    "#testimonials .testimonials-carousel.swiper",
-  );
-  if (!el || !window.Swiper) return;
+    const wrapper = el.querySelector(".swiper-wrapper");
+    if (!wrapper) return;
 
-  const wrapper = el.querySelector(".swiper-wrapper");
-  if (!wrapper) return;
-
-  // Dupliquer pour assurer l’infini (important)
-  const base = Array.from(wrapper.children);
-  const MIN = 28; // plus c’est grand, plus c’est smooth
-  if (base.length && wrapper.children.length < MIN) {
-    let i = 0;
-    while (wrapper.children.length < MIN) {
-      wrapper.appendChild(base[i % base.length].cloneNode(true));
-      i++;
+    // Dupliquer pour assurer l’infini (important)
+    const base = Array.from(wrapper.children);
+    const MIN = 28; // plus c’est grand, plus c’est smooth
+    if (base.length && wrapper.children.length < MIN) {
+      let i = 0;
+      while (wrapper.children.length < MIN) {
+        wrapper.appendChild(base[i % base.length].cloneNode(true));
+        i++;
+      }
     }
-  }
 
-  if (el.swiper) el.swiper.destroy(true, true);
+    if (el.swiper) el.swiper.destroy(true, true);
 
-  const swiper = new Swiper(el, {
-    loop: true,
-    slidesPerView: "auto",
-    spaceBetween: 24,
-    freeMode: { enabled: true, momentum: false, sticky: false },
-    watchSlidesProgress: true,
-    grabCursor: true,
-  });
+    const swiper = new Swiper(el, {
+      loop: true,
+      slidesPerView: "auto",
+      spaceBetween: 24,
+      freeMode: { enabled: true, momentum: false, sticky: false },
+      watchSlidesProgress: true,
+      grabCursor: true,
+    });
 
-  // --- Ticker continu ---
-  let rafId = null;
-  let paused = false;
+    // --- Ticker continu ---
+    let rafId = null;
+    let paused = false;
 
-  // px par frame (à 60fps). Ajuste pour vitesse.
-  const SPEED_PX_PER_FRAME = 0.20;
+    // px par frame (à 60fps). Ajuste pour vitesse.
+    const SPEED_PX_PER_FRAME = 0.20;
 
-  const tick = () => {
-    if (!paused) {
-      // translate diminue => ça avance vers la gauche
-      const next = swiper.translate - SPEED_PX_PER_FRAME;
+    const tick = () => {
+      if (!paused) {
+        // translate diminue => ça avance vers la gauche
+        const next = swiper.translate - SPEED_PX_PER_FRAME;
 
-      swiper.setTranslate(next);
-      swiper.updateProgress();
-      swiper.updateActiveIndex();
-      swiper.updateSlidesClasses();
+        swiper.setTranslate(next);
+        swiper.updateProgress();
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
 
-      // Important : maintient le loop propre
-      if (swiper.loopFix) swiper.loopFix();
-    }
-    rafId = requestAnimationFrame(tick);
-  };
+        // Important : maintient le loop propre
+        if (swiper.loopFix) swiper.loopFix();
+      }
+      rafId = requestAnimationFrame(tick);
+    };
 
-  const stop = () => (paused = true);
-  const start = () => (paused = false);
+    const stop = () => (paused = true);
+    const start = () => (paused = false);
 
-  // Pause sur hover + interaction tactile
-  el.addEventListener("mouseenter", stop);
-  el.addEventListener("mouseleave", start);
-  swiper.on("touchStart", stop);
-  swiper.on("touchEnd", start);
+    // Pause sur hover + interaction tactile
+    el.addEventListener("mouseenter", stop);
+    el.addEventListener("mouseleave", start);
+    swiper.on("touchStart", stop);
+    swiper.on("touchEnd", start);
 
-  document.addEventListener("visibilitychange", () => {
-    paused = document.hidden ? true : false;
-  });
+    document.addEventListener("visibilitychange", () => {
+      paused = document.hidden ? true : false;
+    });
 
-  // Démarrage après layout
-  requestAnimationFrame(() => {
-    swiper.update();
-    tick();
-  });
+    // Démarrage après layout
+    requestAnimationFrame(() => {
+      swiper.update();
+      tick();
+    });
 
-  window.__swiper = swiper;
+    window.__swiper = swiper;
+  })();
 
-  // ========== FAQ (clic partout + anim) ==========
+  // ========== ACCORDIONS (FAQ + Accordion Cards) ==========
 
-  const items = document.querySelectorAll("#faq details.faq-item");
   const DURATION = 260;
   const EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
 
@@ -184,38 +185,41 @@ document.addEventListener("DOMContentLoaded", () => {
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const getContent = (details) => details.querySelector(".faq-content");
-  const getInner = (details) => details.querySelector(".faq-content > *"); // p
-
   const cancelAnims = (el) => {
     if (!el) return;
     el.getAnimations?.().forEach((a) => a.cancel());
   };
 
-  function closeOthers(current) {
-    items.forEach((d) => {
-      if (d !== current && d.open) {
-        animateClose(d);
-      }
-    });
+  function getContentEl(details) {
+    return details.querySelector(".faq-content") || details.querySelector(".accordion-content");
+  }
+
+  function measureContentHeight(content) {
+    // Temporarily let content size naturally so we get an accurate measurement
+    const prevHeight = content.style.height;
+    const prevOverflow = content.style.overflow;
+    content.style.height = "auto";
+    content.style.overflow = "hidden";
+    const h = content.scrollHeight;
+    content.style.height = prevHeight;
+    content.style.overflow = prevOverflow;
+    return h;
   }
 
   function animateOpen(details) {
-    const content = getContent(details);
-    const inner = getInner(details);
-    if (!content || !inner) return;
+    const content = getContentEl(details);
+    if (!content) return;
+    if (!content.firstElementChild) return;
 
     cancelAnims(content);
-
-    // Ouvrir pour que les dimensions existent
     details.open = true;
 
-    // Partir de 0
+    // Start collapsed
     content.style.overflow = "hidden";
     content.style.height = "0px";
     content.style.opacity = "0";
 
-    const target = inner.scrollHeight; // hauteur réelle du <p>
+    const target = measureContentHeight(content);
 
     if (prefersReduced) {
       content.style.height = "auto";
@@ -232,20 +236,19 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     anim.onfinish = () => {
-      content.style.height = "auto"; // laisse vivre si le texte wrap différemment
+      content.style.height = "auto";
       content.style.opacity = "1";
     };
   }
 
   function animateClose(details) {
-    const content = getContent(details);
-    const inner = getInner(details);
-    if (!content || !inner) return;
+    const content = getContentEl(details);
+    if (!content) return;
 
     cancelAnims(content);
 
-    // Figer hauteur actuelle (si auto)
-    const start = inner.getBoundingClientRect().height;
+    // Freeze current height before animating
+    const start = content.getBoundingClientRect().height;
     content.style.overflow = "hidden";
     content.style.height = `${start}px`;
     content.style.opacity = "1";
@@ -272,45 +275,205 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  function toggle(details) {
+  // FAQ items: close others within FAQ
+  const faqItems = document.querySelectorAll("#faq details.faq-item");
+  function closeFaqOthers(current) {
+    faqItems.forEach((d) => {
+      if (d !== current && d.open) animateClose(d);
+    });
+  }
+
+  function toggleFaq(details) {
     if (details.open) {
       animateClose(details);
     } else {
-      closeOthers(details); // 👈 NOUVEAU
+      closeFaqOthers(details);
       animateOpen(details);
     }
   }
 
-  items.forEach((details) => {
+  faqItems.forEach((details) => {
     const summary = details.querySelector("summary");
     if (!summary) return;
 
-    // Remplace le toggle natif par notre anim
     summary.addEventListener("click", (e) => {
       e.preventDefault();
-      toggle(details);
+      toggleFaq(details);
     });
-
-    // Clic n’importe où dans la card
     details.addEventListener("click", (e) => {
       if (e.target.closest("summary")) return;
       if (e.target.closest("a, button, input, textarea, select, label")) return;
-      toggle(details);
+      toggleFaq(details);
     });
-
-    // Focus clavier sur toute la card
-    if (!details.hasAttribute("tabindex"))
-      details.setAttribute("tabindex", "0");
+    if (!details.hasAttribute("tabindex")) details.setAttribute("tabindex", "0");
     details.addEventListener("keydown", (e) => {
       if (e.key !== "Enter" && e.key !== " ") return;
-      if (
-        e.target.closest("summary, a, button, input, textarea, select, label")
-      )
-        return;
+      if (e.target.closest("summary, a, button, input, textarea, select, label")) return;
       e.preventDefault();
-      toggle(details);
+      toggleFaq(details);
     });
   });
+
+  // Accordion cards: independent (no close-others)
+  const accordionCards = document.querySelectorAll("details.accordion-card");
+
+  function toggleAccordion(details) {
+    if (details.open) {
+      animateClose(details);
+    } else {
+      animateOpen(details);
+    }
+  }
+
+  accordionCards.forEach((details) => {
+    const summary = details.querySelector("summary");
+    if (!summary) return;
+
+    summary.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggleAccordion(details);
+    });
+    details.addEventListener("click", (e) => {
+      if (e.target.closest("summary")) return;
+      if (e.target.closest("a, button, input, textarea, select, label")) return;
+      toggleAccordion(details);
+    });
+    if (!details.hasAttribute("tabindex")) details.setAttribute("tabindex", "0");
+    details.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      if (e.target.closest("summary, a, button, input, textarea, select, label")) return;
+      e.preventDefault();
+      toggleAccordion(details);
+    });
+
+    // If already open (e.g., featured tarif), ensure content is visible
+    if (details.open) {
+      const content = getContentEl(details);
+      if (content) {
+        content.style.height = "auto";
+        content.style.opacity = "1";
+      }
+    }
+  });
+
+  // ========== CAROUSEL 3D (PROJETS) ==========
+
+  const ring = document.querySelector(".carousel-ring");
+  const cells = document.querySelectorAll(".carousel-cell");
+  const prevBtn = document.querySelector(".carousel-prev");
+  const nextBtn = document.querySelector(".carousel-next");
+
+  if (ring && cells.length > 0) {
+    const n = cells.length;
+    const theta = 360 / n;
+
+    // Compute radius based on cell width
+    function getRadius() {
+      const cellWidth = cells[0].offsetWidth;
+      return Math.round(cellWidth / (2 * Math.tan(Math.PI / n)));
+    }
+
+    let radius = getRadius();
+    let currentAngle = 0;
+
+    function positionCells() {
+      radius = getRadius();
+      cells.forEach((cell, i) => {
+        cell.style.transform = `rotateY(${i * theta}deg) translateZ(${radius}px)`;
+      });
+      ring.style.transform = `translateZ(-${radius}px) rotateY(${currentAngle}deg)`;
+    }
+
+    function rotateTo(angle) {
+      currentAngle = angle;
+      ring.style.transform = `translateZ(-${radius}px) rotateY(${angle}deg)`;
+    }
+
+    positionCells();
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => rotateTo(currentAngle + theta));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => rotateTo(currentAngle - theta));
+    }
+
+    // Touch / drag support — track distance to distinguish drag from tap/click
+    let startX = 0;
+    let dragging = false;
+    let didDrag = false; // true if pointer moved enough to count as a drag
+    const DRAG_THRESHOLD = 8; // px — below this we treat it as a tap
+    const scene = document.querySelector(".carousel-scene");
+
+    if (scene) {
+      scene.addEventListener("pointerdown", (e) => {
+        dragging = true;
+        didDrag = false;
+        startX = e.clientX;
+        ring.style.transition = "none";
+      });
+
+      window.addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        const diff = e.clientX - startX;
+        if (Math.abs(diff) > DRAG_THRESHOLD) didDrag = true;
+        const dragAngle = currentAngle + (diff / 3);
+        ring.style.transform = `translateZ(-${radius}px) rotateY(${dragAngle}deg)`;
+      });
+
+      window.addEventListener("pointerup", (e) => {
+        if (!dragging) return;
+        dragging = false;
+        ring.style.transition = "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+        const diff = e.clientX - startX;
+        if (Math.abs(diff) > 40) {
+          const steps = Math.round(diff / 100) || (diff > 0 ? 1 : -1);
+          rotateTo(currentAngle + steps * theta);
+        } else {
+          rotateTo(currentAngle);
+        }
+      });
+
+      // Block link navigation if the user dragged instead of tapping
+      scene.addEventListener("click", (e) => {
+        if (didDrag) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }, true); // capture phase — fires before the <a> handles the click
+    }
+
+    // Keyboard support
+    document.querySelector(".carousel-3d")?.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") rotateTo(currentAngle + theta);
+      if (e.key === "ArrowRight") rotateTo(currentAngle - theta);
+    });
+
+    // Reposition on resize
+    window.addEventListener("resize", positionCells);
+
+    // Auto-rotate (slow)
+    let autoRotateId = null;
+    let autoRotatePaused = false;
+
+    function autoRotate() {
+      if (!autoRotatePaused) {
+        rotateTo(currentAngle - theta);
+      }
+      autoRotateId = setTimeout(autoRotate, 4000);
+    }
+    autoRotateId = setTimeout(autoRotate, 5000);
+
+    const carousel3d = document.querySelector(".carousel-3d");
+    if (carousel3d) {
+      carousel3d.addEventListener("mouseenter", () => (autoRotatePaused = true));
+      carousel3d.addEventListener("mouseleave", () => (autoRotatePaused = false));
+      carousel3d.addEventListener("pointerdown", () => (autoRotatePaused = true));
+      carousel3d.addEventListener("pointerup", () => {
+        setTimeout(() => (autoRotatePaused = false), 2000);
+      });
+    }
+  }
 
   // BLOQUER CLIC DROIT
   // document.addEventListener("contextmenu", (e) => e.preventDefault());

@@ -1630,6 +1630,237 @@ nav .primary-btn {
   }
 } */
 
+/* ===== ACCORDION CARDS ===== */
+details.accordion-card {
+  cursor: pointer;
+}
+details.accordion-card summary {
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+}
+details.accordion-card summary::-webkit-details-marker {
+  display: none;
+}
+details.accordion-card summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--tech-accent);
+  transition: transform 0.25s ease;
+}
+details.accordion-card[open] summary::after {
+  content: "\2013";
+}
+
+/* Tarif summary: icon+title+price stacked */
+.tarif-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.tarif-summary .tarifs-price {
+  margin: 0;
+}
+
+/* Kill flex gap on accordion cards — spacing is handled by the animation */
+details.accordion-card {
+  gap: 0;
+}
+details.accordion-card summary {
+  /* Restore visual spacing that gap used to provide */
+  padding-bottom: 0;
+}
+
+/* Accordion content — padding MUST be 0, spacing via first-child margin (included in scrollHeight) */
+.accordion-content {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  padding: 0;
+}
+/* Before JS initializes, [open] cards must show their content (prevents FOUC) */
+/* JS immediately overrides with inline styles, so this only matters on first paint */
+details.accordion-card[open] > .accordion-content {
+  height: auto;
+  opacity: 1;
+}
+.accordion-content > :first-child {
+  margin-top: 1rem;
+}
+
+/* ===== CAROUSEL 3D (PROJETS) ===== */
+.carousel-3d {
+  position: relative;
+  padding: 3rem 0 2rem;
+}
+.carousel-scene {
+  width: 280px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  perspective: 1200px;
+}
+.carousel-ring {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-cell {
+  position: absolute;
+  width: 280px;
+  height: 200px;
+  left: 0;
+  top: 0;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(201, 60, 255, 0.3);
+}
+/* Reset #projects cascade — ID selectors beat .carousel-* classes */
+#projects .carousel-3d a {
+  grid-column: unset;
+  grid-row: unset;
+}
+#projects .carousel-3d p {
+  font-size: inherit;
+}
+#projects .carousel-3d ul {
+  list-style-type: none;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  font-size: inherit;
+}
+
+.carousel-cell a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+}
+#projects .carousel-cell img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+.carousel-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(transparent, rgba(10, 26, 36, 0.95));
+  color: var(--text-main);
+}
+.carousel-label h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green-400);
+  margin: 0;
+  font-family: var(--sans);
+}
+.carousel-label span {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: block;
+}
+#projects .carousel-label ul {
+  list-style: none;
+  display: flex;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0.3rem 0 0;
+  justify-content: flex-start;
+  font-size: 0.6rem;
+}
+#projects .carousel-label li {
+  font-size: 0.6rem;
+  background: rgba(201, 60, 255, 0.2);
+  color: var(--tech-purple);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Navigation arrows */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 45, 63, 0.85);
+  border: 1px solid var(--tech-accent);
+  color: var(--tech-accent);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: rgba(54, 196, 221, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+.carousel-prev { left: max(1rem, calc(50% - 210px)); }
+.carousel-next { right: max(1rem, calc(50% - 210px)); }
+
+#projects .carousel-hint {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--text-meta);
+  margin-top: 1.5rem;
+}
+.carousel-hint i {
+  margin-right: 0.4rem;
+  color: var(--tech-accent);
+}
+
+/* Responsive carousel */
+@media (min-width: 768px) {
+  .carousel-scene {
+    width: 360px;
+    height: 260px;
+  }
+  .carousel-cell {
+    width: 360px;
+    height: 260px;
+  }
+  .carousel-prev { left: max(2rem, calc(50% - 280px)); }
+  .carousel-next { right: max(2rem, calc(50% - 280px)); }
+}
+@media (min-width: 1024px) {
+  .carousel-scene {
+    width: 420px;
+    height: 300px;
+  }
+  .carousel-cell {
+    width: 420px;
+    height: 300px;
+  }
+  .carousel-prev { left: max(2rem, calc(50% - 340px)); }
+  .carousel-next { right: max(2rem, calc(50% - 340px)); }
+}
+
 /* ===== FAQ ===== */
 #faq {
   background-color: var(--base-800);
