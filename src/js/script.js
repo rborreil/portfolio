@@ -367,10 +367,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const n = cells.length;
     const theta = 360 / n;
 
-    // Compute radius based on cell width
+    // Compute radius based on cell width + a gap between cells
     function getRadius() {
       const cellWidth = cells[0].offsetWidth;
-      return Math.round(cellWidth / (2 * Math.tan(Math.PI / n)));
+      const gap = Math.round(cellWidth * 0.15); // ~15% of cell width for visual spacing
+      return Math.round((cellWidth + gap) / (2 * Math.tan(Math.PI / n)));
     }
 
     let radius = getRadius();
@@ -402,36 +403,53 @@ document.addEventListener("DOMContentLoaded", () => {
     let startX = 0;
     let dragging = false;
     let didDrag = false; // true if pointer moved enough to count as a drag
+    let activePointerId = null;
     const DRAG_THRESHOLD = 8; // px — below this we treat it as a tap
     const scene = document.querySelector(".carousel-scene");
 
+    function endDrag(commit, diff) {
+      if (!dragging) return;
+      dragging = false;
+      activePointerId = null;
+      ring.style.transition = "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+      if (commit && Math.abs(diff) > 40) {
+        const steps = Math.round(diff / 100) || (diff > 0 ? 1 : -1);
+        rotateTo(currentAngle + steps * theta);
+      } else {
+        rotateTo(currentAngle);
+      }
+    }
+
     if (scene) {
+      // Prevent native image drag (fallback for browsers that ignore -webkit-user-drag)
+      scene.addEventListener("dragstart", (e) => e.preventDefault());
+
       scene.addEventListener("pointerdown", (e) => {
         dragging = true;
         didDrag = false;
         startX = e.clientX;
+        activePointerId = e.pointerId;
         ring.style.transition = "none";
+        // Keep receiving move/up events even if the pointer leaves the scene
+        try { scene.setPointerCapture(e.pointerId); } catch (_) {}
       });
 
-      window.addEventListener("pointermove", (e) => {
-        if (!dragging) return;
+      scene.addEventListener("pointermove", (e) => {
+        if (!dragging || e.pointerId !== activePointerId) return;
         const diff = e.clientX - startX;
         if (Math.abs(diff) > DRAG_THRESHOLD) didDrag = true;
         const dragAngle = currentAngle + (diff / 3);
         ring.style.transform = `translateZ(-${radius}px) rotateY(${dragAngle}deg)`;
       });
 
-      window.addEventListener("pointerup", (e) => {
-        if (!dragging) return;
-        dragging = false;
-        ring.style.transition = "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
-        const diff = e.clientX - startX;
-        if (Math.abs(diff) > 40) {
-          const steps = Math.round(diff / 100) || (diff > 0 ? 1 : -1);
-          rotateTo(currentAngle + steps * theta);
-        } else {
-          rotateTo(currentAngle);
-        }
+      scene.addEventListener("pointerup", (e) => {
+        if (!dragging || e.pointerId !== activePointerId) return;
+        endDrag(true, e.clientX - startX);
+      });
+
+      scene.addEventListener("pointercancel", (e) => {
+        if (!dragging || e.pointerId !== activePointerId) return;
+        endDrag(false, 0);
       });
 
       // Block link navigation if the user dragged instead of tapping

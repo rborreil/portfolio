@@ -2019,6 +2019,8 @@ details.accordion-card[open] > .accordion-content {
 .carousel-3d {
   position: relative;
   padding: 3rem 0 2rem;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .carousel-scene {
   width: 280px;
@@ -2026,6 +2028,7 @@ details.accordion-card[open] > .accordion-content {
   margin: 0 auto;
   position: relative;
   perspective: 1200px;
+  touch-action: none;
 }
 .carousel-ring {
   width: 100%;
@@ -2067,6 +2070,10 @@ details.accordion-card[open] > .accordion-content {
   height: 100%;
   position: relative;
   text-decoration: none;
+  cursor: grab;
+}
+.carousel-cell a:active {
+  cursor: grabbing;
 }
 #projects .carousel-cell img {
   width: 100%;
@@ -2077,6 +2084,8 @@ details.accordion-card[open] > .accordion-content {
   border-radius: 0;
   padding: 0;
   margin: 0;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 .carousel-label {
   position: absolute;
