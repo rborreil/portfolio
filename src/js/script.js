@@ -430,11 +430,13 @@ document.addEventListener("DOMContentLoaded", () => {
         startX = e.clientX;
         activePointerId = e.pointerId;
         ring.style.transition = "none";
-        // Keep receiving move/up events even if the pointer leaves the scene
-        try { scene.setPointerCapture(e.pointerId); } catch (_) {}
       });
 
-      scene.addEventListener("pointermove", (e) => {
+      // Listen on window so move/up events fire even when the pointer leaves
+      // the scene. We intentionally do NOT use setPointerCapture here: capturing
+      // the pointer on scene makes the subsequent click event target scene
+      // instead of the underlying <a>, which breaks link navigation.
+      window.addEventListener("pointermove", (e) => {
         if (!dragging || e.pointerId !== activePointerId) return;
         const diff = e.clientX - startX;
         if (Math.abs(diff) > DRAG_THRESHOLD) didDrag = true;
@@ -442,12 +444,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ring.style.transform = `translateZ(-${radius}px) rotateY(${dragAngle}deg)`;
       });
 
-      scene.addEventListener("pointerup", (e) => {
+      window.addEventListener("pointerup", (e) => {
         if (!dragging || e.pointerId !== activePointerId) return;
         endDrag(true, e.clientX - startX);
       });
 
-      scene.addEventListener("pointercancel", (e) => {
+      window.addEventListener("pointercancel", (e) => {
         if (!dragging || e.pointerId !== activePointerId) return;
         endDrag(false, 0);
       });
@@ -459,6 +461,27 @@ document.addEventListener("DOMContentLoaded", () => {
           e.stopPropagation();
         }
       }, true); // capture phase — fires before the <a> handles the click
+
+      // Horizontal trackpad / wheel support (two-finger swipe on trackpad)
+      let wheelAccum = 0;
+      let wheelTimeout = null;
+      scene.addEventListener("wheel", (e) => {
+        // Only react to horizontal intent — vertical wheel keeps scrolling the page
+        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+        e.preventDefault();
+        autoRotatePaused = true;
+        ring.style.transition = "none";
+        wheelAccum -= e.deltaX * 0.25;
+        ring.style.transform = `translateZ(-${radius}px) rotateY(${currentAngle + wheelAccum}deg)`;
+        clearTimeout(wheelTimeout);
+        wheelTimeout = setTimeout(() => {
+          ring.style.transition = "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+          const steps = Math.round(wheelAccum / theta);
+          rotateTo(currentAngle + steps * theta);
+          wheelAccum = 0;
+          setTimeout(() => (autoRotatePaused = false), 1500);
+        }, 140);
+      }, { passive: false });
     }
 
     // Keyboard support
