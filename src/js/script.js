@@ -314,13 +314,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Accordion cards: independent (no close-others)
+  // Accordion cards: exclusive groups (Services / Vision / Skills) vs independent (Tarifs)
   const accordionCards = document.querySelectorAll("details.accordion-card");
+  const EXCLUSIVE_GROUP_SELECTORS = [".services-grid", ".vision-grid", ".skills-grid"];
+
+  function getExclusiveGroup(details) {
+    for (const sel of EXCLUSIVE_GROUP_SELECTORS) {
+      const group = details.closest(sel);
+      if (group) return group;
+    }
+    return null;
+  }
+
+  function closeAccordionSiblings(current, group) {
+    group.querySelectorAll("details.accordion-card[open]").forEach((d) => {
+      if (d !== current) animateClose(d);
+    });
+  }
 
   function toggleAccordion(details) {
     if (details.open) {
       animateClose(details);
     } else {
+      const group = getExclusiveGroup(details);
+      if (group) closeAccordionSiblings(details, group);
       animateOpen(details);
     }
   }

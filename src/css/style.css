@@ -695,6 +695,80 @@ nav .primary-btn {
   }
 }
 
+/* Ligne de réassurance Hero */
+.hero-trust {
+  margin-top: clamp(1rem, 3vh, 2rem);
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--base-100, #dcdcdc);
+  opacity: 0.85;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+.hero-trust i {
+  color: var(--green-500);
+  margin-right: 0.15rem;
+}
+@media (min-width: 768px) {
+  .hero-trust {
+    text-align: left;
+    font-size: 0.85rem;
+  }
+}
+
+/* Sous-titre des CTA parallax */
+.cta .cta-sub {
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--base-100, #f5f5f5);
+  opacity: 0.92;
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CTA inline après le carrousel projets */
+.projects-cta {
+  margin-top: clamp(1.5rem, 4vh, 3rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.projects-cta p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--base-100, #f5f5f5);
+  opacity: 0.9;
+  max-width: 38rem;
+  margin: 0;
+}
+
+/* Liste de réassurance Contact */
+.contact-reassure {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 1.5rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.contact-reassure li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.contact-reassure i {
+  color: var(--green-500);
+  margin-top: 0.2rem;
+  min-width: 1.1rem;
+  text-align: center;
+}
+
 /* ===== SERVICES ===== */
 
 #services {
@@ -716,6 +790,14 @@ nav .primary-btn {
   gap: 2rem;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
+}
+
+/* Les accordéons ne doivent pas étirer leurs voisins en hauteur */
+.services-grid,
+.vision-grid,
+.skills-grid,
+.tarifs-grid-2 {
+  align-items: start;
 }
 .tarifs-grid,
 .tarifs-grid-2 {
@@ -1492,10 +1574,6 @@ nav .primary-btn {
   gap: 4rem;
 }
 @media (min-width: 768px) {
-  .who .title {
-    text-align: left;
-    margin-left: 17%;
-  }
   .who-layout-grid {
     -ms-grid-columns: 1.2fr 5rem 0.8fr;
     grid-template-columns: 1.2fr 0.8fr;
@@ -1503,10 +1581,6 @@ nav .primary-btn {
     -ms-flex-align: center;
     align-items: center;
     gap: 5rem;
-  }
-  .vision .title {
-    text-align: right;
-    margin-right: 17%;
   }
 }
 @media (min-width: 900px) {
