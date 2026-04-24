@@ -1717,19 +1717,24 @@ details.accordion-card summary {
 details.accordion-card summary::-webkit-details-marker {
   display: none;
 }
+/* Indicateur "+" — top-right, verticalement centré, disparaît à l'ouverture */
 details.accordion-card summary::after {
   content: "+";
   position: absolute;
-  right: 0;
+  right: 0.4rem;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.1rem;
-  font-weight: 700;
+  transform-origin: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
   color: var(--tech-accent);
-  transition: transform 0.25s ease;
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 details.accordion-card[open] summary::after {
-  content: "\2013";
+  opacity: 0;
+  transform: translateY(-50%) scale(0.5) rotate(45deg);
 }
 
 /* Tarif summary: icon+title+price stacked */
@@ -1743,6 +1748,33 @@ details.accordion-card[open] summary::after {
 }
 .tarif-summary .tarifs-price {
   margin: 0;
+}
+
+/* Tarif cards: chevron CSS en bas centré — disparaît à l'ouverture */
+details.tarif-card.accordion-card summary {
+  padding-right: 0;
+  padding-bottom: 1.75rem;
+}
+details.tarif-card.accordion-card summary::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: auto;
+  top: auto;
+  bottom: 0.4rem;
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid var(--tech-accent);
+  border-bottom: 2px solid var(--tech-accent);
+  border-radius: 1px;
+  transform: translateX(-50%) rotate(45deg);
+  transform-origin: center;
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+details.tarif-card.accordion-card[open] summary::after {
+  opacity: 0;
+  transform: translateX(-50%) rotate(45deg) scale(0.6);
 }
 
 /* Kill flex gap on accordion cards — spacing is handled by the animation */
@@ -2015,14 +2047,20 @@ details.accordion-card[open] > .accordion-content {
 .faq-item summary::after {
   content: "+";
   position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 1.2rem;
+  right: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
   color: var(--tech-accent);
-  transition: transform 0.25s ease;
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 .faq-item[open] summary::after {
-  content: "–";
+  opacity: 0;
+  transform: translateY(-50%) scale(0.5) rotate(45deg);
 }
 
 /* Le wrapper gère l’espacement, pas le <p> */
