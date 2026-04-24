@@ -2071,7 +2071,7 @@ details.accordion-card[open] summary::after {
 /* Tarif cards: chevron CSS en bas centré — disparaît à l'ouverture */
 details.tarif-card.accordion-card summary {
   padding-right: 0;
-  padding-bottom: 1.75rem;
+  padding-bottom: 2.25rem;
 }
 details.tarif-card.accordion-card summary::after {
   content: "";
@@ -2079,16 +2079,20 @@ details.tarif-card.accordion-card summary::after {
   left: 50%;
   right: auto;
   top: auto;
-  bottom: 0.4rem;
-  width: 11px;
-  height: 11px;
-  border-right: 2px solid var(--tech-accent);
-  border-bottom: 2px solid var(--tech-accent);
+  bottom: -0.1rem;
+  width: 13px;
+  height: 13px;
+  border-right: 2.5px solid var(--tech-accent);
+  border-bottom: 2.5px solid var(--tech-accent);
   border-radius: 1px;
   transform: translateX(-50%) rotate(45deg);
   transform-origin: center;
-  opacity: 1;
+  opacity: 0.9;
   transition: opacity 0.25s ease, transform 0.25s ease;
+}
+details.tarif-card.accordion-card summary:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) rotate(45deg) translate(1px, 1px);
 }
 details.tarif-card.accordion-card[open] summary::after {
   opacity: 0;
