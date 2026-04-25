@@ -1163,7 +1163,8 @@ nav .primary-btn {
   text-align: center;
   margin: 3rem 0;
 }
-.tarifs-cta .primary-btn i {
+.tarifs-cta .primary-btn i,
+nav .primary-btn i {
   margin-right: 0.5rem;
 }
 .cta-secondary-link {
