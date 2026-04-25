@@ -279,7 +279,12 @@ header > nav {
 nav {
   font-family: var(--mono);
   font-size: 80%;
-  padding: 1.5rem 1rem 0 1rem;
+  padding: 0.7rem 1rem 0 1rem;
+}
+@media (min-width: 850px) {
+  nav {
+    padding: 1.5rem 1rem 0 1rem;
+  }
 }
 .main-nav li:first-child {
   display: none;
@@ -314,7 +319,14 @@ nav ul {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+  row-gap: 0.6rem;
+}
+@media (min-width: 850px) {
+  nav ul {
+    gap: 2rem;
+    row-gap: 2rem;
+  }
 }
 nav li a {
   color: var(--text-main);
@@ -608,10 +620,15 @@ nav .primary-btn {
 
 #hero h1 {
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.4;
   font-family: var(--sans);
   font-weight: 400;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.3rem;
+}
+@media (min-width: 640px) {
+  #hero h1 {
+    letter-spacing: 0.5rem;
+  }
 }
 #hero h1 span {
   color: var(--tech-purple);
@@ -635,11 +652,11 @@ nav .primary-btn {
 
 #hero h2 {
   font-family: var(--sans);
-  font-size: 1.55rem;
+  font-size: 1.4rem;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.25;
   /* margin-top: 2rem; */
-  letter-spacing: 0.25rem;
+  letter-spacing: 0.15rem;
 }
 @media (min-width: 640px) {
   #hero h2 {
@@ -656,9 +673,10 @@ nav .primary-btn {
   color: var(--green-400);
   display: block;
   font-family: var(--mono);
-  font-size: 0.95rem;
-  margin-top: 0.7rem;
-  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05rem;
 }
 @media (min-width: 640px) {
   #hero h2 span {
