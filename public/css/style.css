@@ -474,10 +474,10 @@ nav .primary-btn {
   /* gap: clamp(0.75rem, 2vh, 1.5rem); */
 
   max-width: 1280px;
-  margin: 40px auto;
+  margin: 0 auto;
 
   /* padding responsive, sans casser la hauteur écran */
-  padding: clamp(1.5rem, 3vw, 3rem) clamp(2rem, 6vw, 4rem);
+  padding: clamp(1rem, 2vw, 3rem) clamp(2rem, 6vw, 4rem);
 
   position: relative;
 }
@@ -497,9 +497,9 @@ nav .primary-btn {
 #hero h1 span {
   color: var(--tech-purple);
   display: inline;
-  font-size: 3rem;
+  font-size: 2.4rem;
   margin: 0;
-  margin-top: 2rem;
+  margin-top: 1rem;
   letter-spacing: 0.5rem;
 }
 @media (min-width: 640px) {
@@ -516,10 +516,11 @@ nav .primary-btn {
 
 #hero h2 {
   font-family: var(--sans);
-  font-size: 2rem;
+  font-size: 1.55rem;
   font-weight: 500;
+  line-height: 1.3;
   /* margin-top: 2rem; */
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.25rem;
 }
 @media (min-width: 640px) {
   #hero h2 {
@@ -536,8 +537,8 @@ nav .primary-btn {
   color: var(--green-400);
   display: block;
   font-family: var(--mono);
-  font-size: 1rem;
-  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  margin-top: 0.7rem;
   letter-spacing: 0.1rem;
 }
 @media (min-width: 640px) {
@@ -556,8 +557,8 @@ nav .primary-btn {
 /* Boutons Hero */
 #hero p.flex {
   display: flex;
-  gap: clamp(1rem, 4vw, 4.5rem);
-  margin-top: clamp(0.75rem, 3vh, 2.5rem);
+  gap: clamp(0.8rem, 4vw, 4.5rem);
+  margin-top: clamp(0.5rem, 2vh, 2.5rem);
   margin-left: auto;
   margin-right: auto;
   flex-wrap: wrap; /* évite le débordement sur petits écrans */
@@ -578,9 +579,9 @@ nav .primary-btn {
 
 /* Ligne de réassurance Hero */
 .hero-trust {
-  margin-top: clamp(1rem, 3vh, 2rem);
+  margin-top: clamp(0.5rem, 2vh, 2rem);
   font-size: 0.78rem;
-  line-height: 1.8;
+  line-height: 1.6;
   color: var(--base-100, #dcdcdc);
   opacity: 0.85;
   letter-spacing: 0.02em;
