@@ -675,7 +675,8 @@ nav .primary-btn {
 .services-grid,
 .vision-grid,
 .skills-grid,
-.tarifs-grid-2 {
+.tarifs-grid-2,
+.maintenance-grid {
   align-items: start;
 }
 .tarifs-grid,
@@ -726,6 +727,26 @@ nav .primary-btn {
   }
   .process-grid {
     grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Sous-section Maintenance (2 forfaits) */
+.maintenance-title {
+  margin-top: 2rem;
+}
+.maintenance-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 3rem;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: start;
+}
+@media (min-width: 700px) {
+  .maintenance-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -2094,13 +2115,25 @@ details.accordion-card[open] > .accordion-content {
 }
 
 /* Plus de margin => plus de rognage */
-.faq-item p {
+.faq-item p,
+.faq-item ul,
+.faq-item li {
   margin: 0;
   font-size: var(--text-body);
   color: var(--text-secondary);
   line-height: 1.6;
+}
+.faq-item p {
   transform: translateY(-4px);
   transition: transform 200ms ease;
+}
+.faq-item ul {
+  padding-left: 1.2rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+.faq-item li + li {
+  margin-top: 0.3rem;
 }
 
 /* ===== CONTACT ===== */
