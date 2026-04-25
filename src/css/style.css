@@ -1140,6 +1140,16 @@ nav .primary-btn {
   font-family: var(--sans);
   font-size: clamp(0.75rem, 1.5vw, 1.1rem);
 }
+/* Refonte : restaurer la taille du subtitle et du texte au-dessus du CTA Projets */
+#projects .subtitle {
+  font-size: var(--text-body-lg);
+  line-height: 2rem;
+}
+#projects .projects-cta p {
+  font-size: var(--text-body-lg);
+  line-height: 1.6;
+  max-width: 38rem;
+}
 #projects ul {
   list-style-type: none;
   display: -webkit-box;

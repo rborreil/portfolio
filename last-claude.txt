@@ -1,0 +1,118 @@
+3) Analyse de tes offres + recommandations                         
+                                                            
+  Diagnostic global
+
+  Tu as 3 vraies forces dans ta structure actuelle :
+  - la logique "niveau de délégation" (Autonomie / Co-pilotage /
+  Sérénité) est claire et différenciante
+  - le double prix (one-shot + abonnement) est sain
+  - le ton est rassurant
+
+  Mais 3 zones floues plombent la lisibilité :
+  1. WordPress vs custom — message contradictoire entre la FAQ
+  ("WordPress avec ACF, hybride…") et ton positionnement réel (custom
+   + back-office maison). Le visiteur ne sait pas ce que tu fais
+  vraiment.
+  2. Hébergement — "(si souhaité)" en offre 2, "inclus" en offre 3,
+  rien en offre 1. Toi-même tu hésites → ton client aussi.
+  3. Maintenance — 3 forfaits différents (29 / 69 / 129 €) avec scope
+   qui se chevauche, et la "maintenance minimale sécurité" en offre 1
+   ressemble à un add-on déguisé en obligation.
+
+  Mon avis sur WordPress
+
+  Recommandation : sors WordPress de la promesse publique.
+
+  Raisons :
+  - Tu préfères le custom, c'est ton avantage concurrentiel (perf,
+  sécurité, sobriété, back-office maison adapté au métier du client).
+  - Garder WordPress "au cas où" dilue ton positionnement. Tes
+  prospects TPE/PME/artisans ne savent pas ce qu'est ACF — ils
+  veulent juste un site qui marche.
+  - Tu peux toujours accepter une mission WordPress en interne
+  (refonte d'un existant, contrainte client) sans l'afficher comme
+  offre standard.
+
+  Concrètement :
+  - Supprimer la mention "WordPress ou sur mesure" dans la section
+  Skills (#skills bloc 3).
+  - Reformuler la FAQ "Travaillez-vous uniquement avec WordPress ?" →
+   quelque chose comme : "Je développe en custom (HTML/CSS/JS +
+  back-office maison) pour des sites plus rapides, plus sûrs et plus
+  durables. Je peux reprendre un WordPress existant en maintenance si
+   besoin."
+
+  Mon avis sur l'hébergement
+
+  Recommandation : 1 règle simple, identique pour toutes les offres.
+
+  Deux options pragmatiques, choisis celle qui colle à ta réalité :
+
+  Option A — "Hébergement + nom de domaine inclus dans l'abonnement,
+  partout"
+  → Le plus lisible. Le client paie l'abonnement, il a tout. Tu
+  absorbes le coût (~5-15€/mois selon l'hébergeur).
+
+  Option B — "Hébergement à part, refacturé à prix coûtant ou géré
+  par le client"
+  → Plus transparent, mais demande une ligne claire dans chaque
+  offre.
+
+  À mon sens, Option A est la plus alignée avec ton positionnement
+  "interlocuteur unique / sérénité" et tu peux la rentabiliser via
+  l'abonnement. Le mail pro reste optionnel (peut être un add-on
+  +5€/mois).
+
+  Mon avis sur la maintenance
+
+  Recommandation : verrouille en passant de "à partir de" à un prix
+  net + scope précis + engagement annuel.
+
+  Aujourd'hui tu as 3 prix de maintenance avec scope qui se chevauche
+   → c'est une matrice mentale. Simplifie :
+
+  ESSENTIEL — 39 € HT/mois (engagement 12 mois)
+    • Hébergement + domaine inclus
+    • Sauvegardes hebdo + sécurité
+    • 1 petite modif/mois (≤30 min)
+    • Réponse sous 48h
+
+  CONFORT — 89 € HT/mois (engagement 12 mois)
+    • Tout Essentiel
+    • Mail pro inclus
+    • 2 modifs/mois (≤2h cumulées)
+    • Suivi SEO trimestriel
+    • Réponse sous 24h
+
+  Pourquoi 2 forfaits suffisent :
+  - 3 niveaux de site (Autonomie/Co-pilotage/Sérénité) × 3 niveaux de
+   maintenance = 9 combinaisons mentales. Trop.
+  - 2 niveaux de maintenance suffisent : un client qui prend l'offre
+  Sérénité prendra logiquement Confort.
+
+  Suggestion de structure cible (résumé)
+
+  ┌─────────────┬─────────────────┬──────────────────────┐
+  │             │ Site (one-shot) │     Maintenance      │
+  ├─────────────┼─────────────────┼──────────────────────┤
+  │ Autonomie   │ dès 1 290 €     │ Essentiel 39€/mois   │
+  ├─────────────┼─────────────────┼──────────────────────┤
+  │ Co-pilotage │ dès 2 190 €     │ Essentiel ou Confort │
+  ├─────────────┼─────────────────┼──────────────────────┤
+  │ Sérénité    │ dès 3 490 €     │ Confort 89€/mois     │
+  └─────────────┴─────────────────┴──────────────────────┘
+
+  → 3 offres site × 2 offres maintenance = lecture simple, vendeuse,
+  et tu verrouilles le récurrent.
+
+  Ce que je te propose ensuite
+
+  Si tu valides cette direction, je peux :
+  1. Refondre la section #tarifs (HTML + copie) avec la matrice
+  ci-dessus
+  2. Mettre à jour la FAQ (WordPress + maintenance + hébergement)
+  3. Nettoyer la section #skills bloc 3
+
+  Dis-moi : on part sur Option A (hébergement inclus partout) + 2
+  forfaits maintenance ? Ou tu veux ajuster avant que je touche à la
+  copie ?
